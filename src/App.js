@@ -59,8 +59,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     max-width:720px;
-    /* display:flex;
-    justify-content: center; */
+    margin:0 auto;
   }
   .swiper-container {
     width: 100%;
