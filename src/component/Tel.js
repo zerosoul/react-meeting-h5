@@ -5,15 +5,15 @@ import anime from "animejs";
 const Wrapper = styled.div`
   z-index: 9999;
   position: fixed;
-  top: 350px;
-  right: 2px;
+  top: 14rem;
+  right: 0.1rem;
   box-sizing: border-box;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   background: #ffa25d;
-  border-radius: 5px;
+  border-radius: 0.2rem;
   color: #fff;
-  padding: 6px;
+  padding: 0.4rem;
   writing-mode: vertical-lr;
   a {
     text-decoration: none;

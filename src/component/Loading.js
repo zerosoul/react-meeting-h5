@@ -40,6 +40,11 @@ export default class Loading extends PureComponent {
     this.wrapper = React.createRef();
   }
   componentDidMount() {
+    // 苹果隐藏工具栏
+    /mobile/i.test(navigator.userAgent) &&
+      setTimeout(function() {
+        window.scrollTo(0, 1);
+      }, 1000);
     const { onInitOver = () => {} } = this.props;
     const wrapper = this.wrapper.current;
     const ripple = wrapper.querySelector(".uil-ripple");
