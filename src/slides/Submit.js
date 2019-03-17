@@ -205,8 +205,10 @@ export default class Submit extends Component {
       falsePrice
     });
   };
-  onCountChange = val => {
-    this.updateCount(val);
+  onCountChange = ({ target: { value } }) => {
+    console.log(value);
+
+    this.updateCount(value);
   };
   onAddCount = () => {
     let { count } = this.state;
@@ -284,7 +286,7 @@ export default class Submit extends Component {
                 <span className="false">{falsePrice}元</span>
               </span>
             </p>
-            <input className="submitBtn" type="submit" value="提  交" />
+            <button className="submitBtn">提 交</button>
           </div>
         </form>
       </Content>

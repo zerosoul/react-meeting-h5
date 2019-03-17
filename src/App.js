@@ -22,7 +22,6 @@ import PointTwo from "./slides/PointTwo";
 import PointThree from "./slides/PointThree";
 import PointFour from "./slides/PointFour";
 import BigMan from "./slides/BigMan";
-import SpeakerTeam from "./slides/SpeakerTeam1";
 import SpeakerTeam1 from "./slides/SpeakerTeam1";
 import Promises from "./slides/Promises";
 import Arrange from "./slides/Arrange";
@@ -55,14 +54,13 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
     font-weight:400;
-    max-width:620px;
     color:#fff;
     font-family:"PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
   }
   body{
-    max-width:620px;
-    display:flex;
-    justify-content: center;
+    max-width:720px;
+    /* display:flex;
+    justify-content: center; */
   }
   .swiper-container {
     width: 100%;
