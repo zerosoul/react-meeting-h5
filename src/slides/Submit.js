@@ -1,152 +1,254 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
+// components
 import ani from "animejs";
+import ClockIcon from "../assets/img/icon.clock.png";
+import AddrIcon from "../assets/img/icon.addr.png";
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
   color: #fff;
+  padding: 4rem 3rem;
+  height: 100vh;
 
-  padding-top: 73px;
-  .saving {
-    font-family: "Fashion Zhonghei";
-
-    font-size: 12px;
-    font-weight: 400;
-    margin-bottom: 24px;
+  > .title {
+    color: #ff6a1c;
+    font-size: 1.6rem;
+    font-weight: 800;
+    box-shadow: inset 0 -0.4em #ccc;
+    margin-bottom: 1.8rem;
   }
-  .waiting {
-    font-family: "Fashion Zhonghei";
-
-    font-size: 24px;
-    font-weight: 400;
-    margin-bottom: 25px;
-  }
-  .inputs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    input {
-      background: rgba(255, 255, 255, 1);
-      border-radius: 40px;
-      border: none;
-      padding: 13px 22px;
-      font-size: 15px;
-      outline: none;
-      margin-bottom: 15px;
-      width: 220px;
+  .info {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.7rem;
+    time {
+      background: url(${ClockIcon});
     }
-    &::placeholder {
-      color: rgba(122, 122, 122, 1);
+    .addr {
+      background: url(${AddrIcon});
+    }
+    time,
+    .addr {
+      padding-left: 1.2rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+      background-repeat: no-repeat;
+      background-size: contain;
     }
   }
-  .tips {
-    font-size: 10px;
+  .form {
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 70%;
-    margin: 0 auto;
-    margin-bottom: 9px;
-    .tip {
-      margin-bottom: 4px;
-      .tel {
-        text-decoration: none;
-        color: #fff;
-        padding: 0 2px;
+    justify-content: flex-start;
+    .input {
+      > input {
+        background: #fd762f;
+        box-shadow: 0px 5px 13px 0px rgba(151, 0, 92, 0.35);
+        margin-bottom: 0.8rem;
+        border: none;
+        border-radius: 0.2rem;
+        padding: 0.4rem 0.8rem;
+        box-sizing: border-box;
+        width: 15rem;
+
+        &:disabled {
+          &::placeholder {
+            opacity: 1;
+          }
+        }
+        &::placeholder {
+          font-weight: bold;
+          color: #fff;
+          opacity: 0.6;
+        }
+      }
+      &.mobile {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
+        > input {
+          width: 9.8rem;
+        }
+        .codeBtn {
+          font-weight: bold;
+          color: #fff;
+          background: #666;
+          border: none;
+          font-size: 0.8rem;
+          border-radius: 0.4rem;
+          padding: 0.3rem 0.4rem;
+        }
+      }
+      &.num {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
+        > input {
+          width: 5rem;
+        }
+        .count {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          width: 4.6rem;
+          margin: 0 0.2rem;
+          .m,
+          .p {
+            width: 0.8rem;
+            height: 0.8rem;
+            font-weight: bolder;
+            background: #fdb037;
+            border-radius: 50%;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 0.6rem;
+            line-height: 1.1;
+          }
+          .p {
+            background: #fd762f;
+          }
+          input {
+            width: 1.4rem;
+            text-align: center;
+            border: 1px solid #ff761e;
+            padding: 0.3rem 0.4rem;
+            border-radius: 0.2rem;
+            color: #ff761e;
+          }
+        }
+        .tip {
+          font-size: 0.5rem;
+          color: #666;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          span {
+            line-height: 1.6;
+          }
+        }
+      }
+      &.cost {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        color: #666;
+        input {
+          width: 5rem;
+        }
+        .price {
+          font-weight: bold;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          width: 10rem;
+          margin-bottom: 0.8rem;
+          .true {
+            color: #ff761e;
+          }
+          .false {
+            position: relative;
+            &:after {
+              content: "";
+              top: 50%;
+              left: -5px;
+              display: block;
+              position: absolute;
+              width: 120%;
+              height: 1px;
+              background: #ff761e;
+            }
+          }
+        }
       }
     }
-  }
-  .submit {
-    padding: 12px 40px;
-    background: #fff;
-    margin-bottom: 8px;
-    border-radius: 40px;
-    font-weight: 500;
-    font-size: 18px;
-    color: rgba(235, 51, 67, 1);
-    outline: none;
-    border: none;
-    max-width: 160px;
-  }
-  .btm_tip {
-    font-size: 12px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    .submitBtn {
+      color: #fff;
+      background: #fdb037;
+      border: none;
+      padding: 0.4rem 0;
+      font-size: 1rem;
+      width: 15rem;
+      border-radius: 0.4rem;
+      margin-top: 2rem;
+    }
   }
 `;
-export default class Submit extends PureComponent {
+export default class Submit extends Component {
   constructor() {
     super();
-    this.inputs = React.createRef();
-    this.submitBtn = React.createRef();
-    this.waiting = React.createRef();
+    this.wrapper = React.createRef();
+    this.state = {
+      count: 1,
+      truePrice: 100,
+      falsePrice: 100
+    };
   }
   componentDidMount() {
-    const inputs = this.inputs.current.querySelectorAll("input");
-    const submitBtn = this.submitBtn.current;
-    const waiting = this.waiting.current;
-
-    ani
-      .timeline({
-        duration: 300,
-        easing: "spring(1, 80, 10, 0)"
-      })
-      .add({
-        targets: waiting,
-        easing: "linear",
-        loop: true,
-        opacity: [0, 1],
-        scale: [8, 1],
-        duration: 800
-      })
-      .add({
-        targets: inputs,
-        translateY: [-20, 0],
-        opacity: [0, 1],
-        delay: (ele, i) => {
-          return i * 400;
-        }
-      })
-      .add(
-        {
-          targets: submitBtn,
-          opacity: [0, 1],
-          translateY: [40, 0]
-        },
-        "-=800"
-      );
+    // var swiper = new Swiper(".pics.swiper-container", {
+    //   effect: "flip",
+    //   grabCursor: true,
+    //   autoplay: {
+    //     delay: 2500,
+    //     disableOnInteraction: false
+    //   }
+    // });
   }
   render() {
+    const { count, truePrice, falsePrice } = this.state;
     return (
-      <Content>
-        <p className="saving">互联网智慧幼儿园让您省心、省事、省钱</p>
-        <p className="waiting" ref={this.waiting}>
-          你还在等什么<em>?</em>
-        </p>
-        <div className="inputs" ref={this.inputs}>
-          <input placeholder="请输入姓名" />
-          <input type="tel" placeholder="请输入手机号" />
-          <input placeholder="请输入幼儿园名称" />
-          <input placeholder="请输入微信号" />
+      <Content ref={this.wrapper}>
+        <h1 className="title">立即报名</h1>
+
+        <div className="info">
+          <time>2019.03.28</time>
+          <p className="addr">河北省廊坊市xxxx路xxxx街会议中心</p>
         </div>
-        <div className="tips">
-          <p className="tip">
-            联系电话: 王老师
-            <a className="tel" href="tel:12345678901">
-              12345678901
-            </a>
-          </p>
-          <p className="tip">参会对象：只限园长与投资人参加，名额仅限150名</p>
-          <p className="tip">费用说明：场地费及中餐费每人100元</p>
-        </div>
-        <p className="btm_tip">报名到场即送赠品，人手一份！</p>
-        <button className="submit" type="submit" ref={this.submitBtn}>
-          立即报名
-        </button>
+        <form action="">
+          <div className="form">
+            <p className="input">
+              <input name="name" placeholder="姓 名" />
+            </p>
+            <p className="input mobile">
+              <input name="mobile" placeholder="手机号" />
+              <button className="codeBtn">获取验证码</button>
+            </p>
+            <p className="input">
+              <input name="code" placeholder="手机验证码" />
+            </p>
+            <p className="input">
+              <input name="garden" placeholder="幼儿园名称" />
+            </p>
+            <div className="input num">
+              <input name="garden" disabled placeholder="参会人数" />
+              <p className="count">
+                <i className="m">-</i>
+                <input type="number" value={count} />
+                <i className="p">+</i>
+              </p>
+              <p className="tip">
+                <span>单 价：100元/人</span>
+                <span>优惠价：150元/两人</span>
+              </p>
+            </div>
+            <p className="input cost">
+              <input name="garden" disabled placeholder="费  用" />
+              <span className="price">
+                <span className="true">{truePrice}元</span>
+                <span className="false">{falsePrice}元</span>
+              </span>
+            </p>
+            <input className="submitBtn" type="submit" value="提  交" />
+          </div>
+        </form>
       </Content>
     );
   }

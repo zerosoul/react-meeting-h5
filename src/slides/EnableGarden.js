@@ -19,7 +19,7 @@ const Content = styled.div`
     font-size: 1.2rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
   .brands {
     display: flex;

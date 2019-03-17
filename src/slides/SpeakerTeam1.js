@@ -12,11 +12,11 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   color: #fff;
-  padding: 4rem 2rem 0 2rem;
+  padding: 4rem 1rem 0 1rem;
   height: 100vh;
   .title {
     color: #ff6a1c;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
     margin-bottom: 0.8rem;
@@ -24,7 +24,7 @@ const Content = styled.div`
   .subTitle {
     color: #4d4d4d;
     font-size: 0.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
   }
   .department {
     color: #fff;

@@ -14,13 +14,13 @@ const Content = styled.div`
   flex-direction: column;
   align-items: flex-start;
   color: #5b5b5b;
-  padding-left: 2rem;
+  padding-left: 3rem;
   padding-right: 4rem;
   padding-top: 6rem;
   .top {
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     position: relative;
     .lines {
       display: flex;
@@ -29,27 +29,27 @@ const Content = styled.div`
       justify-content: center;
 
       .line {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         line-height: 1.4;
         border-bottom: 1px solid #ff6a1c;
         margin-bottom: 0.2rem;
         &.how {
-          font-size: 1.5rem;
+          font-size: 1.8rem;
           font-weight: 800;
         }
       }
     }
     .pic {
       position: absolute;
-      width: 9rem;
-      height: 9rem;
-      right: -10rem;
+      width: 11rem;
+      height: 11rem;
+      right: -12rem;
       top: -2rem;
     }
   }
 
   .answer {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 800;
     margin-bottom: 2rem;
     box-shadow: inset 0 -0.4em #ccc;
@@ -65,13 +65,13 @@ const Content = styled.div`
     justify-content: space-between;
     font-size: 14px;
     overflow: hidden;
-    width: 12rem;
+    width: 14rem;
 
     .tip {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 5rem;
+      width: 6rem;
       border-radius: 0.8rem;
       padding: 0.3rem;
       color: #fff;
@@ -87,11 +87,12 @@ const Content = styled.div`
       }
       img {
         width: 2rem;
-        margin: 0.8rem 0;
+        margin-top: 1rem;
+        margin-bottom: 1.4rem;
       }
       .txt {
-        font-size: 0.8rem;
-        margin-bottom: 0.4rem;
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
       }
       .line {
       }
@@ -113,7 +114,7 @@ export default class Intro extends PureComponent {
       node.innerHTML = newArr.join("");
     });
     const cards = wrapper.querySelectorAll(".tips .tip");
-    const tl = ani.timeline({ loop: true });
+    const tl = ani.timeline({ loop: false });
     tl.add({
       targets: cards,
       opacity: [0, 1],

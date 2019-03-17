@@ -14,20 +14,20 @@ const Content = styled.div`
   height: 100vh;
   .title {
     color: #ff6a1c;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
     margin-bottom: 2rem;
   }
   .lines {
     color: #666;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     margin-bottom: 3rem;
     .line {
       line-height: 1.5;
       border-bottom: 1px solid #ffaf80;
       &.bold {
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 800;
       }
     }

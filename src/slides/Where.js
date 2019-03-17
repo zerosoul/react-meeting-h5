@@ -6,14 +6,14 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
   .title {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
     text-align: center;
     color: #ff6a1c;
     box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 20px;
+    margin-bottom: 1.6rem;
   }
   .bubbles {
     position: relative;
@@ -85,48 +85,51 @@ const Content = styled.div`
         }
       }
       &.word {
-        padding-top: 0.9rem;
-        padding-left: 0.6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
         span {
           line-height: 1.4;
+          margin-left: 0.7rem;
         }
       }
       &.more {
         font-size: 0.6rem;
-        width: 3.4rem;
-        height: 3.4rem;
+        width: 3.8rem;
+        height: 3.8rem;
         top: -0.2rem;
         left: 50%;
         margin-left: -1.7rem;
       }
       &.strict {
-        width: 4.2rem;
-        height: 4.2rem;
+        width: 4.6rem;
+        height: 4.6rem;
         top: 1.2rem;
         right: 0.8rem;
       }
       &.hard {
-        width: 4.2rem;
-        height: 4.2rem;
+        width: 4.6rem;
+        height: 4.6rem;
         bottom: -0.4rem;
         right: 1.2rem;
       }
       &.rich {
-        width: 4.2rem;
-        height: 4.2rem;
+        width: 4.6rem;
+        height: 4.6rem;
         bottom: -0.4rem;
         left: 2rem;
       }
       &.come {
-        width: 4.2rem;
-        height: 4.2rem;
+        width: 4.6rem;
+        height: 4.6rem;
         top: 3rem;
         left: 1rem;
       }
       &.stay {
         font-size: 1rem;
-        width: 5rem;
-        height: 5rem;
+        width: 5.4rem;
+        height: 5.4rem;
         top: 50%;
         margin-top: -2rem;
         left: 50%;
@@ -178,7 +181,7 @@ export default class Where extends PureComponent {
     const words = wrapper.querySelectorAll(".bubbles .word");
     const dots = wrapper.querySelectorAll(".bubbles .dot");
     const video = wrapper.querySelector(".video");
-    const tl = ani.timeline({ loop: true });
+    const tl = ani.timeline({ loop: false });
     tl.add({
       targets: dots,
       opacity: [0, 1],

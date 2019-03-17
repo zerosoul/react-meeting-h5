@@ -10,7 +10,7 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   color: #fff;
-  padding: 6rem 2rem;
+  padding: 5rem 2rem;
   height: 100vh;
   > .title {
     color: #ff6a1c;
@@ -25,12 +25,12 @@ const Content = styled.div`
     color: #666;
     margin-bottom: 2rem;
     .promise {
-      font-size: 1rem;
+      font-size: 0.8rem;
       border-bottom: 1px solid #fda264;
       line-height: 1.8;
       &.title {
         font-weight: 800;
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
       .bold {
         font-weight: 800;
@@ -40,12 +40,12 @@ const Content = styled.div`
     .slogan {
       position: absolute;
       width: 4rem;
-      right: -3.4rem;
+      right: -3.6rem;
       bottom: -0.2rem;
     }
   }
   .gift {
-    width: 16rem;
+    width: 14rem;
     margin-bottom: 0.4rem;
   }
   .tips {

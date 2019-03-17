@@ -18,7 +18,7 @@ const Content = styled.div`
 
   .title {
     color: #ff6a1c;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
     margin: -4rem 2rem 2rem 2rem;
@@ -51,13 +51,13 @@ const Content = styled.div`
   }
   .lines {
     color: #666;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     margin: 0 2rem 2rem 2rem;
     .line {
       line-height: 1.5;
       border-bottom: 1px solid #ffaf80;
       &.bold {
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 800;
       }
     }

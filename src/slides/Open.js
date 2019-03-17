@@ -14,7 +14,7 @@ const Content = styled.div`
   padding: 2rem;
   height: 100vh;
   .title {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ffa71f;
     margin-bottom: 2rem;
@@ -25,17 +25,21 @@ const Content = styled.div`
     align-items: center;
     margin-bottom: 3rem;
     .desc {
-      font-size: 0.8rem;
+      font-size: 1rem;
       margin-bottom: 1rem;
     }
     h1 {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       font-weight: 800;
       margin-bottom: 0.8rem;
     }
   }
   .btmImg {
-    width: 100%;
+    text-align: center;
+
+    img {
+      width: 80%;
+    }
   }
 `;
 export default class Intro extends PureComponent {
@@ -53,8 +57,8 @@ export default class Intro extends PureComponent {
           <h1>马上开幕!</h1>
           <DotLine width="100%" />
         </div>
-        <div>
-          <img className="btmImg" src={OpenImg} alt="开幕配图" />
+        <div className="btmImg">
+          <img src={OpenImg} alt="开幕配图" />
         </div>
       </Content>
     );

@@ -14,18 +14,19 @@ const Content = styled.div`
   position: relative;
   height: 100%;
   padding: 0 2rem;
-  padding-top: 4rem;
+  padding-top: 6rem;
+  box-sizing: border-box;
   .head {
     position: relative;
     margin-bottom: 2rem;
     /* transform: rotate(-4deg); */
     .preTitle {
-      font-size: 1.4rem;
+      font-size: 1.8rem;
       margin-bottom: 0.4rem;
       text-shadow: 2px 2px 0px #ffa71f;
     }
     .title {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 0.4rem;
       text-shadow: 2px 2px 0px #ffa71f;
     }
@@ -92,7 +93,7 @@ const Content = styled.div`
     align-items: center;
     margin-bottom: 1.4rem;
     .invite {
-      font-size: ${r(40)};
+      font-size: 1.4rem;
       margin-bottom: 0.3rem;
     }
     .wx {
@@ -123,32 +124,32 @@ const Content = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #fff; */
     background-image: url(${CloudImg});
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    /* padding: 5rem 1rem 2rem 1rem; */
     width: 100%;
-    height: 7rem;
+    height: 8rem;
     .logo {
       width: 4rem;
       /* height: 100%; */
-      margin-left: 1rem;
+      margin-left: 2rem;
+      margin-top: 2rem;
     }
     .info {
+      margin-top: 2rem;
       color: #ff741c;
       border-left: 0.3rem solid #ff741c;
       padding-left: 0.3rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      margin-right: 1rem;
+      margin-right: 2rem;
       font-size: 0.6rem;
       time {
         font-weight: 800;
       }
       .line {
-        height: 0.1rem;
+        height: 1px;
         background: #ff741c;
         margin: 0.1rem 0;
       }
@@ -256,12 +257,12 @@ export default class Intro extends PureComponent {
         </div>
         <div className="profile">
           <p className="invite letters">诚邀您参加</p>
-          <DotLine className="line" width="5rem" background="#ffa71f" />
+          <DotLine className="line" width="6.4rem" background="#fff" />
           <p className="wx">
             <img src={WxImg} alt="微信头像" className="avatar" />
             <span className="nickname">羊二小</span>
           </p>
-          <DotLine className="line" width="5rem" background="#ffa71f" />
+          <DotLine className="line" width="6.4rem" background="#fff" />
           <p className="newWay letters">幼教新十年,民办幼儿园的新出路</p>
         </div>
         <div className="btm">

@@ -3,8 +3,6 @@ import styled from "styled-components";
 import Swiper from "swiper";
 // components
 import ani from "animejs";
-import Demo1Img from "../assets/img/demo.1.png";
-import Demo2Img from "../assets/img/mobile.demo.2.png";
 import DotLine from "../component/DotLine";
 
 const Content = styled.div`
@@ -12,7 +10,7 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   color: #fff;
-  padding: 6.4rem 2rem;
+  padding: 6rem 3rem;
   height: 100vh;
 
   > .title {
@@ -33,27 +31,26 @@ const Content = styled.div`
       margin-top: 0.8rem;
     }
   }
-  .num {
-    color: #fd7f27;
-    font-size: 4rem;
-    font-weight: 800;
-    margin-bottom: 2rem;
-    background-image: linear-gradient(to top, #fd7e27, #fd9730);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+  .submited {
+    color: #ffb121;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    align-self: flex-start;
   }
-  .pics {
-    width: 18rem;
-    border: 0.4rem solid #fdb037;
+  .gardens {
+    width: 16rem;
+    border: 0.2rem solid #fdb037;
     border-radius: 0.8rem;
-    img {
-      width: 100%;
-      height: 100%;
+    padding: 1.6rem 1rem;
+    ul {
+      color: #666;
+      li {
+        line-height: 2;
+      }
     }
   }
 `;
-export default class Legend extends PureComponent {
+export default class Waiting extends PureComponent {
   constructor() {
     super();
     this.wrapper = React.createRef();
@@ -71,16 +68,20 @@ export default class Legend extends PureComponent {
   render() {
     return (
       <Content ref={this.wrapper}>
-        <h1 className="title">壹点壹滴正在创造幼教界传奇</h1>
+        <h1 className="title">您还在等什么?</h1>
 
         <div className="subTitle">
-          <p>短短八个月时间 </p>
-          <p>全国已有15000+幼儿园选择加入壹点壹滴!</p>
+          <p>互联网智慧幼儿园让您省心省事又省钱!</p>
           <DotLine width={"100%"} background="#fdb749" className="line" />
         </div>
-        <p className="num">15000+</p>
-        <div className="pics">
-          <img src={Demo1Img} alt="demo2" className="demo" />
+        <p className="submited">本次会议已报名园所</p>
+        <div className="gardens">
+          <ul>
+            <li>所属区域：廊坊</li>
+            <li>园所名称：小太阳幼儿园</li>
+            <li>园长姓名：张**</li>
+            <li>参会人数：2人</li>
+          </ul>
         </div>
       </Content>
     );

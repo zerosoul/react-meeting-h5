@@ -4,7 +4,7 @@ import reset from "styled-reset";
 import { hot } from "react-hot-loader/root";
 import Swiper from "swiper";
 // 组件
-import BaseFontSize from "./component/BaseFontSize";
+// import BaseFontSize from "./component/BaseFontSize";
 import Music from "./component/Music";
 import Signup from "./component/Signup";
 import Tel from "./component/Tel";
@@ -29,6 +29,8 @@ import Arrange from "./slides/Arrange";
 import EnableGarden from "./slides/EnableGarden";
 import Legend from "./slides/Legend";
 import SpeakerTeam2 from "./slides/SpeakerTeam2";
+import Waiting from "./slides/Waiting";
+import Submit from "./slides/Submit";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -57,19 +59,14 @@ const GlobalStyle = createGlobalStyle`
     color:#fff;
     font-family:"PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
   }
-  /* body{
+  body{
     max-width:620px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  } */
-  .outerWrapper{
-    position:relative;
+
   }
   .swiper-container {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 }
 `;
 class App extends Component {
@@ -95,9 +92,9 @@ class App extends Component {
 
     mySwiper.on("slideChange", wtf => {
       console.log("wtf", mySwiper);
-      const { activeIndex } = mySwiper;
+      const { realIndex } = mySwiper;
       let newSlides = new Array(mySwiper.slides.length).fill(false);
-      newSlides[activeIndex] = true;
+      newSlides[realIndex] = true;
       this.setState({
         slides: newSlides
       });
@@ -118,7 +115,7 @@ class App extends Component {
     return (
       <>
         <GlobalStyle />
-        <BaseFontSize />
+        {/* <BaseFontSize /> */}
         {loading ? (
           <Loading onInitOver={this.initSwiper} />
         ) : (
@@ -259,6 +256,26 @@ class App extends Component {
                   {slides[14] && (
                     <>
                       <Legend />
+                    </>
+                  )}
+                </SlideWrapper>
+                <SlideWrapper className="swiper-slide">
+                  <Bookmark />
+                  <WaveBg />
+
+                  {slides[15] && (
+                    <>
+                      <Waiting />
+                    </>
+                  )}
+                </SlideWrapper>
+                <SlideWrapper className="swiper-slide">
+                  <Bookmark />
+                  <WaveBg />
+
+                  {slides[16] && (
+                    <>
+                      <Submit />
                     </>
                   )}
                 </SlideWrapper>
