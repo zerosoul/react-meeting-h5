@@ -35,7 +35,7 @@ export default class Signup extends PureComponent {
     return (
       <Wrapper
         onClick={() => {
-          currSwiper.slideTo(4);
+          currSwiper.slideTo(currSwiper.slides.length);
         }}
         ref={this.signup}
       >

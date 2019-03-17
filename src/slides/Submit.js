@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ani from "animejs";
 import ClockIcon from "../assets/img/icon.clock.png";
 import AddrIcon from "../assets/img/icon.addr.png";
+import { Math } from "core-js";
 
 const Content = styled.div`
   display: flex;
@@ -192,6 +193,35 @@ export default class Submit extends Component {
       falsePrice: 100
     };
   }
+  updateCount = count => {
+    // console.log("math", Math);
+    let tmp = (count / 2) << 0;
+    let { falsePrice, truePrice } = this.state;
+    falsePrice = count * 100;
+    truePrice = (count % 2) * 100 + tmp * 150;
+    this.setState({
+      count,
+      truePrice,
+      falsePrice
+    });
+  };
+  onCountChange = val => {
+    this.updateCount(val);
+  };
+  onAddCount = () => {
+    let { count } = this.state;
+    count++;
+    this.updateCount(count);
+  };
+  onMinusCount = () => {
+    let { count } = this.state;
+    if (count === 1) {
+      alert("至少有个人参加啊，兄嘚！");
+      return;
+    }
+    count--;
+    this.updateCount(count);
+  };
   componentDidMount() {
     // var swiper = new Swiper(".pics.swiper-container", {
     //   effect: "flip",
@@ -230,9 +260,17 @@ export default class Submit extends Component {
             <div className="input num">
               <input name="garden" disabled placeholder="参会人数" />
               <p className="count">
-                <i className="m">-</i>
-                <input type="number" value={count} />
-                <i className="p">+</i>
+                <i onClick={this.onMinusCount} className="m">
+                  -
+                </i>
+                <input
+                  onChange={this.onCountChange}
+                  type="number"
+                  value={count}
+                />
+                <i onClick={this.onAddCount} className="p">
+                  +
+                </i>
               </p>
               <p className="tip">
                 <span>单 价：100元/人</span>

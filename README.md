@@ -2,7 +2,7 @@
 
 ## 预览地址
 
-[react-h5](https://zerosoul.github.io/react-h5)
+[react-meeting-h5](https://zerosoul.github.io/reac-meeting-h5)
 
 ## 可用脚本
 
