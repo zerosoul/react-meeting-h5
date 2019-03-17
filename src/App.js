@@ -61,7 +61,8 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     max-width:620px;
-
+    display:flex;
+    justify-content: center;
   }
   .swiper-container {
     width: 100%;
