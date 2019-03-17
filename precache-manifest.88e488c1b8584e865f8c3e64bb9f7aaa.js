@@ -1,7 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "5e123ca6e3aa855368d9",
-    "url": "/react-meeting-h5/static/js/main.5e123ca6.chunk.js"
+    "revision": "692956287de4a68c8132",
+    "url": "/react-meeting-h5/static/css/main.51b5d043.chunk.css"
+  },
+  {
+    "revision": "692956287de4a68c8132",
+    "url": "/react-meeting-h5/static/js/main.69295628.chunk.js"
   },
   {
     "revision": "e6684f1735952a7f2a00",
@@ -104,7 +108,7 @@ self.__precacheManifest = [
     "url": "/react-meeting-h5/static/media/speaker.lyx.127f1646.png"
   },
   {
-    "revision": "9b857ff65ae3fbf730e0637e697444fa",
+    "revision": "684a19fd1b6134aeeb92e491ebed39f4",
     "url": "/react-meeting-h5/index.html"
   }
 ];
