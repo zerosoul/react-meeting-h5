@@ -94,13 +94,13 @@ class App extends Component {
     mySwiper.on("slideChange", wtf => {
       console.log("wtf", mySwiper);
       const { realIndex } = mySwiper;
-      let newSlides = new Array(mySwiper.slides.length).fill(true);
+      let newSlides = new Array(mySwiper.slides.length).fill(false);
       newSlides[realIndex] = true;
       this.setState({
         slides: newSlides
       });
     });
-    const initSlides = new Array(mySwiper.slides.length).fill(true);
+    const initSlides = new Array(mySwiper.slides.length).fill(false);
     initSlides[0] = true;
     this.setState({
       mySwiper,
