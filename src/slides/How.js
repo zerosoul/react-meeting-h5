@@ -66,7 +66,7 @@ const Content = styled.div`
     font-size: 14px;
     overflow: hidden;
     width: 14rem;
-
+    z-index: 1;
     .tip {
       display: flex;
       flex-direction: column;

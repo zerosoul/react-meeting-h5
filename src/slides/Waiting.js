@@ -18,7 +18,7 @@ const Content = styled.div`
     font-size: 1.2rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 2.4rem;
+    margin-bottom: 3rem;
   }
   .subTitle {
     color: #666;
@@ -26,7 +26,7 @@ const Content = styled.div`
     line-height: 1.5;
     font-weight: bold;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     .line {
       margin-top: 0.8rem;
     }
@@ -38,6 +38,7 @@ const Content = styled.div`
     align-self: flex-start;
   }
   .gardens {
+    z-index: 1;
     width: 16rem;
     border: 0.2rem solid #fdb037;
     border-radius: 0.8rem;

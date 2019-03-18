@@ -53,6 +53,9 @@ const Content = styled.div`
     color: #666;
     font-size: 0.8rem;
     margin: 0 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     .line {
       line-height: 1.5;
       border-bottom: 1px solid #ffaf80;

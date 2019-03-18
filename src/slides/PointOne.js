@@ -23,6 +23,9 @@ const Content = styled.div`
     color: #666;
     font-size: 0.8rem;
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     .line {
       line-height: 1.6;
       border-bottom: 1px solid #ffaf80;
@@ -33,6 +36,7 @@ const Content = styled.div`
     }
   }
   .btmImg {
+    z-index: 1;
     img {
       width: 80%;
     }

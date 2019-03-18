@@ -4,21 +4,20 @@ const WaveBg = styled.div`
   position: absolute;
   bottom: 0;
   background: #fd762f;
-  height: 10rem;
+  height: ${({ height }) => (height ? height : "10rem")};
   width: 100%;
-  z-index: -1;
+  z-index: 0;
   &:before,
   &:after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 9.9rem;
+    bottom: ${({ height = "10rem" }) => height};
     right: 0;
     background-repeat: repeat;
-    z-index: -1;
   }
   &:before {
-    height: 0.64rem;
+    height: 12px;
     background-size: 20px 20px;
     background-image: radial-gradient(
       circle at 10px -5px,
@@ -27,7 +26,7 @@ const WaveBg = styled.div`
     );
   }
   &:after {
-    height: 17px;
+    height: 16px;
     background-size: 40px 20px;
     background-image: radial-gradient(
       circle at 10px 15px,

@@ -44,6 +44,7 @@ const Content = styled.div`
     background-clip: text;
   }
   .pics {
+    z-index: 1;
     width: 18rem;
     border: 0.4rem solid #fdb037;
     border-radius: 0.8rem;

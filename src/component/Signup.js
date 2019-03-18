@@ -4,7 +4,7 @@ import anime from "animejs";
 
 const Wrapper = styled.div`
   z-index: 9999;
-  position: fixed;
+  position: absolute;
   top: 9.2rem;
   right: 0.1rem;
   box-sizing: border-box;

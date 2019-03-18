@@ -19,7 +19,7 @@ const Content = styled.div`
   .head {
     position: relative;
     margin-bottom: 2rem;
-    /* transform: rotate(-4deg); */
+    transform: rotate(-4deg);
     .preTitle {
       font-size: 1.8rem;
       margin-bottom: 0.4rem;
@@ -131,7 +131,6 @@ const Content = styled.div`
     height: 8rem;
     .logo {
       width: 4rem;
-      /* height: 100%; */
       margin-left: 2rem;
       margin-top: 2rem;
     }
@@ -185,8 +184,8 @@ export default class Intro extends PureComponent {
       delay: (ele, i) => i * 150
     })
       .add({
-        targets: head,
-        rotate: [0, -4]
+        targets: head
+        // rotate: [0, -4]
       })
       .add(
         {

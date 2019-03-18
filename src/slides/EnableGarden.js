@@ -75,11 +75,12 @@ const Content = styled.div`
     }
   }
   .demos {
+    z-index: 1;
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    width: 90%;
     .demo {
-      width: 9rem;
+      width: 8rem;
       height: 100%;
     }
   }

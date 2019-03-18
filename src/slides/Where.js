@@ -138,6 +138,7 @@ const Content = styled.div`
     }
   }
   .video {
+    z-index: 1;
     border: 0.6rem solid #ff6a1c;
     border-radius: 0.4rem;
     position: relative;

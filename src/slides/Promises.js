@@ -45,10 +45,13 @@ const Content = styled.div`
     }
   }
   .gift {
-    width: 14rem;
-    margin-bottom: 0.4rem;
+    width: 15rem;
+    margin-bottom: 2rem;
   }
   .tips {
+    z-index: 1;
+    position: absolute;
+    bottom: 2rem;
     line-height: 1.8;
     font-weight: 800;
     font-size: 1rem;

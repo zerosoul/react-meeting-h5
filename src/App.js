@@ -61,6 +61,9 @@ const GlobalStyle = createGlobalStyle`
     max-width:720px;
     margin:0 auto;
   }
+  #root{
+    position:relative;
+  }
   .swiper-container {
     width: 100%;
     height: 100vh;
@@ -220,7 +223,7 @@ class App extends Component {
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
-                  <WaveBg />
+                  <WaveBg height="8rem" />
                   {slides[11] && (
                     <>
                       <Promises />
@@ -269,7 +272,7 @@ class App extends Component {
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
-                  <WaveBg />
+                  <WaveBg height="5rem" />
 
                   {slides[16] && (
                     <>

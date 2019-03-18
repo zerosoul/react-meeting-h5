@@ -68,6 +68,7 @@ const Content = styled.div`
   .info {
     color: #fff;
     text-align: left;
+    z-index: 1;
     .tel {
       background: url(${TelIcon});
       a {
