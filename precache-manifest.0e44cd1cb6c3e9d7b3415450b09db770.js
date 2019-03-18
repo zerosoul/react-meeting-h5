@@ -1,27 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "79a6ae8c09ff89b5b3e8",
+    "revision": "ac7388e964bf559faa12",
     "url": "/react-meeting-h5/static/css/main.51b5d043.chunk.css"
   },
   {
-    "revision": "79a6ae8c09ff89b5b3e8",
-    "url": "/react-meeting-h5/static/js/main.79a6ae8c.chunk.js"
+    "revision": "ac7388e964bf559faa12",
+    "url": "/react-meeting-h5/static/js/main.ac7388e9.chunk.js"
   },
   {
     "revision": "e6684f1735952a7f2a00",
     "url": "/react-meeting-h5/static/js/runtime~main.e6684f17.js"
   },
   {
-    "revision": "1bd6a7ad07ff5a071905",
-    "url": "/react-meeting-h5/static/js/2.1bd6a7ad.chunk.js"
+    "revision": "194df1bfafd441572c5a",
+    "url": "/react-meeting-h5/static/js/2.194df1bf.chunk.js"
   },
   {
     "revision": "c546f7ccc57373a7726c19f3f79bea21",
     "url": "/react-meeting-h5/static/media/mobile.demo.2.c546f7cc.png"
-  },
-  {
-    "revision": "cf6762cc53535c50718d0e9dda93050c",
-    "url": "/react-meeting-h5/static/media/speaker.huangke.cf6762cc.png"
   },
   {
     "revision": "abbcf0dd22f307f951d88fc1a9ee1215",
@@ -80,6 +76,14 @@ self.__precacheManifest = [
     "url": "/react-meeting-h5/static/media/speaker.zhangyanlong.dd3715b7.png"
   },
   {
+    "revision": "cf6762cc53535c50718d0e9dda93050c",
+    "url": "/react-meeting-h5/static/media/speaker.huangke.cf6762cc.png"
+  },
+  {
+    "revision": "e88ae5eacd878daec2b7f12fb1b9f9e7",
+    "url": "/react-meeting-h5/static/media/speaker.ms.e88ae5ea.png"
+  },
+  {
     "revision": "05262a4053c84716c759d6771cf847e2",
     "url": "/react-meeting-h5/static/media/gift.05262a40.png"
   },
@@ -108,7 +112,7 @@ self.__precacheManifest = [
     "url": "/react-meeting-h5/static/media/speaker.lyx.20c8c2bf.png"
   },
   {
-    "revision": "fdc1b56060754b9ea97f6062014c9196",
+    "revision": "59b413e9cc7da3c4a1d26d8a9ecc9fc8",
     "url": "/react-meeting-h5/index.html"
   }
 ];
