@@ -49,6 +49,9 @@ const GlobalStyle = createGlobalStyle`
           font-size: 12px;
       }
   }
+  *{
+    box-sizing:border-box;
+  }
   html{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

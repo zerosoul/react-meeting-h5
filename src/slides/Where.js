@@ -265,6 +265,7 @@ export default class Where extends React.Component {
           <video
             onClick={this.onVideoClick}
             ref={this.video}
+            controls={false}
             autoPlay={false}
             poster={VideoPoster}
             src="http://img001.ddweilai.com/Zhaoshengwang/yijian.mp4"

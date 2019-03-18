@@ -11,7 +11,7 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   color: #fff;
-  padding: 8rem 2rem;
+  padding: 6rem 2rem;
   height: 100vh;
 
   > .title {
@@ -25,6 +25,7 @@ const Content = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+    margin-bottom: 1rem;
     .brand {
       display: flex;
       flex-direction: column;
@@ -37,6 +38,7 @@ const Content = styled.div`
       overflow: hidden;
       font-weight: 800;
       margin-bottom: 1.5rem;
+      height: 5rem;
       &:nth-child(even) {
         background: #fdb037;
         .no {

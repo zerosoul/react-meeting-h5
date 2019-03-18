@@ -116,7 +116,7 @@ const Content = styled.div`
             background: #fd762f;
           }
           input {
-            width: 1.4rem;
+            width: 2rem;
             text-align: center;
             border: 1px solid #ff761e;
             padding: 0.3rem 0.4rem;

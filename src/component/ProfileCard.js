@@ -11,7 +11,7 @@ const Card = styled.div`
   display: flex;
   min-height: 6rem;
   align-self: center;
-  width: 12rem;
+  width: 16rem;
   &:nth-child(even) {
     background: #ffa71f;
     .avatar {
