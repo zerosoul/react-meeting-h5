@@ -14,7 +14,7 @@ const Line = styled.span`
     display: block;
     width: 4px;
     height: 4px;
-    background: #ffa71f;
+    background: ${({ dotBackground = "#ffa71f" }) => dotBackground};
     box-sizing: border-box;
     border-radius: 50%;
     position: absolute;

@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   top: 1rem;
   display: flex;
   align-items: center;
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 0.8rem;
   background: ${({ background = "orange" }) =>
     background === "orange" ? "#ff6a1c" : "#fdb037"};
   border-top-right-radius: 20px;

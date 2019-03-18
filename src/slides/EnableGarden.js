@@ -79,6 +79,8 @@ const Content = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 90%;
+    overflow: hidden;
+    clear: both;
     .demo {
       display: block;
       width: 8rem;

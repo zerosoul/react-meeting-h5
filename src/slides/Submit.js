@@ -37,7 +37,7 @@ const Content = styled.div`
       margin-bottom: 0.8rem;
       line-height: 1.6;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: 0.8rem;
     }
   }
   .form {
@@ -110,7 +110,7 @@ const Content = styled.div`
             box-sizing: border-box;
             text-align: center;
             font-size: 0.6rem;
-            line-height: 1.1;
+            line-height: 1.2;
           }
           .p {
             background: #fd762f;

@@ -76,6 +76,7 @@ const Content = styled.div`
       padding: 0.3rem;
       color: #fff;
       margin-bottom: 10px;
+      z-index: 1;
       &.yellow {
         background: #ffa71f;
       }
@@ -145,12 +146,12 @@ export default class Intro extends PureComponent {
           <p className="tip yellow">
             <img src={Icon2} alt="图标" />
             <span className="txt">家长满意</span>
-            <DotLine />
+            <DotLine dotBackground="#ff6a1c" />
           </p>
           <p className="tip yellow btm">
             <img src={Icon3} alt="图标" />
             <span className="txt">教师成长</span>
-            <DotLine />
+            <DotLine dotBackground="#ff6a1c" />
           </p>
           <p className="tip orange btm">
             <img src={Icon4} alt="图标" />

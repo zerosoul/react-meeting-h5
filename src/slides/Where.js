@@ -2,6 +2,8 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 import ani from "animejs";
 
+import VideoPoster from "../assets/img/video.poster.png";
+
 const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -172,11 +174,26 @@ const Content = styled.div`
     }
   }
 `;
-export default class Where extends PureComponent {
+export default class Where extends React.Component {
   constructor() {
     super();
     this.wrapper = React.createRef();
+    this.video = React.createRef();
+    this.state = {
+      playing: false
+    };
   }
+  onVideoClick = () => {
+    const { playing } = this.state;
+    if (playing) {
+      this.video.current.pause();
+    } else {
+      this.video.current.play();
+    }
+    this.setState({
+      playing: !playing
+    });
+  };
   componentDidMount() {
     const wrapper = this.wrapper.current;
     const words = wrapper.querySelectorAll(".bubbles .word");
@@ -205,6 +222,7 @@ export default class Where extends PureComponent {
       });
   }
   render() {
+    const { playing } = this.state;
     return (
       <Content ref={this.wrapper}>
         <div className="title">内外交困，民办园该何去何从?</div>
@@ -243,8 +261,12 @@ export default class Where extends PureComponent {
           <p className="dot bubble orange three" />
         </div>
         <div className="video">
-          <i className="playIcon" />
+          {!playing && <i className="playIcon" onClick={this.onVideoClick} />}
           <video
+            onClick={this.onVideoClick}
+            ref={this.video}
+            autoPlay={false}
+            poster={VideoPoster}
             src="http://img001.ddweilai.com/Zhaoshengwang/yijian.mp4"
             alt="宣传视频"
           />

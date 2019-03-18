@@ -43,6 +43,7 @@ const Content = styled.div`
     border: 0.2rem solid #fdb037;
     border-radius: 0.8rem;
     padding: 1.6rem 1rem;
+    background: #fff;
     ul {
       color: #666;
       li {

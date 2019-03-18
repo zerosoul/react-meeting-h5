@@ -14,7 +14,7 @@ const Content = styled.div`
   position: relative;
   height: 100%;
   padding: 0 2rem;
-  padding-top: 6rem;
+  padding-top: 5rem;
   box-sizing: border-box;
   .head {
     position: relative;
