@@ -19,6 +19,7 @@ const Card = styled.div`
     }
   }
   .avatar {
+    background: #fff;
     border: 0.2rem solid #ff6a14;
     box-sizing: border-box;
     border-radius: 50%;

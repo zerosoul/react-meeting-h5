@@ -6,6 +6,7 @@ import ani from "animejs";
 import ChaoImg from "../assets/img/speaker.dongzc.png";
 import LongImg from "../assets/img/speaker.zhangyanlong.png";
 import KeImg from "../assets/img/speaker.huangke.png";
+import MsImg from "../assets/img/speaker.ms.png";
 
 const Content = styled.div`
   display: flex;
@@ -82,7 +83,7 @@ export default class SpeakerTeam1 extends PureComponent {
         />
 
         <Card
-          avatar={KeImg}
+          avatar={MsImg}
           name="马爽"
           descs={[
             "中国未来研究会教育分会特约讲师",
