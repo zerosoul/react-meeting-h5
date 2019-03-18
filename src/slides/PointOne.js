@@ -10,11 +10,11 @@ const Content = styled.div`
   align-items: flex-start;
   justify-content: center;
   color: #fff;
-  padding: 1.4rem 2rem;
+  padding: 2rem;
   height: 100vh;
   .title {
     color: #ff6a1c;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
     margin-bottom: 2rem;

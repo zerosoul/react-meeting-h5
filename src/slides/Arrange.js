@@ -15,27 +15,30 @@ const Content = styled.div`
 
   > .title {
     color: #ff6a1c;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
   .arranges {
     color: #666;
     font-size: 0.8rem;
     font-weight: 800;
+    max-height: 10rem;
+    overflow-y: scroll;
+    padding: 0.4rem 0;
     .arrange {
       display: flex;
       align-items: end;
       &:last-child {
         .title {
-          min-height: 9rem;
+          min-height: 8rem;
         }
       }
       .title {
         border-right: 1px solid #fb763a;
         position: relative;
-        font-size: 1rem;
+        font-size: 0.8rem;
         min-width: 4rem;
         min-height: 6rem;
         &:after {
@@ -70,7 +73,9 @@ const Content = styled.div`
     text-align: left;
     z-index: 1;
     position: absolute;
+    font-size: 0.8rem;
     bottom: 2rem;
+    font-weight: border;
     .tel {
       background: url(${TelIcon});
       a {
@@ -83,11 +88,11 @@ const Content = styled.div`
     }
     .tel,
     .addr {
-      padding-left: 2rem;
+      padding-left: 1.8rem;
       margin-bottom: 0.8rem;
       line-height: 1.6;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: 1.2rem;
     }
   }
 `;

@@ -14,7 +14,7 @@ const Content = styled.div`
   height: 100vh;
   > .title {
     color: #ff6a1c;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
     margin-bottom: 2rem;
@@ -23,7 +23,7 @@ const Content = styled.div`
     position: relative;
     text-align: center;
     color: #666;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     .promise {
       font-size: 0.8rem;
       border-bottom: 1px solid #fda264;
@@ -46,7 +46,7 @@ const Content = styled.div`
   }
   .gift {
     z-index: 1;
-    width: 15rem;
+    width: 10rem;
     margin-bottom: 2rem;
   }
   .tips {
@@ -55,7 +55,7 @@ const Content = styled.div`
     bottom: 2rem;
     line-height: 1.8;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 `;
 export default class Promises extends PureComponent {

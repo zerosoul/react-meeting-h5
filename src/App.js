@@ -124,7 +124,7 @@ class App extends Component {
           <Loading onInitOver={this.initSwiper} />
         ) : (
           <>
-            {/* <Music /> */}
+            <Music />
             <Tel />
             <Signup currSwiper={mySwiper} />
             {/* <!-- Slider main container --> */}
@@ -147,7 +147,7 @@ class App extends Component {
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
-                  <WaveBg />
+                  <WaveBg height="6rem" />
                   {slides[2] && (
                     <>
                       <How />
@@ -164,7 +164,7 @@ class App extends Component {
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
-                  <WaveBg />
+                  <WaveBg height="7rem" />
 
                   {slides[4] && (
                     <>
@@ -174,7 +174,7 @@ class App extends Component {
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
-                  <WaveBg />
+                  <WaveBg height="6rem" />
 
                   {slides[5] && (
                     <>
@@ -192,7 +192,7 @@ class App extends Component {
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
-                  <WaveBg />
+                  <WaveBg height="6rem" />
 
                   {slides[7] && (
                     <>
@@ -235,7 +235,7 @@ class App extends Component {
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
-                  <WaveBg />
+                  <WaveBg height="8rem" />
 
                   {slides[12] && (
                     <>
@@ -255,7 +255,7 @@ class App extends Component {
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
-                  <WaveBg />
+                  <WaveBg height="8rem" />
 
                   {slides[14] && (
                     <>

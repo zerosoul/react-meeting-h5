@@ -16,7 +16,7 @@ const Content = styled.div`
 
   > .title {
     color: #ff6a1c;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
     margin-bottom: 1.8rem;
@@ -55,7 +55,7 @@ const Content = styled.div`
         border-radius: 0.2rem;
         padding: 0.4rem 0.8rem;
         box-sizing: border-box;
-        width: 15rem;
+        width: 14rem;
 
         &:disabled {
           &::placeholder {
@@ -74,7 +74,7 @@ const Content = styled.div`
         align-items: flex-start;
         justify-content: space-between;
         > input {
-          width: 9.8rem;
+          width: 8rem;
         }
         .codeBtn {
           font-weight: bold;

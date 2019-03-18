@@ -11,21 +11,23 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   color: #fff;
-  padding: 6rem 2rem;
+  padding: 5rem 2rem;
+  padding-bottom: 0;
   height: 100vh;
 
   > .title {
     color: #ff6a1c;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   .brands {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
     margin-bottom: 1rem;
+    font-size: 0.8rem;
     .brand {
       display: flex;
       flex-direction: column;
@@ -33,12 +35,12 @@ const Content = styled.div`
       background: #fd762f;
       box-sizing: border-box;
       border-radius: 10% 10% 50% 50%;
-      padding: 0 1.2rem;
-      padding-bottom: 1.2rem;
+      padding: 0 0.8rem;
+      padding-bottom: 1rem;
       overflow: hidden;
       font-weight: 800;
-      margin-bottom: 1.5rem;
-      height: 5rem;
+      margin-bottom: 1rem;
+      height: 4.4rem;
       &:nth-child(even) {
         background: #fdb037;
         .no {
@@ -67,6 +69,7 @@ const Content = styled.div`
     }
   }
   .middleTitle {
+    font-size: 0.8rem;
     color: #666;
     text-align: center;
     line-height: 1.5;
@@ -82,11 +85,8 @@ const Content = styled.div`
     justify-content: space-evenly;
     width: 90%;
     overflow: hidden;
-    clear: both;
     .demo {
-      display: block;
-      width: 8rem;
-      height: 100%;
+      width: 6rem;
     }
   }
 `;
@@ -128,8 +128,12 @@ export default class EnableGarden extends PureComponent {
           <DotLine width={"100%"} background="#fdb749" className="line" />
         </div>
         <div className="demos">
-          <img src={Demo1Img} alt="demo1" className="demo" />
-          <img src={Demo2Img} alt="demo2" className="demo" />
+          <div>
+            <img src={Demo1Img} alt="demo1" className="demo" />
+          </div>
+          <div>
+            <img src={Demo2Img} alt="demo2" className="demo" />
+          </div>
         </div>
       </Content>
     );

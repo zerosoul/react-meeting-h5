@@ -14,9 +14,9 @@ const Content = styled.div`
   flex-direction: column;
   align-items: flex-start;
   color: #5b5b5b;
-  padding-left: 3rem;
+  padding-left: 2rem;
   padding-right: 4rem;
-  padding-top: 6rem;
+  padding-top: 4rem;
   .top {
     display: flex;
     align-items: center;
@@ -63,15 +63,15 @@ const Content = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 0.8rem;
     overflow: hidden;
-    width: 14rem;
+    width: 11rem;
     z-index: 1;
     .tip {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 6rem;
+      width: 5rem;
       border-radius: 0.8rem;
       padding: 0.3rem;
       color: #fff;
@@ -87,12 +87,11 @@ const Content = styled.div`
         box-shadow: 0px 2px 3px #666;
       }
       img {
-        width: 2rem;
-        margin-top: 1rem;
-        margin-bottom: 1.4rem;
+        width: 1.4rem;
+        margin-top: 0.8rem;
+        margin-bottom: 1rem;
       }
       .txt {
-        font-size: 1rem;
         margin-bottom: 0.6rem;
       }
       .line {
@@ -141,22 +140,22 @@ export default class Intro extends PureComponent {
           <p className="tip orange">
             <img src={Icon1} alt="图标" />
             <span className="txt">快速招生</span>
-            <DotLine />
+            <DotLine width="3.4rem" />
           </p>
           <p className="tip yellow">
             <img src={Icon2} alt="图标" />
             <span className="txt">家长满意</span>
-            <DotLine dotBackground="#ff6a1c" />
+            <DotLine width="3.4rem" dotBackground="#ff6a1c" />
           </p>
           <p className="tip yellow btm">
             <img src={Icon3} alt="图标" />
             <span className="txt">教师成长</span>
-            <DotLine dotBackground="#ff6a1c" />
+            <DotLine width="3.4rem" dotBackground="#ff6a1c" />
           </p>
           <p className="tip orange btm">
             <img src={Icon4} alt="图标" />
             <span className="txt">安全管控</span>
-            <DotLine />
+            <DotLine width="3.4rem" />
           </p>
         </div>
       </Content>

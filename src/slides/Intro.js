@@ -4,8 +4,12 @@ import styled from "styled-components";
 import LogoImg from "../assets/img/logo.png";
 import WxImg from "../assets/img/wx.avatar.png";
 import CloudImg from "../assets/img/cloud.png";
+import TitleImg from "../assets/img/topic.title.png";
+import SubTitleImg from "../assets/img/topic.sub.title.png";
 
-import { r } from "../util";
+import InviteImg from "../assets/img/topic.invite.png";
+import NewWayImg from "../assets/img/topic.new.way.png";
+
 import ani from "animejs";
 const Content = styled.div`
   display: flex;
@@ -14,41 +18,20 @@ const Content = styled.div`
   position: relative;
   height: 100%;
   padding: 0 2rem;
-  padding-top: 5rem;
+  padding-top: 2.4rem;
   box-sizing: border-box;
   .head {
     position: relative;
-    margin-bottom: 2rem;
-    transform: rotate(-4deg);
+    margin-bottom: 1.4rem;
+    text-align: center;
+
     .preTitle {
-      font-size: 1.8rem;
+      z-index: 2;
       margin-bottom: 0.4rem;
-      text-shadow: 2px 2px 0px #ffa71f;
-    }
-    .title {
-      font-size: 2.2rem;
-      margin-bottom: 0.4rem;
-      text-shadow: 2px 2px 0px #ffa71f;
+      width: 84%;
     }
     .topicTitle {
-      display: flex;
-      align-items: center;
-      .topic {
-        font-size: ${r(70)};
-        background: #ffa71f;
-        border-radius: 0.8rem;
-        padding: 0.6rem 1.2rem;
-        margin-right: 0.4rem;
-      }
-      .enTitle {
-        font-size: 0.8rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        .word {
-          color: #fab236;
-        }
-      }
+      width: 84%;
     }
     .bubble {
       position: absolute;
@@ -93,8 +76,7 @@ const Content = styled.div`
     align-items: center;
     margin-bottom: 1.4rem;
     .invite {
-      font-size: 1.4rem;
-      margin-bottom: 0.3rem;
+      width: 7rem;
     }
     .wx {
       display: flex;
@@ -105,17 +87,17 @@ const Content = styled.div`
         border: 0.4rem solid #fecda5;
         box-sizing: border-box;
         border-radius: 50%;
-        width: ${r(250)};
-        height: ${r(250)};
+        width: 5rem;
+        height: 5rem;
         margin-bottom: 0.4rem;
       }
       .nickname {
-        font-size: ${r(30)};
-        margin-bottom: 10px;
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
       }
     }
     .newWay {
-      font-size: ${r(36)};
+      width: 10rem;
     }
   }
   .btm {
@@ -125,17 +107,18 @@ const Content = styled.div`
     justify-content: space-between;
     align-items: center;
     background-image: url(${CloudImg});
-    background-size: cover;
+    background-size: contain;
+    background-position-y: bottom;
     background-repeat: no-repeat;
     width: 100%;
     height: 8rem;
     .logo {
-      width: 4rem;
+      width: 3.4rem;
       margin-left: 2rem;
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
     .info {
-      margin-top: 2rem;
+      margin-top: 3rem;
       color: #ff741c;
       border-left: 0.3rem solid #ff741c;
       padding-left: 0.3rem;
@@ -162,20 +145,13 @@ export default class Intro extends PureComponent {
   }
   componentDidMount() {
     const wrapper = this.wrapper.current;
-    wrapper.querySelectorAll(".letters").forEach(node => {
-      console.log("node", node);
 
-      let arr = node.innerText;
-      let newArr = arr.split("").map(t => `<span class='letter'>${t}</span>`);
-      node.innerHTML = newArr.join("");
-    });
-    const head = wrapper.querySelectorAll(".head");
-    const titles = wrapper.querySelectorAll(".head>p");
+    const titles = wrapper.querySelectorAll(".head>img");
     const dots = wrapper.querySelectorAll(".bubble");
     const btm = wrapper.querySelectorAll(".btm");
     const wx = wrapper.querySelectorAll(".profile .wx");
     const lines = wrapper.querySelectorAll(".profile .line");
-    const letters = wrapper.querySelectorAll(".letters .letter");
+    const letters = wrapper.querySelectorAll(".letters");
     // const dots = wrapper.querySelectorAll(".btm ");
     const tl = ani.timeline({ loop: false });
     tl.add({
@@ -184,8 +160,10 @@ export default class Intro extends PureComponent {
       delay: (ele, i) => i * 150
     })
       .add({
-        targets: head
-        // rotate: [0, -4]
+        targets: dots,
+        opacity: [0, 1],
+        scale: [0, 1],
+        delay: (ele, i) => i * 300
       })
       .add(
         {
@@ -219,19 +197,12 @@ export default class Intro extends PureComponent {
         "-=800"
       )
       .add({
-        targets: dots,
-        opacity: [0, 1],
-        scale: [0, 1],
-        delay: (ele, i) => i * 300
-      })
-      .add({
         targets: letters,
-        scale: [2, 1],
+        translateY: [-40, 0],
         opacity: [0, 1],
         easing: "easeOutCirc",
-        // duration: 800,
-        delay: function(el, i) {
-          return 100 * i;
+        delay: (el, i) => {
+          return 200 * i;
         }
       });
   }
@@ -239,30 +210,23 @@ export default class Intro extends PureComponent {
     return (
       <Content ref={this.wrapper}>
         <div className="head">
-          <p className="preTitle">用互联网助力幼儿园</p>
-          <p className="title">运营管理升级</p>
-          <p className="topicTitle">
-            <span className="topic">主题论坛</span>
-            <span className="enTitle">
-              <i className="word">Operations</i>
-              <i className="word">management</i>
-              <i className="word">upgrade</i>
-            </span>
-          </p>
+          <img src={TitleImg} className="preTitle" alt="标题" />
+          <img src={SubTitleImg} className="topicTitle" alt="副标题" />
+
           <div className="bubble topLeft" />
           <div className="bubble topRight" />
           <div className="bubble btmLeft" />
           <div className="bubble btmRight" />
         </div>
         <div className="profile">
-          <p className="invite letters">诚邀您参加</p>
+          <img src={InviteImg} alt="诚邀图片" className="invite letters" />
           <DotLine className="line" width="6.4rem" background="#fff" />
           <p className="wx">
             <img src={WxImg} alt="微信头像" className="avatar" />
             <span className="nickname">羊二小</span>
           </p>
           <DotLine className="line" width="6.4rem" background="#fff" />
-          <p className="newWay letters">幼教新十年,民办幼儿园的新出路</p>
+          <img src={NewWayImg} alt="新出路图片" className="newWay letters" />
         </div>
         <div className="btm">
           <img src={LogoImg} alt="公司Logo" className="logo" />

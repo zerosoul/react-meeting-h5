@@ -20,7 +20,7 @@ const Content = styled.div`
     font-size: 1.2rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
   }
   .subTitle {
     color: #4d4d4d;

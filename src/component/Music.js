@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import MusicImg from "../assets/img/music.png";
+import MusicImg from "../assets/img/music.svg";
 // import BgMusic from "../assets/bg.mp3";
 const rotation = keyframes`
   from {
@@ -18,15 +18,16 @@ const Wrapper = styled.div`
   width: 35px;
   height: 35px;
   position: fixed;
-  top: 20px;
+  top: 10px;
   right: 10px;
   box-sizing: border-box;
-  border-radius: 50%;
-  border: 1px solid #fff;
+  /* border-radius: 50%;
+  border: 1px solid #fff; */
   audio {
     display: none;
   }
   img {
+    color: #000;
     width: 23px;
     &.playing {
       animation: ${rotation} 2s infinite linear forwards;

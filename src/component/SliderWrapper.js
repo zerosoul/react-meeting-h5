@@ -12,6 +12,7 @@ const Wrapper = styled.section`
     bgType === "white" ? `#fff` : `#fd7924`};
   background-size: contain;
   position: relative;
+  z-index: -999;
 `;
 
 export default Wrapper;

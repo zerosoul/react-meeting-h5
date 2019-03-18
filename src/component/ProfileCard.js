@@ -4,14 +4,14 @@ import styled from "styled-components";
 const Card = styled.div`
   background: #ff6a14;
   position: relative;
-  padding: 0 1.4rem 0 3rem;
+  padding: 0 1.2rem 0 2.6rem;
   border-radius: 0.8rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   margin-left: 2rem;
   display: flex;
-  min-height: 6rem;
+  min-height: 5rem;
   align-self: center;
-  width: 16rem;
+  width: 14rem;
   &:nth-child(even) {
     background: #ffa71f;
     .avatar {
@@ -24,11 +24,11 @@ const Card = styled.div`
     box-sizing: border-box;
     border-radius: 50%;
     position: absolute;
-    left: -3.5rem;
+    left: -2.8rem;
     top: 50%;
-    margin-top: -2.4rem;
-    width: 5rem;
-    height: 5rem;
+    margin-top: -2.2rem;
+    width: 4rem;
+    height: 4rem;
   }
 
   .intro {
@@ -36,12 +36,12 @@ const Card = styled.div`
     flex-direction: column;
     justify-content: center;
     .name {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       font-weight: 800;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.2rem;
     }
     .desc {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       line-height: 1.4;
       &.bold {
         font-weight: 800;

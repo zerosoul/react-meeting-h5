@@ -18,7 +18,7 @@ const Content = styled.div`
     font-size: 1rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 6rem;
+    margin-bottom: 1rem;
   }
   .blocks {
     display: flex;
@@ -29,11 +29,11 @@ const Content = styled.div`
       align-items: center;
       background: #ff6a14;
       border-radius: 0.4rem;
-      margin-bottom: 5rem;
+      margin-bottom: 1rem;
       padding: 1.2rem;
       box-sizing: border-box;
-      width: 18rem;
-      height: 5rem;
+      width: 16rem;
+      height: 4rem;
       position: relative;
       .avatar {
         position: absolute;
@@ -54,7 +54,7 @@ const Content = styled.div`
         }
       }
       .intro {
-        font-size: 0.5rem;
+        font-size: 0.4rem;
         display: flex;
         flex-direction: column;
         line-height: 1.6;
@@ -69,14 +69,14 @@ const Content = styled.div`
           position: absolute;
           top: -2.2rem;
           left: 0;
-          font-size: 1rem;
+          font-size: 0.8rem;
           i {
-            font-size: 0.6rem;
+            font-size: 0.4rem;
             color: #666;
           }
         }
         .title {
-          font-size: 0.8rem;
+          font-size: 0.6rem;
           font-weight: bold;
         }
       }

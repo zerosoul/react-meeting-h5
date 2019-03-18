@@ -20,7 +20,7 @@ const Content = styled.div`
     font-size: 1rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
   }
   .subTitle {
     color: #4d4d4d;
@@ -30,10 +30,11 @@ const Content = styled.div`
   .department {
     color: #fff;
     background: #ff6a14;
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
     font-weight: 800;
-    font-size: 1.2rem;
-    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    padding: 0.3rem 0.6rem;
   }
 `;
 export default class SpeakerTeam2 extends PureComponent {

@@ -5,6 +5,7 @@ import Swiper from "swiper";
 import ani from "animejs";
 import Demo1Img from "../assets/img/demo.1.png";
 import Demo2Img from "../assets/img/mobile.demo.2.png";
+import NumImg from "../assets/img/15000.png";
 import DotLine from "../component/DotLine";
 
 const Content = styled.div`
@@ -20,32 +21,25 @@ const Content = styled.div`
     font-size: 1.2rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 2.4rem;
+    margin-bottom: 2rem;
   }
   .subTitle {
     color: #666;
     text-align: center;
     line-height: 1.5;
     font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
     .line {
       margin-top: 0.8rem;
     }
   }
   .num {
-    color: #fd7f27;
-    font-size: 4rem;
-    font-weight: 800;
-    margin-bottom: 2rem;
-    background-image: linear-gradient(to top, #fd7e27, #fd9730);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+    width: 100%;
+    margin-bottom: 1rem;
   }
   .pics {
     z-index: 1;
-    width: 18rem;
+    width: 15rem;
     border: 0.4rem solid #fdb037;
     border-radius: 0.8rem;
     img {
@@ -79,7 +73,7 @@ export default class Legend extends PureComponent {
           <p>全国已有15000+幼儿园选择加入壹点壹滴!</p>
           <DotLine width={"100%"} background="#fdb749" className="line" />
         </div>
-        <p className="num">15000+</p>
+        <img src={NumImg} alt="成交数配图" className="num" />
         <div className="pics">
           <img src={Demo1Img} alt="demo2" className="demo" />
         </div>

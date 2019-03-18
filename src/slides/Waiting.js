@@ -15,7 +15,7 @@ const Content = styled.div`
 
   > .title {
     color: #ff6a1c;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
     margin-bottom: 3rem;
@@ -25,8 +25,8 @@ const Content = styled.div`
     text-align: center;
     line-height: 1.5;
     font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 3rem;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
     .line {
       margin-top: 0.8rem;
     }
@@ -39,6 +39,7 @@ const Content = styled.div`
   }
   .gardens {
     z-index: 1;
+    font-size: 0.8rem;
     width: 16rem;
     border: 0.2rem solid #fdb037;
     border-radius: 0.8rem;

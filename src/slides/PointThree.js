@@ -18,7 +18,7 @@ const Content = styled.div`
 
   .title {
     color: #ff6a1c;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
     box-shadow: inset 0 -0.4em #ccc;
     margin: -4rem 2rem 2rem 2rem;
