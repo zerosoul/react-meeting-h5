@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "075c91dbd20179fd291a",
+    "revision": "799fc2a83041b02f1d1e",
     "url": "/react-meeting-h5/static/css/main.51b5d043.chunk.css"
   },
   {
-    "revision": "075c91dbd20179fd291a",
-    "url": "/react-meeting-h5/static/js/main.075c91db.chunk.js"
+    "revision": "799fc2a83041b02f1d1e",
+    "url": "/react-meeting-h5/static/js/main.799fc2a8.chunk.js"
   },
   {
     "revision": "e6684f1735952a7f2a00",
     "url": "/react-meeting-h5/static/js/runtime~main.e6684f17.js"
   },
   {
-    "revision": "6c0f0dafc4df4257d4d1",
-    "url": "/react-meeting-h5/static/js/2.6c0f0daf.chunk.js"
+    "revision": "1bd6a7ad07ff5a071905",
+    "url": "/react-meeting-h5/static/js/2.1bd6a7ad.chunk.js"
   },
   {
     "revision": "b6c5568862259637450a0bf0eef37ba5",
@@ -34,6 +34,10 @@ self.__precacheManifest = [
   {
     "revision": "e30d73c94d82d50650118412c0354eb9",
     "url": "/react-meeting-h5/static/media/wx.avatar.e30d73c9.png"
+  },
+  {
+    "revision": "d68a5cd35c0cc8d0455a558ca3b461e1",
+    "url": "/react-meeting-h5/static/media/video.poster.d68a5cd3.png"
   },
   {
     "revision": "79e60eddd6bce7c01579e714a233f335",
@@ -108,7 +112,7 @@ self.__precacheManifest = [
     "url": "/react-meeting-h5/static/media/speaker.lyx.127f1646.png"
   },
   {
-    "revision": "ac664ca8183ef035e0061048d66a0a2a",
+    "revision": "649c4552999f09b8d3559ed1ac4ae39d",
     "url": "/react-meeting-h5/index.html"
   }
 ];
