@@ -180,6 +180,7 @@ const Content = styled.div`
       width: 15rem;
       border-radius: 0.4rem;
       margin-top: 2rem;
+      z-index: 1;
     }
   }
 `;

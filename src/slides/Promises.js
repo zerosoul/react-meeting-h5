@@ -45,6 +45,7 @@ const Content = styled.div`
     }
   }
   .gift {
+    z-index: 1;
     width: 15rem;
     margin-bottom: 2rem;
   }
