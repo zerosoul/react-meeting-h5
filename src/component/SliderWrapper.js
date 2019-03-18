@@ -10,7 +10,7 @@ const Wrapper = styled.section`
     bgType === "white" ? `url(${OrangeBgImg})` : `url(${WhiteBgImg})`};
   background-color: ${({ bgType = "white" }) =>
     bgType === "white" ? `#fff` : `#fd7924`};
-  background-size: cover;
+  background-size: contain;
   position: relative;
 `;
 

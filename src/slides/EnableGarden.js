@@ -80,6 +80,7 @@ const Content = styled.div`
     justify-content: space-evenly;
     width: 90%;
     .demo {
+      display: block;
       width: 8rem;
       height: 100%;
     }
