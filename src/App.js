@@ -55,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-weight:400;
     color:#fff;
-    font-family:"PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+    font-family:"Fangzheng ZY", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
   }
   body{
     max-width:720px;
@@ -94,13 +94,13 @@ class App extends Component {
     mySwiper.on("slideChange", wtf => {
       console.log("wtf", mySwiper);
       const { realIndex } = mySwiper;
-      let newSlides = new Array(mySwiper.slides.length).fill(false);
+      let newSlides = new Array(mySwiper.slides.length).fill(true);
       newSlides[realIndex] = true;
       this.setState({
         slides: newSlides
       });
     });
-    const initSlides = new Array(mySwiper.slides.length).fill(false);
+    const initSlides = new Array(mySwiper.slides.length).fill(true);
     initSlides[0] = true;
     this.setState({
       mySwiper,
