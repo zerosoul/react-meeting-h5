@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export BUILD_DIR=build
+export BUILD_DIR=dist
 export BUILD_TYPE=front
 export TARGET_PATH=/data/www/FRONTEND/react-meeting-h5
 
