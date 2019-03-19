@@ -8,5 +8,5 @@ build_functions=/usr/bin/build-functions
 if [ -f "$build_functions" ]; then
     . $build_functions
 else
-    npm install --production && npm run build
+    PUBLIC_URL=h5 npm install --production && npm run build
 fi
