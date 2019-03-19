@@ -30,6 +30,9 @@ const Content = styled.div`
       font-size: 1.4rem;
       font-weight: 800;
       margin-bottom: 0.8rem;
+      .word {
+        display: inline-block;
+      }
     }
   }
   .btmImg {
@@ -46,7 +49,20 @@ export default class Intro extends PureComponent {
     super();
     this.wrapper = React.createRef();
   }
-
+  componentDidMount() {
+    const wrapper = this.wrapper.current;
+    const words = wrapper.querySelectorAll(".word");
+    ani({
+      targets: words,
+      scale: [14, 1],
+      opacity: [0, 1],
+      easing: "easeOutCirc",
+      duration: 800,
+      delay: function(el, i) {
+        return 800 * i;
+      }
+    });
+  }
   render() {
     return (
       <Content ref={this.wrapper}>
@@ -58,7 +74,10 @@ export default class Intro extends PureComponent {
         />
         <div className="open">
           <h2 className="desc">一场改变幼教人命运的课程</h2>
-          <h1>马上开幕!</h1>
+          <h1>
+            <span className="word">马上</span>
+            <span className="word">开幕!</span>
+          </h1>
           <DotLine width="100%" />
         </div>
         <div className="btmImg">

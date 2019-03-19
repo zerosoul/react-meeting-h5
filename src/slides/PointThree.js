@@ -70,6 +70,18 @@ export default class PointThree extends PureComponent {
     super();
     this.wrapper = React.createRef();
   }
+  componentDidMount() {
+    const wrapper = this.wrapper.current;
+    const circles = wrapper.querySelectorAll(".circles .circle");
+    ani({
+      targets: circles,
+      opacity: [0, 1],
+      scale: [5, 1],
+      delay: (ele, i) => {
+        return i * 200;
+      }
+    });
+  }
 
   render() {
     return (

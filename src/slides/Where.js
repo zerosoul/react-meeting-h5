@@ -16,7 +16,7 @@ const Content = styled.div`
     margin: 10px auto;
     height: 33vh;
     width: 78vw;
-    margin-bottom: 2rem;
+    margin-bottom: 2.6rem;
     .bubble {
       position: absolute;
       box-sizing: border-box;
@@ -31,32 +31,32 @@ const Content = styled.div`
         &.one {
           width: 0.8rem;
           height: 0.8rem;
-          top: 1.8rem;
-          left: 1.8rem;
+          top: 1rem;
+          left: 1.4rem;
         }
         &.two {
           width: 0.8rem;
           height: 0.8rem;
           bottom: 0.4rem;
-          right: 46%;
+          right: 50%;
         }
         &.three {
           width: 0.7rem;
           height: 0.7rem;
           top: 0.4rem;
-          right: 4.2rem;
+          right: 4.8rem;
         }
         &.four {
           width: 0.4rem;
           height: 0.4rem;
           bottom: 40%;
-          right: 2.6rem;
+          right: 3rem;
         }
         &.five {
           width: 0.4rem;
           height: 0.4rem;
           bottom: 0.8rem;
-          right: 0.4rem;
+          right: 1rem;
         }
       }
       &.orange {
@@ -65,19 +65,19 @@ const Content = styled.div`
           width: 0.6rem;
           height: 0.6rem;
           top: 64%;
-          left: 0;
+          left: -0.4rem;
         }
         &.two {
           width: 0.6rem;
           height: 0.6rem;
           top: 2rem;
-          left: 4.4rem;
+          left: 4rem;
         }
         &.three {
           width: 1.4rem;
           height: 1.4rem;
           top: 56%;
-          right: 0.2rem;
+          right: 0.4rem;
         }
       }
       &.word {
@@ -94,7 +94,7 @@ const Content = styled.div`
         font-size: 0.6rem;
         width: 3.8rem;
         height: 3.8rem;
-        top: -0.2rem;
+        top: -0.6rem;
         left: 50%;
         margin-left: -1.7rem;
       }
@@ -102,33 +102,33 @@ const Content = styled.div`
         width: 4.6rem;
         height: 4.6rem;
         top: 1.2rem;
-        right: 0.8rem;
+        right: 0.4rem;
       }
       &.hard {
         width: 4.6rem;
         height: 4.6rem;
-        bottom: -0.4rem;
-        right: 1.2rem;
+        bottom: -1rem;
+        right: 1.6rem;
       }
       &.rich {
         width: 4.6rem;
         height: 4.6rem;
-        bottom: -0.4rem;
-        left: 2rem;
+        bottom: -1rem;
+        left: 1rem;
       }
       &.come {
         width: 4.6rem;
         height: 4.6rem;
-        top: 3rem;
-        left: 1rem;
+        top: 2rem;
+        left: 0rem;
       }
       &.stay {
         font-size: 1rem;
         width: 5.4rem;
         height: 5.4rem;
-        top: 50%;
+        top: 52%;
         margin-top: -2rem;
-        left: 50%;
+        left: 44%;
         margin-left: -2rem;
       }
     }

@@ -4,6 +4,7 @@ import Card from "../component/ProfileCard";
 
 import ani from "animejs";
 import UnderLineTitle from "../component/UnderLineTitle";
+import DepartmentTitle from "../component/DepartmentTitle";
 
 import SunImg from "../assets/img/speaker.sq.png";
 import ZhuImg from "../assets/img/speaker.zhuxy.png";
@@ -22,15 +23,6 @@ const Content = styled.div`
     color: #4d4d4d;
     font-size: 0.8rem;
     margin-bottom: 1rem;
-  }
-  .department {
-    color: #fff;
-    background: #ff6a14;
-    border-radius: 0.4rem;
-    font-weight: 800;
-    font-size: 0.8rem;
-    line-height: 1.2;
-    padding: 0.3rem 0.6rem;
   }
 `;
 export default class SpeakerTeam2 extends PureComponent {
@@ -92,8 +84,7 @@ export default class SpeakerTeam2 extends PureComponent {
             "科学研究院研究员"
           ]}
         />
-
-        <p className="department">营销二部</p>
+        <DepartmentTitle title="营销二部" />
       </Content>
     );
   }

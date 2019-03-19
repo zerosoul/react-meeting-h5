@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
+import ani from "animejs";
 
 const Card = styled.div`
   background: #ff6a14;
@@ -50,10 +51,43 @@ const Card = styled.div`
   }
 `;
 export default class ProfileCard extends PureComponent {
+  constructor() {
+    super();
+    this.card = React.createRef();
+  }
+  componentDidMount() {
+    const card = this.card.current;
+    const avatar = card.querySelector(".avatar");
+    const lines = card.querySelectorAll(".intro > span");
+    const tl = ani.timeline();
+    tl.add({
+      targets: card,
+      width: [0, "14rem"]
+    })
+      .add(
+        {
+          targets: avatar,
+          opacity: [0, 1],
+          scale: [2, 1]
+        },
+        "-=500"
+      )
+      .add(
+        {
+          targets: lines,
+          opacity: [0, 1],
+          translateX: [-200, 0],
+          delay: (ele, i) => {
+            return i * 100;
+          }
+        },
+        "-=800"
+      );
+  }
   render() {
     const { avatar, name, title = "壹点壹滴金牌讲师", descs } = this.props;
     return (
-      <Card>
+      <Card ref={this.card}>
         <img className="avatar" src={avatar} alt={name} />
         <p className="intro">
           <span className="name">{name}</span>

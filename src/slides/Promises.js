@@ -14,6 +14,7 @@ const Content = styled.div`
   align-items: center;
   color: #fff;
   padding: 5rem 2rem;
+  padding-bottom: 0;
   height: 100vh;
 
   .promises {

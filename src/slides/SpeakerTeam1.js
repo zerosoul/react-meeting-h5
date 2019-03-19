@@ -4,6 +4,7 @@ import Card from "../component/ProfileCard";
 
 import ani from "animejs";
 import UnderLineTitle from "../component/UnderLineTitle";
+import DepartmentTitle from "../component/DepartmentTitle";
 
 import ChaoImg from "../assets/img/speaker.dongzc.png";
 import LongImg from "../assets/img/speaker.zhangyanlong.png";
@@ -22,14 +23,6 @@ const Content = styled.div`
     color: #4d4d4d;
     font-size: 0.8rem;
     margin-bottom: 1.2rem;
-  }
-  .department {
-    color: #fff;
-    background: #ff6a14;
-    border-radius: 0.2rem;
-    font-weight: 800;
-    font-size: 1.2rem;
-    padding: 0.3rem 0.8rem;
   }
 `;
 export default class SpeakerTeam1 extends PureComponent {
@@ -88,8 +81,7 @@ export default class SpeakerTeam1 extends PureComponent {
             "青少年演说力/领导力特训营教练"
           ]}
         />
-
-        <p className="department">营销一部</p>
+        <DepartmentTitle title="营销一部" />
       </Content>
     );
   }

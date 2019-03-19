@@ -14,6 +14,7 @@ const Content = styled.div`
   justify-content: flex-start;
   color: #fff;
   padding: 4rem 2rem;
+  padding-bottom: 0;
   height: 100vh;
 
   .lines {
