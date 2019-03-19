@@ -33,12 +33,13 @@ const Content = styled.div`
         border-right: 1px solid #fb763a;
         position: relative;
         font-size: 0.8rem;
+        line-height: 1.2;
         min-width: 4rem;
         min-height: 6rem;
         &:after {
           content: "";
           position: absolute;
-          top: -0rem;
+          top: 4px;
           right: -0.25rem;
           width: 0.5rem;
           height: 0.5rem;
@@ -97,11 +98,25 @@ export default class Arrange extends PureComponent {
   }
 
   render() {
+    const { addr, list = [] } = this.props;
     return (
       <Content ref={this.wrapper}>
         <UnderLineTitle title="课程安排" />
         <div className="arranges">
-          <div className="arrange">
+          {list.map(item => {
+            return (
+              <div className="arrange">
+                <p className="title">{item.name}</p>
+                <p className="detail">
+                  <time>{item.time}</time>
+                  <span className="desc">
+                    描述描述描述描述描述描述描述描述描述
+                  </span>
+                </p>
+              </div>
+            );
+          })}
+          {/* <div className="arrange">
             <p className="title">上午场</p>
             <p className="detail">
               <time>9:00-10:00</time>
@@ -127,13 +142,13 @@ export default class Arrange extends PureComponent {
                 我是课程描述描述描述我是课程描述描述描述
               </span>
             </p>
-          </div>
+          </div> */}
         </div>
         <div className="info">
           <p className="tel">
             王老师 <a href="tel:12345678901">12345678901</a>
           </p>
-          <p className="addr">河北省廊坊市xxxx路xxxx街会议中心</p>
+          <p className="addr">{addr}</p>
         </div>
       </Content>
     );

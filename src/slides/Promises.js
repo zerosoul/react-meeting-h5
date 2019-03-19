@@ -55,6 +55,9 @@ const Content = styled.div`
     line-height: 1.8;
     font-weight: 800;
     font-size: 0.8rem;
+    .tip {
+      text-align: center;
+    }
   }
 `;
 export default class Promises extends PureComponent {
@@ -80,6 +83,7 @@ export default class Promises extends PureComponent {
   }
 
   render() {
+    const { gift } = this.props;
     return (
       <Content ref={this.wrapper}>
         <UnderLineTitle title="未来十年生死存亡，本场会议决定!" />
@@ -101,10 +105,12 @@ export default class Promises extends PureComponent {
           <img className="slogan" src={PromiseImg} alt="我们承诺" />
         </div>
         <img className="gift" src={GiftImg} alt="礼物图片" />
-        <div className="tips">
-          <p className="tip">《我是怎的多多多多》</p>
-          <p className="tip">人手一份，到场即送！</p>
-        </div>
+        {gift && (
+          <div className="tips">
+            <p className="tip">《{gift}》</p>
+            <p className="tip">人手一份，到场即送！</p>
+          </div>
+        )}
       </Content>
     );
   }

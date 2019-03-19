@@ -207,6 +207,7 @@ export default class Intro extends PureComponent {
       });
   }
   render() {
+    const { time, addr = "北京" } = this.props;
     return (
       <Content ref={this.wrapper}>
         <div className="head">
@@ -231,9 +232,9 @@ export default class Intro extends PureComponent {
         <div className="btm">
           <img src={LogoImg} alt="公司Logo" className="logo" />
           <div className="info">
-            <time>2019.3.18</time>
+            <time>{time}</time>
             <span className="line" />
-            <p className="addr">河北·廊坊</p>
+            <p className="addr">{addr}</p>
           </div>
         </div>
       </Content>

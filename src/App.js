@@ -30,7 +30,7 @@ import Legend from "./slides/Legend";
 import SpeakerTeam2 from "./slides/SpeakerTeam2";
 import Waiting from "./slides/Waiting";
 import Submit from "./slides/Submit";
-
+import { getMeetingDetail, getSubmitList } from "./actions";
 const GlobalStyle = createGlobalStyle`
   ${reset}
  
@@ -78,7 +78,9 @@ class App extends Component {
   state = {
     loading: true,
     mySwiper: null,
-    slides: [false]
+    slides: [false],
+    meetingDetail: {},
+    submitList: []
   };
   constructor() {
     super();
@@ -111,9 +113,38 @@ class App extends Component {
       slides: initSlides
     });
   };
-  componentDidMount() {}
+  async componentDidMount() {
+    const { status, response } = await getMeetingDetail();
+    if (status === "success") {
+      this.setState({
+        meetingDetail: response
+      });
+    }
+    const { status: listStatus, response: listResp } = await getSubmitList();
+    console.log("meeting resp", status);
+    if (listStatus === "success") {
+      this.setState({
+        submitList: listResp
+      });
+    }
+  }
   render() {
-    const { loading, mySwiper, slides } = this.state;
+    const {
+      loading,
+      mySwiper,
+      slides,
+      meetingDetail: {
+        start_time,
+        address,
+        is_gift,
+        gift_desc,
+        double_price,
+        single_price,
+        meeting_agenda,
+        area
+      },
+      submitList
+    } = this.state;
 
     console.log("slides array", slides);
 
@@ -135,7 +166,7 @@ class App extends Component {
                 {/* <!-- Slides --> */}
 
                 <SlideWrapper bgType="orange" className="swiper-slide">
-                  {slides[0] && <Intro />}
+                  {slides[0] && <Intro time={start_time} addr={area} />}
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
@@ -230,7 +261,7 @@ class App extends Component {
                   <WaveBg height="8rem" />
                   {slides[11] && (
                     <>
-                      <Promises />
+                      <Promises gift={is_gift ? gift_desc : null} />
                     </>
                   )}
                 </SlideWrapper>
@@ -240,7 +271,7 @@ class App extends Component {
 
                   {slides[12] && (
                     <>
-                      <Arrange />
+                      <Arrange addr={address} list={meeting_agenda} />
                     </>
                   )}
                 </SlideWrapper>
@@ -270,7 +301,7 @@ class App extends Component {
 
                   {slides[15] && (
                     <>
-                      <Waiting />
+                      <Waiting submitList={submitList} />
                     </>
                   )}
                 </SlideWrapper>
@@ -280,7 +311,12 @@ class App extends Component {
 
                   {slides[16] && (
                     <>
-                      <Submit />
+                      <Submit
+                        time={start_time}
+                        addr={address}
+                        single={parseInt(single_price)}
+                        double={parseInt(double_price)}
+                      />
                     </>
                   )}
                 </SlideWrapper>

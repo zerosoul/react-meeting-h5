@@ -267,8 +267,9 @@ class Submit extends Component {
     // console.log("math", Math);
     let tmp = (count / 2) << 0;
     let { falsePrice, truePrice } = this.state;
-    falsePrice = count * 100;
-    truePrice = (count % 2) * 100 + tmp * 150;
+    const { single, double } = this.props;
+    falsePrice = count * single;
+    truePrice = (count % 2) * single + tmp * double;
     this.setState({
       count,
       truePrice,
@@ -295,6 +296,11 @@ class Submit extends Component {
     this.updateCount(count);
   };
   componentDidMount() {
+    const { single } = this.props;
+    this.setState({
+      falsePrice: single,
+      truePrice: single
+    });
     ani({
       targets: this.form.current,
       translateY: [400, 0],
@@ -303,14 +309,15 @@ class Submit extends Component {
   }
   render() {
     const { count, truePrice, falsePrice, waitingSecondLeft } = this.state;
+    const { addr, time, single, double } = this.props;
     const { getFieldDecorator } = this.props.form;
     return (
       <Content>
         <UnderLineTitle title="立即报名" fs="1.4rem" />
 
         <div className="info">
-          <time>2019.03.28</time>
-          <p className="addr">河北省廊坊市xxxx路xxxx街会议中心</p>
+          <time>{time}</time>
+          <p className="addr">{addr}</p>
         </div>
         <div className="form" ref={this.form}>
           <p className="input">
@@ -371,8 +378,8 @@ class Submit extends Component {
               </i>
             </p>
             <p className="tip">
-              <span>单 价：100元/人</span>
-              <span>优惠价：150元/两人</span>
+              <span>单 价：{single}元/人</span>
+              <span>优惠价：{double}元/两人</span>
             </p>
           </div>
           <p className="input cost">

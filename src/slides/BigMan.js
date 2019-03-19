@@ -13,13 +13,15 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   color: #fff;
-  padding: 4rem 2rem;
+  padding: 4rem 1.4rem;
+  padding-bottom: 0;
   height: 100vh;
 
   .blocks {
     display: flex;
     flex-direction: column;
-
+    height: 100%;
+    justify-content: space-around;
     .block {
       display: flex;
       align-items: center;
@@ -29,13 +31,13 @@ const Content = styled.div`
       padding: 1.2rem;
       box-sizing: border-box;
       width: 16rem;
-      height: 4rem;
+      height: 5rem;
       position: relative;
       .avatar {
         position: absolute;
         bottom: 0;
         right: 1rem;
-        width: 4.4rem;
+        width: 5rem;
       }
       &.reverse {
         flex-direction: row-reverse;
@@ -50,29 +52,29 @@ const Content = styled.div`
         }
       }
       .intro {
-        font-size: 0.4rem;
+        font-size: 0.6rem;
         display: flex;
         flex-direction: column;
         line-height: 1.6;
         position: relative;
         width: 10rem;
-        height: 4rem;
+        height: 5rem;
         align-items: flex-start;
         justify-content: center;
         .name {
           color: #ff6a14;
           font-weight: bold;
           position: absolute;
-          top: -2.2rem;
+          top: -1.4rem;
           left: 0;
-          font-size: 0.8rem;
+          font-size: 1rem;
           i {
             font-size: 0.4rem;
             color: #666;
           }
         }
         .title {
-          font-size: 0.6rem;
+          font-size: 0.8rem;
           font-weight: bold;
         }
       }
@@ -114,7 +116,7 @@ export default class BigMan extends PureComponent {
   render() {
     return (
       <Content ref={this.wrapper}>
-        <UnderLineTitle title="幼教大咖助力园长 赢在“新幼教”时代" fs=".9rem" />
+        <UnderLineTitle title="幼教大咖助力园长 赢在“新幼教”时代" />
 
         <div className="blocks">
           <div className="block">

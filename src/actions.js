@@ -63,7 +63,7 @@ const request = options => {
   return cancel;
 };
 
-// 根据ID获取详情
+// 获取微信Token
 export const getWxToken = () =>
   new Promise(resolve => {
     request({
@@ -74,7 +74,7 @@ export const getWxToken = () =>
     });
   });
 
-// 根据ID获取详情
+// 发送验证码
 export const getSMSCode = mobile =>
   new Promise(resolve => {
     request({
@@ -84,15 +84,27 @@ export const getSMSCode = mobile =>
       }
     });
   });
-export const getMeetingDetail = id =>
+// 获取会议详情
+export const getMeetingDetail = (id = 1) =>
   new Promise(resolve => {
     request({
-      url: `meeting/${id}`,
+      url: `meeting/getone/${id}`,
       end: (status, response) => {
         resolve({ status, response });
       }
     });
   });
+// 获取报名列表
+export const getSubmitList = (id = 1) =>
+  new Promise(resolve => {
+    request({
+      url: `enroll/list_for_school/${id}`,
+      end: (status, response) => {
+        resolve({ status, response });
+      }
+    });
+  });
+// 提交申请
 export const postMeetingInfo = data =>
   new Promise(resolve => {
     const { meetingid, ...rest } = data;

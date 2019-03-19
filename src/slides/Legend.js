@@ -36,11 +36,12 @@ const Content = styled.div`
   .pics {
     z-index: 1;
     width: 15rem;
+    height: 11rem;
+    overflow: hidden;
     border: 0.4rem solid #fdb037;
     border-radius: 0.8rem;
     img {
       width: 100%;
-      height: 100%;
     }
   }
 `;
@@ -50,6 +51,14 @@ export default class Legend extends PureComponent {
     this.wrapper = React.createRef();
   }
   componentDidMount() {
+    var swiper = new Swiper(".pics .swiper-container", {
+      // effect: "flip",
+      // grabCursor: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false
+      }
+    });
     const wrapper = this.wrapper.current;
     const numEle = wrapper.querySelector(".num");
     ani({
@@ -70,7 +79,16 @@ export default class Legend extends PureComponent {
         </div>
         <img src={NumImg} alt="成交数配图" className="num" />
         <div className="pics">
-          <img src={Demo1Img} alt="demo2" className="demo" />
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src={Demo1Img} alt="demo2" className="demo" />
+              </div>
+              <div class="swiper-slide">
+                <img src={Demo1Img} alt="demo2" className="demo" />
+              </div>
+            </div>
+          </div>
         </div>
       </Content>
     );

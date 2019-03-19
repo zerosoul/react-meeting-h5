@@ -35,6 +35,8 @@ const Content = styled.div`
     z-index: 1;
     font-size: 0.8rem;
     width: 16rem;
+    height: 10rem;
+    overflow: hidden;
     border: 0.2rem solid #fdb037;
     border-radius: 0.8rem;
     padding: 1.6rem 1rem;
@@ -53,16 +55,18 @@ export default class Waiting extends PureComponent {
     this.wrapper = React.createRef();
   }
   componentDidMount() {
-    // var swiper = new Swiper(".pics.swiper-container", {
-    //   effect: "flip",
-    //   grabCursor: true,
-    //   autoplay: {
-    //     delay: 2500,
-    //     disableOnInteraction: false
-    //   }
-    // });
+    var swiper = new Swiper(".gardens .swiper-container", {
+      // effect: "flip",
+      // grabCursor: true,
+      direction: "vertical",
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      }
+    });
   }
   render() {
+    const { submitList = [] } = this.props;
     return (
       <Content ref={this.wrapper}>
         <UnderLineTitle title="您还在等什么?" />
@@ -73,6 +77,25 @@ export default class Waiting extends PureComponent {
         </div>
         <p className="submited">本次会议已报名园所</p>
         <div className="gardens">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              {submitList.map(item => {
+                const maskName =
+                  item.name[0] +
+                  new Array(item.name.length - 1).fill("*").join("");
+                return (
+                  <div class="swiper-slide">
+                    <ul key={item.id}>
+                      <li>所属区域：{item.town_id}</li>
+                      <li>园所名称：{item.school_name}</li>
+                      <li>园长姓名：{maskName}</li>
+                      <li>参会人数：{item.person_num}人</li>
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
           <ul>
             <li>所属区域：廊坊</li>
             <li>园所名称：小太阳幼儿园</li>
