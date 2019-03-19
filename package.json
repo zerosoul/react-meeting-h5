@@ -2,7 +2,7 @@
   "name": "h5",
   "version": "1.1.0",
   "private": true,
-  "homepage": "https://zerosoul.github.io/react-meeting-h5",
+  "homepage": "https://zerosoul.github.io/h5",
   "dependencies": {
     "animejs": "^3.0.1",
     "axios": "^0.18.0",
