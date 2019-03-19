@@ -88,7 +88,7 @@ export const getSMSCode = mobile =>
 export const getMeetingDetail = (id = 1) =>
   new Promise(resolve => {
     request({
-      url: `meeting/getone/${id}`,
+      url: `meeting/getone/${id}/1`,
       end: (status, response) => {
         resolve({ status, response });
       }

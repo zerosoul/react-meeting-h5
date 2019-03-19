@@ -103,19 +103,20 @@ export default class Arrange extends PureComponent {
       <Content ref={this.wrapper}>
         <UnderLineTitle title="课程安排" />
         <div className="arranges">
-          {list.map(item => {
-            return (
-              <div className="arrange">
-                <p className="title">{item.name}</p>
-                <p className="detail">
-                  <time>{item.time}</time>
-                  <span className="desc">
-                    描述描述描述描述描述描述描述描述描述
-                  </span>
-                </p>
-              </div>
-            );
-          })}
+          {list &&
+            list.map(item => {
+              return (
+                <div className="arrange">
+                  <p className="title">{item.name}</p>
+                  <p className="detail">
+                    <time>{item.time}</time>
+                    <span className="desc">
+                      描述描述描述描述描述描述描述描述描述
+                    </span>
+                  </p>
+                </div>
+              );
+            })}
           {/* <div className="arrange">
             <p className="title">上午场</p>
             <p className="detail">
