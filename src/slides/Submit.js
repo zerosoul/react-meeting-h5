@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { createForm, formShape } from "rc-form";
 // components
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
+
 import ClockIcon from "../assets/img/icon.clock.png";
 import AddrIcon from "../assets/img/icon.addr.png";
-import { Math } from "core-js";
-
+import { getSMSCode, postMeetingInfo } from "../actions";
 const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,13 +16,6 @@ const Content = styled.div`
   padding: 4rem 3rem;
   height: 100vh;
 
-  > .title {
-    color: #ff6a1c;
-    font-size: 1.4rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 1.8rem;
-  }
   .info {
     color: #666;
     line-height: 1.5;
@@ -44,18 +39,21 @@ const Content = styled.div`
     font-size: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
+
+    /* width: 14rem; */
     .input {
       > input {
+        color: #fff;
         background: #fd762f;
-        box-shadow: 0px 5px 13px 0px rgba(151, 0, 92, 0.35);
-        margin-bottom: 0.8rem;
+        box-shadow: inset 0px 5px 13px 0px rgba(151, 0, 92, 0.35);
+        margin-bottom: 0.6rem;
         border: none;
         border-radius: 0.2rem;
-        padding: 0.4rem 0.8rem;
+        padding: 0.3rem 0.6rem;
         box-sizing: border-box;
-        width: 14rem;
+        width: 15rem;
 
         &:disabled {
           &::placeholder {
@@ -63,6 +61,7 @@ const Content = styled.div`
           }
         }
         &::placeholder {
+          font-size: 0.8rem;
           font-weight: bold;
           color: #fff;
           opacity: 0.6;
@@ -92,13 +91,13 @@ const Content = styled.div`
         align-items: flex-start;
         justify-content: space-between;
         > input {
-          width: 5rem;
+          width: 4.4rem;
         }
         .count {
           display: flex;
           align-items: center;
           justify-content: space-evenly;
-          width: 4.6rem;
+          width: 4.4rem;
           margin: 0 0.2rem;
           .m,
           .p {
@@ -142,8 +141,9 @@ const Content = styled.div`
         align-items: center;
         justify-content: space-between;
         color: #666;
+        margin-bottom: 1rem;
         input {
-          width: 5rem;
+          width: 4.4rem;
         }
         .price {
           font-weight: bold;
@@ -179,21 +179,90 @@ const Content = styled.div`
       font-size: 1rem;
       width: 15rem;
       border-radius: 0.4rem;
-      margin-top: 2rem;
       z-index: 1;
     }
   }
 `;
-export default class Submit extends Component {
+class Submit extends Component {
   constructor() {
     super();
-    this.wrapper = React.createRef();
+    this.form = React.createRef();
+    this.interVal = null;
     this.state = {
       count: 1,
       truePrice: 100,
-      falsePrice: 100
+      falsePrice: 100,
+      waitingSecondLeft: 0
     };
   }
+  onGetCode = async () => {
+    const { form } = this.props;
+    const { waitingSecondLeft } = this.state;
+    if (waitingSecondLeft > 0) {
+      return;
+    }
+    const error = form.getFieldError("mobile");
+    if (error) {
+      alert(error.join(""));
+      return;
+    }
+    const mobile = form.getFieldValue("mobile");
+    if (!mobile) {
+      alert("请输入手机号");
+      return;
+    }
+    const { status } = await getSMSCode(mobile);
+    if (status === "success") {
+      console.log("success");
+      this.startCountDown();
+    }
+    console.log("mobile", error, mobile);
+  };
+  // 倒计时 60
+  startCountDown = () => {
+    this.setState(
+      {
+        waitingSecondLeft: 60
+      },
+      () => {
+        this.interVal = setInterval(() => {
+          const { waitingSecondLeft } = this.state;
+          if (waitingSecondLeft === 0) {
+            clearInterval(this.interVal);
+          }
+          this.setState({
+            waitingSecondLeft: waitingSecondLeft - 1
+          });
+        }, 1000);
+      }
+    );
+  };
+  onSubmit = evt => {
+    evt.preventDefault();
+    const { count, truePrice, waitingSecondLeft } = this.state;
+    // if (waitingSecondLeft > 0) {
+    //   alert("验证码还在数秒ing");
+    // }
+    this.props.form.validateFields(async (error, values) => {
+      // console.log(error, values);
+      if (!error) {
+        values.person_num = count;
+        values.price = truePrice;
+        values.meetingid = 1;
+        console.log("api start:");
+        const { status } = await postMeetingInfo(values);
+        console.log("api end status:", status);
+        if (status === "success") {
+          alert("报名成功！");
+        }
+      } else {
+        console.log("here");
+
+        const msg = error[Object.keys(error)[0]].errors[0].message;
+        alert(msg);
+      }
+    });
+  };
   updateCount = count => {
     // console.log("math", Math);
     let tmp = (count / 2) << 0;
@@ -226,71 +295,99 @@ export default class Submit extends Component {
     this.updateCount(count);
   };
   componentDidMount() {
-    // var swiper = new Swiper(".pics.swiper-container", {
-    //   effect: "flip",
-    //   grabCursor: true,
-    //   autoplay: {
-    //     delay: 2500,
-    //     disableOnInteraction: false
-    //   }
-    // });
+    ani({
+      targets: this.form.current,
+      translateY: [400, 0],
+      delay: 500
+    });
   }
   render() {
-    const { count, truePrice, falsePrice } = this.state;
+    const { count, truePrice, falsePrice, waitingSecondLeft } = this.state;
+    const { getFieldDecorator } = this.props.form;
     return (
-      <Content ref={this.wrapper}>
-        <h1 className="title">立即报名</h1>
+      <Content>
+        <UnderLineTitle title="立即报名" fs="1.4rem" />
 
         <div className="info">
           <time>2019.03.28</time>
           <p className="addr">河北省廊坊市xxxx路xxxx街会议中心</p>
         </div>
-        <form action="">
-          <div className="form">
-            <p className="input">
-              <input name="name" placeholder="姓 名" />
+        <div className="form" ref={this.form}>
+          <p className="input">
+            {getFieldDecorator("name", {
+              rules: [
+                {
+                  required: true,
+                  message: "请输入姓名"
+                }
+              ]
+            })(<input placeholder="姓 名" />)}
+          </p>
+          <p className="input mobile">
+            {getFieldDecorator("mobile", {
+              rules: [
+                { required: true, message: "请输入手机号" },
+                {
+                  pattern: /^[1][0-9][0-9]{9}$/,
+                  message: "请输入正确的手机号"
+                }
+              ]
+            })(<input placeholder="手机号" />)}
+            <button className="codeBtn" onClick={this.onGetCode}>
+              {waitingSecondLeft > 0
+                ? `重新发送${waitingSecondLeft}`
+                : `获取验证码`}
+            </button>
+          </p>
+          <p className="input">
+            {getFieldDecorator("verifycode", {
+              rules: [
+                { required: true, message: "请输入验证码" },
+                {
+                  min: 4,
+                  message: "请输入正确的验证码"
+                }
+              ]
+            })(<input placeholder="手机验证码" />)}
+          </p>
+          <p className="input">
+            {getFieldDecorator("school_name", {
+              rules: [{ required: true, message: "请输入幼儿园名称" }]
+            })(<input placeholder="幼儿园名称" />)}
+          </p>
+          <div className="input num">
+            <input disabled placeholder="参会人数" />
+            <p className="count">
+              <i onClick={this.onMinusCount} className="m">
+                -
+              </i>
+              <input
+                type="number"
+                onChange={this.onCountChange}
+                value={count}
+              />
+              <i onClick={this.onAddCount} className="p">
+                +
+              </i>
             </p>
-            <p className="input mobile">
-              <input name="mobile" placeholder="手机号" />
-              <button className="codeBtn">获取验证码</button>
+            <p className="tip">
+              <span>单 价：100元/人</span>
+              <span>优惠价：150元/两人</span>
             </p>
-            <p className="input">
-              <input name="code" placeholder="手机验证码" />
-            </p>
-            <p className="input">
-              <input name="garden" placeholder="幼儿园名称" />
-            </p>
-            <div className="input num">
-              <input name="garden" disabled placeholder="参会人数" />
-              <p className="count">
-                <i onClick={this.onMinusCount} className="m">
-                  -
-                </i>
-                <input
-                  onChange={this.onCountChange}
-                  type="number"
-                  value={count}
-                />
-                <i onClick={this.onAddCount} className="p">
-                  +
-                </i>
-              </p>
-              <p className="tip">
-                <span>单 价：100元/人</span>
-                <span>优惠价：150元/两人</span>
-              </p>
-            </div>
-            <p className="input cost">
-              <input name="garden" disabled placeholder="费  用" />
-              <span className="price">
-                <span className="true">{truePrice}元</span>
-                <span className="false">{falsePrice}元</span>
-              </span>
-            </p>
-            <button className="submitBtn">提 交</button>
           </div>
-        </form>
+          <p className="input cost">
+            <input name="garden" disabled placeholder="费  用" />
+            <span className="price">
+              <span className="true">{truePrice}元</span>
+              <span className="false">{falsePrice}元</span>
+            </span>
+          </p>
+          <button className="submitBtn" onClick={this.onSubmit}>
+            提 交
+          </button>
+        </div>
       </Content>
     );
   }
 }
+export default createForm()(Submit);

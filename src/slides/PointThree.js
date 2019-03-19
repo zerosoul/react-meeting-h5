@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import ani from "animejs";
 import BtmImg from "../assets/img/point.three.png";
+import UnderLineTitle from "../component/UnderLineTitle";
 
 const Content = styled.div`
   display: flex;
@@ -11,21 +12,15 @@ const Content = styled.div`
   justify-content: center;
   color: #fff;
   height: 100vh;
+  padding: 3rem 2rem;
   background: url(${BtmImg});
   background-size: 100%;
   background-position: 0 100%;
   background-repeat: no-repeat;
 
-  .title {
-    color: #ff6a1c;
-    font-size: 1rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin: -4rem 2rem 2rem 2rem;
-  }
   .circles {
     display: flex;
-    margin: 0 2rem 2rem 2rem;
+    margin-bottom: 2rem;
 
     .circle {
       display: flex;
@@ -52,7 +47,7 @@ const Content = styled.div`
   .lines {
     color: #666;
     font-size: 0.8rem;
-    margin: 0 2rem 2rem 2rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -79,7 +74,7 @@ export default class PointThree extends PureComponent {
   render() {
     return (
       <Content ref={this.wrapper}>
-        <p className="title">亮点三：教师专业化成长</p>
+        <UnderLineTitle title="亮点三：教师专业化成长" />
         <div className="circles">
           <p className="circle">
             <span>教师</span>

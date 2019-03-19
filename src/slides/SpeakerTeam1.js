@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Card from "../component/ProfileCard";
 
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
+
 import ChaoImg from "../assets/img/speaker.dongzc.png";
 import LongImg from "../assets/img/speaker.zhangyanlong.png";
 import KeImg from "../assets/img/speaker.huangke.png";
@@ -15,13 +17,7 @@ const Content = styled.div`
   color: #fff;
   padding: 4rem 1rem 0 1rem;
   height: 100vh;
-  .title {
-    color: #ff6a1c;
-    font-size: 1.2rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 0.4rem;
-  }
+
   .subTitle {
     color: #4d4d4d;
     font-size: 0.8rem;
@@ -42,19 +38,20 @@ export default class SpeakerTeam1 extends PureComponent {
     this.wrapper = React.createRef();
   }
   componentDidMount() {
-    const wrapper = this.wrapper.current;
-    const eles = wrapper.querySelectorAll(".profile .avatar,.profile .intro");
-    ani({
-      targets: eles,
-      delay: (el, i) => i * 90,
-      opacity: [0, 1]
-    });
+    // const wrapper = this.wrapper.current;
+    // const eles = wrapper.querySelectorAll(">div");
+    // ani({
+    //   targets: eles,
+    //   delay: (el, i) => i * 90,
+    //   opacity: [0, 1]
+    // });
   }
 
   render() {
     return (
       <Content ref={this.wrapper}>
-        <h1 className="title">壹点壹滴金牌讲师团队</h1>
+        <UnderLineTitle title="壹点壹滴金牌讲师团队" mb=".4rem" />
+
         <h2 className="subTitle">手把手教您开好园，助您成功转型！</h2>
         <Card
           avatar={ChaoImg}

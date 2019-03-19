@@ -2,6 +2,9 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
+
+import Floating from "../component/Floating";
 import GiftImg from "../assets/img/gift.png";
 import PromiseImg from "../assets/img/promise.png";
 
@@ -12,13 +15,7 @@ const Content = styled.div`
   color: #fff;
   padding: 5rem 2rem;
   height: 100vh;
-  > .title {
-    color: #ff6a1c;
-    font-size: 1rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 2rem;
-  }
+
   .promises {
     position: relative;
     text-align: center;
@@ -48,6 +45,7 @@ const Content = styled.div`
     z-index: 1;
     width: 10rem;
     margin-bottom: 2rem;
+    animation: 4s ${Floating} ease-in-out infinite;
   }
   .tips {
     z-index: 1;
@@ -63,11 +61,28 @@ export default class Promises extends PureComponent {
     super();
     this.wrapper = React.createRef();
   }
+  componentDidMount() {
+    const wrapper = this.wrapper.current;
+    const tips = wrapper.querySelectorAll(".tips .tip");
+    const slogan = wrapper.querySelector(".slogan");
+    const tl = ani.timeline();
+    tl.add({
+      targets: slogan,
+      scale: [8, 1],
+      opacity: [0, 1],
+      easing: "easeInOutBack"
+    }).add({
+      targets: tips,
+      opacity: [0, 1],
+      translateX: [-400, 0]
+    });
+  }
 
   render() {
     return (
       <Content ref={this.wrapper}>
-        <h1 className="title">未来十年生死存亡，本场会议决定!</h1>
+        <UnderLineTitle title="未来十年生死存亡，本场会议决定!" />
+
         <div className="promises">
           <p className="promise title">我们承诺!</p>
           <p className="promise">

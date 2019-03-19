@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Swiper from "swiper";
 // components
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
 import DotLine from "../component/DotLine";
 
 const Content = styled.div`
@@ -13,13 +14,6 @@ const Content = styled.div`
   padding: 6rem 3rem;
   height: 100vh;
 
-  > .title {
-    color: #ff6a1c;
-    font-size: 1rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 3rem;
-  }
   .subTitle {
     color: #666;
     text-align: center;
@@ -71,7 +65,7 @@ export default class Waiting extends PureComponent {
   render() {
     return (
       <Content ref={this.wrapper}>
-        <h1 className="title">您还在等什么?</h1>
+        <UnderLineTitle title="您还在等什么?" />
 
         <div className="subTitle">
           <p>互联网智慧幼儿园让您省心省事又省钱!</p>

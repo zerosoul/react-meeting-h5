@@ -2,23 +2,20 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
+import Floating from "../component/Floating";
+
 import BtmImg from "../assets/img/point.two.png";
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   color: #fff;
   padding: 4rem 2rem;
   height: 100vh;
-  .title {
-    color: #ff6a1c;
-    font-size: 1rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 2rem;
-  }
+
   .lines {
     color: #666;
     font-size: 0.8rem;
@@ -39,6 +36,7 @@ const Content = styled.div`
     z-index: 1;
     img {
       width: 80%;
+      animation: 4s ${Floating} ease-in-out infinite;
     }
   }
 `;
@@ -51,7 +49,7 @@ export default class PointTwo extends PureComponent {
   render() {
     return (
       <Content ref={this.wrapper}>
-        <p className="title">亮点二：家长满意度飙升</p>
+        <UnderLineTitle title="亮点二：家长满意度飙升" />
         <div className="lines">
           <p className="line">家园之间不理解、缺信任、无协同！</p>
           <p className="line">家长满意度低，家园关系一碰就碎！?</p>

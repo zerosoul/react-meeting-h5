@@ -2,6 +2,8 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
+
 import WangImg from "../assets/img/bigman.wang.png";
 import DengImg from "../assets/img/bigman.deng.png";
 import ZhangImg from "../assets/img/bigman.zhang.png";
@@ -13,13 +15,7 @@ const Content = styled.div`
   color: #fff;
   padding: 4rem 2rem;
   height: 100vh;
-  > .title {
-    color: #ff6a1c;
-    font-size: 1rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 1rem;
-  }
+
   .blocks {
     display: flex;
     flex-direction: column;
@@ -39,7 +35,7 @@ const Content = styled.div`
         position: absolute;
         bottom: 0;
         right: 1rem;
-        width: 6rem;
+        width: 4.4rem;
       }
       &.reverse {
         flex-direction: row-reverse;
@@ -118,7 +114,8 @@ export default class BigMan extends PureComponent {
   render() {
     return (
       <Content ref={this.wrapper}>
-        <h1 className="title">幼教大咖助力园长 赢在“新幼教”时代</h1>
+        <UnderLineTitle title="幼教大咖助力园长 赢在“新幼教”时代" fs=".9rem" />
+
         <div className="blocks">
           <div className="block">
             <p className="intro">

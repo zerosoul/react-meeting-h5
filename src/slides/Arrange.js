@@ -2,6 +2,8 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
+
 import TelIcon from "../assets/img/icon.tel.png";
 import AddrIcon from "../assets/img/icon.addr.png";
 
@@ -12,14 +14,6 @@ const Content = styled.div`
   color: #fff;
   padding: 6rem 2rem;
   height: 100vh;
-
-  > .title {
-    color: #ff6a1c;
-    font-size: 1rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 3rem;
-  }
   .arranges {
     color: #666;
     font-size: 0.8rem;
@@ -105,7 +99,7 @@ export default class Arrange extends PureComponent {
   render() {
     return (
       <Content ref={this.wrapper}>
-        <h1 className="title">课程安排</h1>
+        <UnderLineTitle title="课程安排" />
         <div className="arranges">
           <div className="arrange">
             <p className="title">上午场</p>

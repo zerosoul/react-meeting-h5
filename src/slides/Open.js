@@ -2,6 +2,9 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 import ani from "animejs";
+import Floating from "../component/Floating";
+import UnderLineTitle from "../component/UnderLineTitle";
+
 import DotLine from "../component/DotLine";
 import OpenImg from "../assets/img/open.png";
 
@@ -13,12 +16,7 @@ const Content = styled.div`
   color: #fff;
   padding: 2rem;
   height: 100vh;
-  .title {
-    font-size: 1.2rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ffa71f;
-    margin-bottom: 2rem;
-  }
+
   .open {
     display: flex;
     flex-direction: column;
@@ -38,6 +36,7 @@ const Content = styled.div`
     text-align: center;
 
     img {
+      animation: 4s ${Floating} ease-in infinite;
       width: 80%;
     }
   }
@@ -51,7 +50,12 @@ export default class Intro extends PureComponent {
   render() {
     return (
       <Content ref={this.wrapper}>
-        <p className="title">四大亮点，您不得不来!</p>
+        <UnderLineTitle
+          title="四大亮点，您不得不来!"
+          fs="1.2rem"
+          fc="#fff"
+          bg="#ffa71f"
+        />
         <div className="open">
           <h2 className="desc">一场改变幼教人命运的课程</h2>
           <h1>马上开幕!</h1>

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Card from "../component/ProfileCard";
 
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
+
 import SunImg from "../assets/img/speaker.sq.png";
 import ZhuImg from "../assets/img/speaker.zhuxy.png";
 import QiImg from "../assets/img/speaker.qixi.png";
@@ -15,13 +17,7 @@ const Content = styled.div`
   color: #fff;
   padding: 4rem 2rem 0 2rem;
   height: 100vh;
-  .title {
-    color: #ff6a1c;
-    font-size: 1rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 0.4rem;
-  }
+
   .subTitle {
     color: #4d4d4d;
     font-size: 0.8rem;
@@ -55,7 +51,8 @@ export default class SpeakerTeam2 extends PureComponent {
   render() {
     return (
       <Content ref={this.wrapper}>
-        <h1 className="title">壹点壹滴金牌讲师团队</h1>
+        <UnderLineTitle title="壹点壹滴金牌讲师团队" mb=".4rem" />
+
         <h2 className="subTitle">手把手教您开好园，助您成功转型！</h2>
         <Card
           avatar={SunImg}

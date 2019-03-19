@@ -2,6 +2,8 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
+
 import Demo1Img from "../assets/img/mobile.demo.1.png";
 import Demo2Img from "../assets/img/mobile.demo.2.png";
 import DotLine from "../component/DotLine";
@@ -15,13 +17,6 @@ const Content = styled.div`
   padding-bottom: 0;
   height: 100vh;
 
-  > .title {
-    color: #ff6a1c;
-    font-size: 1rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 2rem;
-  }
   .brands {
     display: flex;
     width: 100%;
@@ -95,11 +90,22 @@ export default class EnableGarden extends PureComponent {
     super();
     this.wrapper = React.createRef();
   }
-
+  componentDidMount() {
+    const wrapper = this.wrapper.current;
+    const brands = wrapper.querySelectorAll(".brands .brand");
+    const tl = ani.timeline();
+    tl.add({
+      targets: brands,
+      opacity: [0, 1],
+      translateY: [-300, 0],
+      delay: (ele, i) => i * 100
+    });
+  }
   render() {
     return (
       <Content ref={this.wrapper}>
-        <h1 className="title">互联网赋能幼儿园</h1>
+        <UnderLineTitle title="互联网赋能幼儿园" />
+
         <div className="brands">
           <p className="brand">
             <span className="no">No.1</span>

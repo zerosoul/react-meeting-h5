@@ -1,6 +1,7 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import styled from "styled-components";
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
 
 import VideoPoster from "../assets/img/video.poster.png";
 
@@ -9,14 +10,7 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 4rem 2rem;
-  .title {
-    font-weight: 600;
-    font-size: 1rem;
-    text-align: center;
-    color: #ff6a1c;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 1.6rem;
-  }
+
   .bubbles {
     position: relative;
     margin: 10px auto;
@@ -225,7 +219,7 @@ export default class Where extends React.Component {
     const { playing } = this.state;
     return (
       <Content ref={this.wrapper}>
-        <div className="title">内外交困，民办园该何去何从?</div>
+        <UnderLineTitle title="内外交困，民办园该何去何从?" mb="1.4rem" />
         <div className="bubbles">
           <p className="bubble word yellow more">
             <span>幼儿园</span>

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Swiper from "swiper";
 // components
 import ani from "animejs";
+import UnderLineTitle from "../component/UnderLineTitle";
+
 import Demo1Img from "../assets/img/demo.1.png";
 import Demo2Img from "../assets/img/mobile.demo.2.png";
 import NumImg from "../assets/img/15000.png";
@@ -16,13 +18,6 @@ const Content = styled.div`
   padding: 6.4rem 2rem;
   height: 100vh;
 
-  > .title {
-    color: #ff6a1c;
-    font-size: 1.2rem;
-    font-weight: 800;
-    box-shadow: inset 0 -0.4em #ccc;
-    margin-bottom: 2rem;
-  }
   .subTitle {
     color: #666;
     text-align: center;
@@ -54,19 +49,18 @@ export default class Legend extends PureComponent {
     this.wrapper = React.createRef();
   }
   componentDidMount() {
-    // var swiper = new Swiper(".pics.swiper-container", {
-    //   effect: "flip",
-    //   grabCursor: true,
-    //   autoplay: {
-    //     delay: 2500,
-    //     disableOnInteraction: false
-    //   }
-    // });
+    const wrapper = this.wrapper.current;
+    const numEle = wrapper.querySelector(".num");
+    ani({
+      targets: numEle,
+      opacity: [0, 1],
+      translateY: [400, 0]
+    });
   }
   render() {
     return (
       <Content ref={this.wrapper}>
-        <h1 className="title">壹点壹滴正在创造幼教界传奇</h1>
+        <UnderLineTitle title="壹点壹滴正在创造幼教界传奇" fs="1.1rem" />
 
         <div className="subTitle">
           <p>短短八个月时间 </p>

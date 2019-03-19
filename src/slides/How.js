@@ -2,12 +2,15 @@ import React, { PureComponent } from "react";
 import styled from "styled-components";
 import ani from "animejs";
 // 组件
+import Floating from "../component/Floating";
+
 import DotLine from "../component/DotLine";
 import HowImg from "../assets/img/how.png";
 import Icon1 from "../assets/img/how.icon.1.png";
 import Icon2 from "../assets/img/how.icon.2.png";
 import Icon3 from "../assets/img/how.icon.3.png";
 import Icon4 from "../assets/img/how.icon.4.png";
+import UnderLine from "../component/UnderLineTitle";
 
 const Content = styled.div`
   display: flex;
@@ -45,20 +48,10 @@ const Content = styled.div`
       height: 11rem;
       right: -12rem;
       top: -2rem;
+      animation: 4s ${Floating} ease-in-out infinite;
     }
   }
 
-  .answer {
-    font-size: 1rem;
-    font-weight: 800;
-    margin-bottom: 2rem;
-    box-shadow: inset 0 -0.4em #ccc;
-    color: #ff6a1c;
-    overflow: hidden;
-    .letter {
-      display: inline-block;
-    }
-  }
   .tips {
     display: flex;
     flex-wrap: wrap;
@@ -135,7 +128,7 @@ export default class Intro extends PureComponent {
           </div>
           <img src={HowImg} className="pic" alt="怎么办配图" />
         </div>
-        <p className="answer">借助互联网轻松实现</p>
+        <UnderLine title="借助互联网轻松实现" />
         <div className="tips">
           <p className="tip orange">
             <img src={Icon1} alt="图标" />

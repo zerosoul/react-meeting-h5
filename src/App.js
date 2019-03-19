@@ -51,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
   }
   *{
     box-sizing:border-box;
+    outline:none;
   }
   html{
     -webkit-font-smoothing: antialiased;
@@ -275,7 +276,7 @@ class App extends Component {
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
-                  <WaveBg height="5rem" />
+                  <WaveBg height="4.4rem" />
 
                   {slides[16] && (
                     <>
