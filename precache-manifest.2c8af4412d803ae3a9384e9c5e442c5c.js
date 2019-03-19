@@ -1,23 +1,27 @@
 self.__precacheManifest = [
   {
-    "revision": "33b9d5a6ba432ede6a5b",
+    "revision": "21782ef64829f30fbdd0",
     "url": "/react-meeting-h5/static/css/main.51b5d043.chunk.css"
   },
   {
-    "revision": "33b9d5a6ba432ede6a5b",
-    "url": "/react-meeting-h5/static/js/main.33b9d5a6.chunk.js"
+    "revision": "21782ef64829f30fbdd0",
+    "url": "/react-meeting-h5/static/js/main.21782ef6.chunk.js"
   },
   {
     "revision": "e6684f1735952a7f2a00",
     "url": "/react-meeting-h5/static/js/runtime~main.e6684f17.js"
   },
   {
-    "revision": "90420d81f71e2a30abe9",
-    "url": "/react-meeting-h5/static/js/2.90420d81.chunk.js"
+    "revision": "6042db28d5b82776e092",
+    "url": "/react-meeting-h5/static/js/2.6042db28.chunk.js"
   },
   {
     "revision": "c546f7ccc57373a7726c19f3f79bea21",
     "url": "/react-meeting-h5/static/media/mobile.demo.2.c546f7cc.png"
+  },
+  {
+    "revision": "6b6ff9333492d5d81348c36b21c3ac74",
+    "url": "/react-meeting-h5/static/media/demo.1.6b6ff933.png"
   },
   {
     "revision": "2d41ebb546a34830b4d22319681a7742",
@@ -104,10 +108,6 @@ self.__precacheManifest = [
     "url": "/react-meeting-h5/static/media/mobile.demo.1.18d57c45.png"
   },
   {
-    "revision": "6b6ff9333492d5d81348c36b21c3ac74",
-    "url": "/react-meeting-h5/static/media/demo.1.6b6ff933.png"
-  },
-  {
     "revision": "f6db349a0a96a7c47a677fcf5013bee2",
     "url": "/react-meeting-h5/static/media/15000.f6db349a.png"
   },
@@ -128,7 +128,7 @@ self.__precacheManifest = [
     "url": "/react-meeting-h5/static/media/speaker.lyx.20c8c2bf.png"
   },
   {
-    "revision": "5fe2a94c0e7ce6238a866d14e1081154",
+    "revision": "dbf01e98d0e0521d150a5b0afc7de06f",
     "url": "/react-meeting-h5/index.html"
   }
 ];
