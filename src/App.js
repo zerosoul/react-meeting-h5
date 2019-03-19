@@ -141,7 +141,8 @@ class App extends Component {
         double_price,
         single_price,
         meeting_agenda,
-        area
+        area,
+        agent_info: { real_name, mobile }
       },
       submitList
     } = this.state;
@@ -271,7 +272,12 @@ class App extends Component {
 
                   {slides[12] && (
                     <>
-                      <Arrange addr={address} list={meeting_agenda} />
+                      <Arrange
+                        addr={address}
+                        list={meeting_agenda}
+                        name={real_name}
+                        mobile={mobile}
+                      />
                     </>
                   )}
                 </SlideWrapper>

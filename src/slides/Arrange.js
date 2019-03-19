@@ -98,7 +98,7 @@ export default class Arrange extends PureComponent {
   }
 
   render() {
-    const { addr, list = [] } = this.props;
+    const { addr, list = [], name, mobile } = this.props;
     return (
       <Content ref={this.wrapper}>
         <UnderLineTitle title="课程安排" />
@@ -146,7 +146,7 @@ export default class Arrange extends PureComponent {
         </div>
         <div className="info">
           <p className="tel">
-            王老师 <a href="tel:12345678901">12345678901</a>
+            {name} <a href="tel:12345678901">{mobile}</a>
           </p>
           <p className="addr">{addr}</p>
         </div>
