@@ -142,11 +142,11 @@ class App extends Component {
         single_price,
         meeting_agenda,
         area,
-        agent_info: { real_name, mobile }
+        agent_info = {}
       },
       submitList
     } = this.state;
-
+    const { real_name = "", mobile = "" } = agent_info;
     console.log("slides array", slides);
 
     return (
