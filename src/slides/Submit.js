@@ -4,6 +4,7 @@ import { createForm, formShape } from "rc-form";
 // components
 import ani from "animejs";
 import UnderLineTitle from "../component/UnderLineTitle";
+import KeyboardBug from "../component/KeyboardBug";
 
 import ClockIcon from "../assets/img/icon.clock.png";
 import AddrIcon from "../assets/img/icon.addr.png";
@@ -297,6 +298,7 @@ class Submit extends Component {
   };
   componentDidMount() {
     const { single } = this.props;
+
     this.setState({
       falsePrice: single,
       truePrice: single
@@ -393,6 +395,7 @@ class Submit extends Component {
             提 交
           </button>
         </div>
+        <KeyboardBug />
       </Content>
     );
   }

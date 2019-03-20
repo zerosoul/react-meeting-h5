@@ -77,7 +77,7 @@ const Content = styled.div`
   .demos {
     z-index: 1;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 90%;
     overflow: hidden;
     .demo {

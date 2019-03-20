@@ -44,7 +44,7 @@ const Content = styled.div`
   }
   .gift {
     z-index: 1;
-    width: 10rem;
+    width: 12rem;
     margin-bottom: 2rem;
     animation: 4s ${Floating} ease-in-out infinite;
   }

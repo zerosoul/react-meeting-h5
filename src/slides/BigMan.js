@@ -37,7 +37,7 @@ const Content = styled.div`
         position: absolute;
         bottom: 0;
         right: 1rem;
-        width: 5rem;
+        width: 6rem;
       }
       &.reverse {
         flex-direction: row-reverse;
@@ -65,7 +65,7 @@ const Content = styled.div`
           color: #ff6a14;
           font-weight: bold;
           position: absolute;
-          top: -1.4rem;
+          top: -1.6rem;
           left: 0;
           font-size: 1rem;
           i {
@@ -74,7 +74,7 @@ const Content = styled.div`
           }
         }
         .title {
-          font-size: 0.8rem;
+          font-size: 0.7rem;
           font-weight: bold;
         }
       }
@@ -105,10 +105,10 @@ export default class BigMan extends PureComponent {
       })
       .add({
         targets: intros,
-        translateY: [-100, 0],
+        scale: [0, 1],
         opacity: [0, 1],
-        duration: 300,
-        easing: "linear",
+        duration: 400,
+        // easing: "linear",
         delay: (ele, i) => i * 50
       });
   }

@@ -283,7 +283,7 @@ class App extends Component {
                 </SlideWrapper>
                 <SlideWrapper className="swiper-slide">
                   <Bookmark />
-                  <WaveBg />
+                  <WaveBg height="7rem" />
 
                   {slides[13] && (
                     <>
