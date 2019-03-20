@@ -54,6 +54,7 @@ const Content = styled.div`
         border-radius: 0.2rem;
         padding: 0.3rem 0.6rem;
         box-sizing: border-box;
+        line-height: 1.4;
         width: 15rem;
 
         &:disabled {
@@ -240,7 +241,7 @@ class Submit extends Component {
   };
   onSubmit = evt => {
     evt.preventDefault();
-    const { count, truePrice, waitingSecondLeft } = this.state;
+    const { count, truePrice } = this.state;
     // if (waitingSecondLeft > 0) {
     //   alert("验证码还在数秒ing");
     // }
@@ -315,7 +316,7 @@ class Submit extends Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <Content>
-        <UnderLineTitle title="立即报名" fs="1.4rem" />
+        <UnderLineTitle title="立即报名" fs="1.4rem" mb="1rem" />
 
         <div className="info">
           <time>{time}</time>

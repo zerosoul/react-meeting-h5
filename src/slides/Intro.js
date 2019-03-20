@@ -107,7 +107,7 @@ const Content = styled.div`
     justify-content: space-between;
     align-items: center;
     background-image: url(${CloudImg});
-    background-size: contain;
+    background-size: 100% 100%;
     background-position-y: bottom;
     background-repeat: no-repeat;
     width: 100%;

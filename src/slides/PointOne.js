@@ -12,7 +12,7 @@ const Content = styled.div`
   align-items: flex-start;
   justify-content: center;
   color: #fff;
-  padding: 2rem;
+  padding: 0 2rem;
   padding-top: 4rem;
   height: 100vh;
 

@@ -19,7 +19,7 @@ const WaveBg = styled.div`
     right: 0;
     background-repeat: no-repeat;
     height: 12px;
-    background-size: 100%;
+    background-size: 100% 100%;
     background-image: url(${WaveImg});
   }
 `;
