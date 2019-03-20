@@ -62,7 +62,12 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
 }
 
-@media screen and (min-width: 375px){
+  @media screen and (min-width: 320px){
+      html {
+          font-size: 16px;   
+      }
+  }
+  @media screen and (min-width: 375px){
       html {
           font-size: 18px;   
       }
