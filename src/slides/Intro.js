@@ -111,14 +111,14 @@ const Content = styled.div`
     background-position-y: bottom;
     background-repeat: no-repeat;
     width: 100%;
-    height: 8rem;
+    height: 6rem;
     .logo {
       width: 3.4rem;
       margin-left: 2rem;
-      margin-top: 3rem;
+      margin-top: 2.6rem;
     }
     .info {
-      margin-top: 3rem;
+      margin-top: 2.6rem;
       color: #ff741c;
       border-left: 0.3rem solid #ff741c;
       padding-left: 0.3rem;

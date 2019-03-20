@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import MusicImg from "../assets/img/music.svg";
+import MusicWhiteImg from "../assets/img/music.white.svg";
 // import BgMusic from "../assets/bg.mp3";
 const rotation = keyframes`
   from {
@@ -71,10 +72,11 @@ export default class Music extends React.Component {
   };
   render() {
     const { playing } = this.state;
+    const { isWhite = false } = this.props;
     return (
       <Wrapper onClick={this.onTogglePlay}>
         <img
-          src={MusicImg}
+          src={isWhite ? MusicWhiteImg : MusicImg}
           alt="音乐图片"
           className={playing ? `playing` : `playing paused`}
         />
