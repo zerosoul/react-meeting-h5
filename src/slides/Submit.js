@@ -58,9 +58,7 @@ const Content = styled.div`
         width: 15rem;
 
         &:disabled {
-          &::placeholder {
-            opacity: 1;
-          }
+          opacity: 1;
         }
         &::placeholder {
           font-size: 0.8rem;
@@ -342,7 +340,7 @@ class Submit extends Component {
                   message: "请输入正确的手机号"
                 }
               ]
-            })(<input placeholder="手机号" />)}
+            })(<input type="tel" placeholder="手机号" />)}
             <button className="codeBtn" onClick={this.onGetCode}>
               {waitingSecondLeft > 0
                 ? `重新发送${waitingSecondLeft}`
@@ -358,7 +356,7 @@ class Submit extends Component {
                   message: "请输入正确的验证码"
                 }
               ]
-            })(<input placeholder="手机验证码" />)}
+            })(<input type="number" placeholder="手机验证码" />)}
           </p>
           <p className="input">
             {getFieldDecorator("school_name", {
