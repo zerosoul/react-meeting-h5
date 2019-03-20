@@ -80,6 +80,7 @@ const Content = styled.div`
     justify-content: space-around;
     width: 90%;
     overflow: hidden;
+    transform: translate3d(0, 0, 0);
     .demo {
       width: 6rem;
     }

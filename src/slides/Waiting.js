@@ -27,6 +27,7 @@ const Content = styled.div`
   }
   .gardens {
     z-index: 1;
+    transform: translate3d(0, 0, 0);
     .title {
       color: #ffb121;
       font-size: 0.8rem;

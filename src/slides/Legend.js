@@ -40,6 +40,7 @@ const Content = styled.div`
     overflow: hidden;
     border: 0.4rem solid #fdb037;
     border-radius: 0.8rem;
+    transform: translate3d(0, 0, 0);
     img {
       width: 100%;
     }
