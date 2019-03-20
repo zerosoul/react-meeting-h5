@@ -8,7 +8,7 @@ const Title = styled.h2`
   border-radius: 0.4rem;
   font-weight: 800;
   font-size: 0.8rem;
-  line-height: 1.2;
+  line-height: 1.4;
   padding: 0.3rem 0.6rem;
 `;
 export default class DepartmentTitle extends PureComponent {
@@ -17,12 +17,7 @@ export default class DepartmentTitle extends PureComponent {
     this.titleEle = React.createRef();
   }
   componentDidMount() {
-    console.log("letters");
-
     const title = this.titleEle.current;
-
-    // const tl = ani.timeline({ loop: true });
-
     ani({
       targets: title,
       translateY: [-200, 0],
