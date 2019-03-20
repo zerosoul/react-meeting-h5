@@ -20,6 +20,7 @@ const Content = styled.div`
   .brands {
     display: flex;
     width: 100%;
+    align-items: center;
     justify-content: space-evenly;
     margin-bottom: 1rem;
     font-size: 0.8rem;

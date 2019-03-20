@@ -114,7 +114,7 @@ export const postMeetingInfo = data =>
     const { meetingid, ...rest } = data;
     request({
       type: "post",
-      url: `survey/index/${meetingid}`,
+      url: `enroll/index/${meetingid}`,
       data: rest,
       end: (status, response) => {
         resolve({ status, response });
