@@ -52,8 +52,8 @@ export default class Legend extends PureComponent {
     this.wrapper = React.createRef();
   }
   componentDidMount() {
-    var swiper = new Swiper(".pics .swiper-container", {
-      // effect: "flip",
+    new Swiper(".pics .swiper-container", {
+      effect: "fade",
       // grabCursor: true,
       autoplay: {
         delay: 2000,

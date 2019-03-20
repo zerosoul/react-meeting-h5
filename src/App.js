@@ -98,11 +98,14 @@ class App extends Component {
   }
 
   initSwiper = () => {
+    let effects = ["coverflow", "fade", "slide", "flip"];
+    let effect = effects[Math.floor(Math.random() * effects.length)];
     this.setState({
       whiteMusic: true
     });
     const mySwiper = new Swiper(".swiper-container", {
       // Optional parameters
+      effect,
       direction: "vertical",
       loop: false
     });
