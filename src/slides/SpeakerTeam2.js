@@ -60,7 +60,7 @@ export default class SpeakerTeam2 extends PureComponent {
           name="朱宣颖"
           descs={[
             "《绝对成交》销售理论创立者",
-            "MBA共商管理硕士",
+            "MBA工商管理硕士",
             "中国互联网教育协会特聘顾问"
           ]}
         />

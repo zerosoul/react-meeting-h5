@@ -40,6 +40,10 @@ const request = options => {
           status = "success";
           response = res.data.data;
           break;
+        case 10004:
+          status = "fail";
+          response = res.data.data;
+          break;
 
         default:
           if (res.status == 200) {

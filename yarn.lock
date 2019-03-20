@@ -914,6 +914,11 @@
     "@types/unist" "*"
     "@types/vfile-message" "*"
 
+"@ungap/url-search-params@^0.1.2":
+  version "0.1.2"
+  resolved "http://registry.npm.taobao.org/@ungap/url-search-params/download/@ungap/url-search-params-0.1.2.tgz#8ba8c0527543fe675d1c29ae0a2daca842e8ee4f"
+  integrity sha1-i6jAUnVD/mddHCmuCi2sqELo7k8=
+
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
   resolved "http://registry.npm.taobao.org/@webassemblyjs/ast/download/@webassemblyjs/ast-1.7.11.tgz#b988582cafbb2b095e8b556526f30c90d057cace"

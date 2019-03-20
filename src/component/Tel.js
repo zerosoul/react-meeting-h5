@@ -33,9 +33,10 @@ export default class Tel extends PureComponent {
     });
   }
   render() {
+    const { mobile } = this.props;
     return (
       <Wrapper ref={this.tel}>
-        <a href="tel:18201385848">电话咨询</a>
+        <a href={`tel:${mobile}`}>电话咨询</a>
       </Wrapper>
     );
   }

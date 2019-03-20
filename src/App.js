@@ -3,12 +3,13 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import { hot } from "react-hot-loader/root";
 import Swiper from "swiper";
+import URLSearchParams from "@ungap/url-search-params";
 // 组件
 // import BaseFontSize from "./component/BaseFontSize";
 import Music from "./component/Music";
 import Signup from "./component/Signup";
 import Tel from "./component/Tel";
-import Loading from "./component/Loading.js";
+// import Loading from "./component/Loading.js";
 import SlideWrapper from "./component/SliderWrapper";
 import WaveBg from "./component/WaveBg";
 import Bookmark from "./component/Bookmark";
@@ -119,7 +120,9 @@ class App extends Component {
     });
   };
   async componentDidMount() {
-    const { status, response } = await getMeetingDetail();
+    const params = new URLSearchParams(window.location.search);
+    const mid = params.get("mid") || 1;
+    const { status, response } = await getMeetingDetail(mid);
     if (status === "success") {
       this.setState({
         meetingDetail: response
@@ -149,11 +152,11 @@ class App extends Component {
         single_price,
         meeting_agenda,
         area,
-        agent_info = {}
+        agent_info
       },
       submitList
     } = this.state;
-    const { real_name = "", mobile = "" } = agent_info;
+    const { real_name = "", mobile = "" } = agent_info || {};
     console.log("slides array", slides);
 
     return (
@@ -161,7 +164,7 @@ class App extends Component {
         <GlobalStyle />
 
         <Music isWhite={whiteMusic} />
-        <Tel />
+        {mobile && <Tel mobile={mobile} />}
         <Signup currSwiper={mySwiper} />
         {/* <!-- Slider main container --> */}
         <div className="swiper-container">
