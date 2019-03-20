@@ -138,6 +138,8 @@ const Content = styled.div`
     border: 0.6rem solid #ff6a1c;
     border-radius: 0.4rem;
     position: relative;
+    height: 10rem;
+    overflow: hidden;
     .playIcon {
       z-index: 999;
       background: #fff;
@@ -165,6 +167,7 @@ const Content = styled.div`
     video {
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 `;
@@ -258,6 +261,11 @@ export default class Where extends React.Component {
           {!playing && <i className="playIcon" onClick={this.onVideoClick} />}
           <video
             onClick={this.onVideoClick}
+            onPause={() => {
+              this.setState({
+                playing: false
+              });
+            }}
             ref={this.video}
             controls={false}
             autoPlay={false}

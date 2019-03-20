@@ -35,29 +35,15 @@ import { getMeetingDetail, getSubmitList } from "./actions";
 const GlobalStyle = createGlobalStyle`
   ${reset}
  
-  @media screen and (min-width: 375px){
-      html {
-          font-size: 14.0625px;   
-      }
-  }
-  @media screen and (min-width: 360px){
-      html {
-          font-size: 13.5px;
-      }
-  }
-  @media screen and (min-width: 320px){
-      html {
-          font-size: 12px;
-      }
-  }
   *{
     box-sizing:border-box;
     outline:none;
+    -webkit-text-size-adjust: none;
   }
   html{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 16px;
+    font-size: 18px;
     font-weight:400;
     color:#fff;
     font-family:"Fangzheng ZY", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
@@ -74,6 +60,22 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
     overflow: hidden;
 }
+
+@media screen and (min-width: 320px){
+      html {
+          font-size: 16px;   
+      }
+  }
+  @media screen and (min-width: 480px){
+      html {
+          font-size: 18px;
+      }
+  }
+  @media screen and (min-width: 768px){
+      html {
+          font-size: 20px;
+      }
+  }
 `;
 class App extends Component {
   state = {
