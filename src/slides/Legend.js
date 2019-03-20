@@ -86,7 +86,7 @@ export default class Legend extends PureComponent {
                 <img src={Demo1Img} alt="demo2" className="demo" />
               </div>
               <div class="swiper-slide">
-                <img src={Demo1Img} alt="demo2" className="demo" />
+                <img src={Demo2Img} alt="demo2" className="demo" />
               </div>
             </div>
           </div>

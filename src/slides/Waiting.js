@@ -60,6 +60,7 @@ export default class Waiting extends PureComponent {
     var swiper = new Swiper(".gardens .swiper-container", {
       // effect: "flip",
       // grabCursor: true,
+      loop: true,
       direction: "vertical",
       autoplay: {
         delay: 2500,

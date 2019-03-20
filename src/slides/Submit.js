@@ -240,6 +240,7 @@ class Submit extends Component {
   onSubmit = evt => {
     evt.preventDefault();
     const { count, truePrice } = this.state;
+    const { mid } = this.props;
     // if (waitingSecondLeft > 0) {
     //   alert("验证码还在数秒ing");
     // }
@@ -248,7 +249,7 @@ class Submit extends Component {
       if (!error) {
         values.person_num = count;
         values.price = truePrice;
-        values.meetingid = 1;
+        values.meetingid = mid;
         console.log("api start:");
         const { status } = await postMeetingInfo(values);
         console.log("api end status:", status);
@@ -310,7 +311,7 @@ class Submit extends Component {
   }
   render() {
     const { count, truePrice, falsePrice, waitingSecondLeft } = this.state;
-    const { addr, time, single, double } = this.props;
+    const { addr, time, single, double, mid } = this.props;
     const { getFieldDecorator } = this.props.form;
     return (
       <Content>

@@ -137,7 +137,8 @@ class App extends Component {
     const wxHead = params.get("headimgurl") || "";
     this.setState({
       nickname,
-      wxHead
+      wxHead,
+      mid
     });
     const { status, response } = await getMeetingDetail(mid);
     if (status === "success") {
@@ -173,7 +174,8 @@ class App extends Component {
       },
       submitList,
       nickname,
-      wxHead
+      wxHead,
+      mid
     } = this.state;
     const { real_name = "", mobile = "" } = agent_info || {};
     console.log("slides array", slides);
@@ -295,6 +297,7 @@ class App extends Component {
                   addr={address}
                   single={parseInt(single_price)}
                   double={parseInt(double_price)}
+                  mid={mid}
                 />
               )}
             </SlideWrapper>

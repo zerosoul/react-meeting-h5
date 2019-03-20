@@ -1,5 +1,5 @@
 import axios from "axios";
-const APIDomain = "http://wechatapi.1d1d100.net";
+import { API_DOMAIN } from "./config";
 
 const request = options => {
   const {
@@ -7,7 +7,7 @@ const request = options => {
     data, //数据体
     url, //请求地址
     end, //请求结束事件
-    origin = APIDomain
+    origin = API_DOMAIN
   } = options;
 
   let status = "error";
