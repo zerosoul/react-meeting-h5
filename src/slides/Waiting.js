@@ -25,26 +25,27 @@ const Content = styled.div`
       margin-top: 0.8rem;
     }
   }
-  .submited {
-    color: #ffb121;
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    align-self: flex-start;
-  }
   .gardens {
     z-index: 1;
-    font-size: 0.8rem;
-    width: 16rem;
-    height: 10rem;
-    overflow: hidden;
-    border: 0.2rem solid #fdb037;
-    border-radius: 0.8rem;
-    padding: 1.6rem 1rem;
-    background: #fff;
-    ul {
-      color: #666;
-      li {
-        line-height: 2;
+    .title {
+      color: #ffb121;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .listWrapper {
+      font-size: 0.8rem;
+      width: 16rem;
+      height: 10rem;
+      overflow: hidden;
+      border: 0.2rem solid #fdb037;
+      border-radius: 0.8rem;
+      padding: 1.6rem 1rem;
+      background: #fff;
+      ul {
+        color: #666;
+        li {
+          line-height: 2;
+        }
       }
     }
   }
@@ -75,33 +76,29 @@ export default class Waiting extends PureComponent {
           <p>互联网智慧幼儿园让您省心省事又省钱!</p>
           <DotLine width={"100%"} background="#fdb749" className="line" />
         </div>
-        <p className="submited">本次会议已报名园所</p>
         <div className="gardens">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              {submitList.map(item => {
-                const maskName =
-                  item.name[0] +
-                  new Array(item.name.length - 1).fill("*").join("");
-                return (
-                  <div class="swiper-slide">
-                    <ul key={item.id}>
-                      <li>所属区域：{item.town_id}</li>
-                      <li>园所名称：{item.school_name}</li>
-                      <li>园长姓名：{maskName}</li>
-                      <li>参会人数：{item.person_num}人</li>
-                    </ul>
-                  </div>
-                );
-              })}
+          <h2 className="title">本次会议已报名园所</h2>
+          <div className="listWrapper">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                {submitList.map(item => {
+                  const maskName =
+                    item.name[0] +
+                    new Array(item.name.length - 1).fill("*").join("");
+                  return (
+                    <div class="swiper-slide">
+                      <ul key={item.id}>
+                        <li>所属区域：{item.town_id}</li>
+                        <li>园所名称：{item.school_name}</li>
+                        <li>园长姓名：{maskName}</li>
+                        <li>参会人数：{item.person_num}人</li>
+                      </ul>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-          <ul>
-            <li>所属区域：廊坊</li>
-            <li>园所名称：小太阳幼儿园</li>
-            <li>园长姓名：张**</li>
-            <li>参会人数：2人</li>
-          </ul>
         </div>
       </Content>
     );
