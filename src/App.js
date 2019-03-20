@@ -61,19 +61,19 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
 }
 
-@media screen and (min-width: 320px){
+@media screen and (min-width: 375px){
       html {
-          font-size: 16px;   
+          font-size: 18px;   
       }
   }
   @media screen and (min-width: 480px){
       html {
-          font-size: 18px;
+          font-size: 20px;
       }
   }
   @media screen and (min-width: 768px){
       html {
-          font-size: 20px;
+          font-size: 22px;
       }
   }
 `;

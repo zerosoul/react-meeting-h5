@@ -60,6 +60,8 @@ const Content = styled.div`
     overflow: hidden;
     width: 11rem;
     z-index: 1;
+    transform: translate3d(0, 0, 0);
+
     .tip {
       display: flex;
       flex-direction: column;
