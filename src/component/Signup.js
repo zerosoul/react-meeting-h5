@@ -3,7 +3,7 @@ import styled from "styled-components";
 import anime from "animejs";
 
 const Wrapper = styled.div`
-  z-index: 9999;
+  z-index: 98;
   position: absolute;
   top: 9.2rem;
   right: 0.1rem;

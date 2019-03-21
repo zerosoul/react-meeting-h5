@@ -200,7 +200,9 @@ class Submit extends Component {
       count: 1,
       truePrice: 100,
       falsePrice: 100,
-      waitingSecondLeft: 0
+      waitingSecondLeft: 0,
+      submitting: false,
+      showModal: false
     };
   }
   onGetCode = async () => {
@@ -245,6 +247,11 @@ class Submit extends Component {
       }
     );
   };
+  onCloseModal = () => {
+    this.setState({
+      showModal: false
+    });
+  };
   onSubmit = evt => {
     evt.preventDefault();
     const { count, truePrice } = this.state;
@@ -253,6 +260,9 @@ class Submit extends Component {
     this.props.form.validateFields(async (error, values) => {
       // console.log(error, values);
       if (!error) {
+        this.setState({
+          submitting: true
+        });
         values.person_num = count;
         values.price = truePrice;
         values.meetingid = mid;
@@ -260,11 +270,10 @@ class Submit extends Component {
         const { status } = await postMeetingInfo(values);
         console.log("api end status:", status);
         if (status === "success") {
-          // return ReactDOM.createPortal(
-          //   QRModal,
-          //   document.querySelector("#modal-root")
-          // );
-          alert("报名成功！");
+          this.props.form.resetFields(["mobile"]);
+          this.setState({
+            showModal: true
+          });
         }
       } else {
         console.log("here");
@@ -272,6 +281,10 @@ class Submit extends Component {
         const msg = error[Object.keys(error)[0]].errors[0].message;
         alert(msg);
       }
+      //重置提交状态
+      this.setState({
+        submitting: false
+      });
     });
   };
   updateCount = count => {
@@ -320,94 +333,110 @@ class Submit extends Component {
     });
   }
   render() {
-    const { count, truePrice, falsePrice, waitingSecondLeft } = this.state;
+    const {
+      count,
+      truePrice,
+      falsePrice,
+      waitingSecondLeft,
+      showModal,
+      submitting
+    } = this.state;
     const { addr, time, single, double } = this.props;
     const { getFieldDecorator } = this.props.form;
     return (
-      <Content className="submitSlide">
-        <UnderLineTitle title="立即报名" fs="1.4rem" mb="1rem" />
+      <>
+        {showModal && (
+          <QRModal qr={""} name={"wtf"} onCloseModal={this.onCloseModal} />
+        )}
+        <Content className="submitSlide">
+          <UnderLineTitle title="立即报名" fs="1.4rem" mb="1rem" />
 
-        <div className="info">
-          <time>{time}</time>
-          <p className="addr">{addr}</p>
-        </div>
-        <div className="form" ref={this.form}>
-          <p className="input">
-            {getFieldDecorator("name", {
-              rules: [
-                {
-                  required: true,
-                  message: "请输入姓名"
-                }
-              ]
-            })(<input placeholder="姓 名" />)}
-          </p>
-          <p className="input mobile">
-            {getFieldDecorator("mobile", {
-              rules: [
-                { required: true, message: "请输入手机号" },
-                {
-                  pattern: /^[1][0-9][0-9]{9}$/,
-                  message: "请输入正确的手机号"
-                }
-              ]
-            })(<input type="tel" placeholder="手机号" />)}
-            <button className="codeBtn" onClick={this.onGetCode}>
-              {waitingSecondLeft > 0
-                ? `重新发送${waitingSecondLeft}`
-                : `获取验证码`}
-            </button>
-          </p>
-          <p className="input">
-            {getFieldDecorator("verifycode", {
-              rules: [
-                { required: true, message: "请输入验证码" },
-                {
-                  min: 4,
-                  message: "请输入正确的验证码"
-                }
-              ]
-            })(<input type="number" placeholder="手机验证码" />)}
-          </p>
-          <p className="input">
-            {getFieldDecorator("school_name", {
-              rules: [{ required: true, message: "请输入幼儿园名称" }]
-            })(<input placeholder="幼儿园名称" />)}
-          </p>
-          <div className="input num">
-            <input disabled placeholder="参会人数:" />
-            <p className="count">
-              <i onClick={this.onMinusCount} className="m">
-                -
-              </i>
-              <input
-                type="number"
-                min={1}
-                onChange={this.onCountChange}
-                value={count}
-              />
-              <i onClick={this.onAddCount} className="p">
-                +
-              </i>
-            </p>
-            <p className="tip">
-              <span>单 价：{single}元/人</span>
-              <span>优惠价：{double}元/两人</span>
-            </p>
+          <div className="info">
+            <time>{time}</time>
+            <p className="addr">{addr}</p>
           </div>
-          <p className="input cost">
-            <input name="garden" disabled placeholder="费  用:" />
-            <span className="price">
-              <span className="true">{truePrice}元</span>
-              <span className="false">{falsePrice}元</span>
-            </span>
-          </p>
-          <button className="submitBtn" onClick={this.onSubmit}>
-            提 交
-          </button>
-        </div>
-        <KeyboardBug />
-      </Content>
+          <div className="form" ref={this.form}>
+            <p className="input">
+              {getFieldDecorator("name", {
+                rules: [
+                  {
+                    required: true,
+                    message: "请输入姓名"
+                  }
+                ]
+              })(<input type="text" placeholder="姓 名" />)}
+            </p>
+            <p className="input mobile">
+              {getFieldDecorator("mobile", {
+                rules: [
+                  { required: true, message: "请输入手机号" },
+                  {
+                    pattern: /^[1][0-9][0-9]{9}$/,
+                    message: "请输入正确的手机号"
+                  }
+                ]
+              })(<input type="tel" placeholder="手机号" />)}
+              <button className="codeBtn" onClick={this.onGetCode}>
+                {waitingSecondLeft > 0
+                  ? `重新发送${waitingSecondLeft}`
+                  : `获取验证码`}
+              </button>
+            </p>
+            <p className="input">
+              {getFieldDecorator("verifycode", {
+                rules: [
+                  { required: true, message: "请输入验证码" },
+                  {
+                    min: 4,
+                    message: "请输入正确的验证码"
+                  }
+                ]
+              })(<input type="number" placeholder="手机验证码" />)}
+            </p>
+            <p className="input">
+              {getFieldDecorator("school_name", {
+                rules: [{ required: true, message: "请输入幼儿园名称" }]
+              })(<input type="text" placeholder="幼儿园名称" />)}
+            </p>
+            <div className="input num">
+              <input disabled placeholder="参会人数:" />
+              <p className="count">
+                <i onClick={this.onMinusCount} className="m">
+                  -
+                </i>
+                <input
+                  type="number"
+                  min={1}
+                  onChange={this.onCountChange}
+                  value={count}
+                />
+                <i onClick={this.onAddCount} className="p">
+                  +
+                </i>
+              </p>
+              <p className="tip">
+                <span>单 价：{single}元/人</span>
+                <span>优惠价：{double}元/两人</span>
+              </p>
+            </div>
+            <p className="input cost">
+              <input name="garden" disabled placeholder="费  用:" />
+              <span className="price">
+                <span className="true">{truePrice}元</span>
+                <span className="false">{falsePrice}元</span>
+              </span>
+            </p>
+            <button
+              disabled={submitting}
+              className="submitBtn"
+              onClick={this.onSubmit}
+            >
+              {submitting ? `提交中` : `提 交`}
+            </button>
+          </div>
+          <KeyboardBug />
+        </Content>
+      </>
     );
   }
 }
