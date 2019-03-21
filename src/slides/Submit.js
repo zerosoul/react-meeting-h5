@@ -317,10 +317,10 @@ class Submit extends Component {
   }
   render() {
     const { count, truePrice, falsePrice, waitingSecondLeft } = this.state;
-    const { addr, time, single, double, mid } = this.props;
+    const { addr, time, single, double } = this.props;
     const { getFieldDecorator } = this.props.form;
     return (
-      <Content>
+      <Content className="submitSlide">
         <UnderLineTitle title="立即报名" fs="1.4rem" mb="1rem" />
 
         <div className="info">

@@ -49,8 +49,13 @@ const GlobalStyle = createGlobalStyle`
     font-weight:400;
     color:#fff;
     font-family:"Fangzheng ZY", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
-    &.andorid .btmBg{
+    &.andorid {
+      .submitSlide{
+        padding-bottom:0;
+      }
+      .btmBg{
        display:none;
+      }
     }
   }
   body{
