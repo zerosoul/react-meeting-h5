@@ -39,7 +39,7 @@ export default class WxShareConfig extends PureComponent {
       "getLocation"
     ];
     wx.config({
-      debug: false, // turn on debug mode, call all return value of api, which will be in alert in client's end. To view the incoming parameters, this cane be opened on a pc, the parameter information will be displayed through a log, only to be printed on a pc.
+      debug: true, // turn on debug mode, call all return value of api, which will be in alert in client's end. To view the incoming parameters, this cane be opened on a pc, the parameter information will be displayed through a log, only to be printed on a pc.
       appId, // Required, the only identification of Official account.
       timestamp, // Required, generate a signed timestamp
       nonceStr, // Required, generate a signed nonceStr
