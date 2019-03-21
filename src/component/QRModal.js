@@ -90,7 +90,7 @@ export default class QRModal extends Component {
     ani({
       targets: card,
       opacity: [0, 1],
-      rotateY: [-90, 0],
+      translateY: [-300, 0],
       duration: 1000
     });
   }
