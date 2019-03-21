@@ -49,31 +49,31 @@ const ConfigWxShare = async (mid = 1) => {
   });
   wx.ready(function() {
     window.WEIXIN_SHARE = true;
-  });
-  wx.onMenuShareTimeline({
-    title, // Share title
-    link, // Share link, this link domain name and path must be the same as the current page which corresponding to JS secured domain name as Official account
-    imgUrl, // Share icons.
-    success: function() {
-      // The user confirms the callback function that was executed after sharing
-    },
-    cancel: function() {
-      // The user cancels the callback function that was executed after sharing
-    }
-  });
-  wx.onMenuShareAppMessage({
-    title, // Share title
-    desc, // Share description
-    link, // Share Link,this link domain name and path must be the same as the current page which corresponding to JS secured domain name as Official account
-    imgUrl, // Share Icon
-    // type: "", // Share type, music, video link, not filled default link
-    // dataUrl: "", // If type is music or video, provide data links, the default is empty
-    success: function() {
-      // The user confirms the callback function that was executed after sharing
-    },
-    cancel: function() {
-      // The user cancels the callback function that was executed after sharing
-    }
+    wx.onMenuShareTimeline({
+      title, // Share title
+      link, // Share link, this link domain name and path must be the same as the current page which corresponding to JS secured domain name as Official account
+      imgUrl, // Share icons.
+      success: function() {
+        // The user confirms the callback function that was executed after sharing
+      },
+      cancel: function() {
+        // The user cancels the callback function that was executed after sharing
+      }
+    });
+    wx.onMenuShareAppMessage({
+      title, // Share title
+      desc, // Share description
+      link, // Share Link,this link domain name and path must be the same as the current page which corresponding to JS secured domain name as Official account
+      imgUrl, // Share Icon
+      // type: "", // Share type, music, video link, not filled default link
+      // dataUrl: "", // If type is music or video, provide data links, the default is empty
+      success: function() {
+        // The user confirms the callback function that was executed after sharing
+      },
+      cancel: function() {
+        // The user cancels the callback function that was executed after sharing
+      }
+    });
   });
 };
 export default ConfigWxShare;
