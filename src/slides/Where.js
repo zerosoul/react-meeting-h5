@@ -270,7 +270,7 @@ export default class Where extends React.Component {
             controls={false}
             autoPlay={false}
             poster={VideoPoster}
-            src="http://img001.ddweilai.com/Zhaoshengwang/yijian.mp4"
+            src="http://img001.ddweilai.com/Guankongdian/shipin.mp4"
             alt="宣传视频"
           />
         </div>

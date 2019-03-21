@@ -49,6 +49,9 @@ const GlobalStyle = createGlobalStyle`
     font-weight:400;
     color:#fff;
     font-family:"Fangzheng ZY", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+    &.andorid .btmBg{
+       display:none;
+    }
   }
   body{
     max-width:720px;
@@ -293,7 +296,7 @@ class App extends Component {
             </SlideWrapper>
             <SlideWrapper className="swiper-slide">
               <Bookmark />
-              <WaveBg height="4.4rem" />
+              <WaveBg className="btmBg" height="4.4rem" />
 
               {slides[16] && (
                 <Submit
