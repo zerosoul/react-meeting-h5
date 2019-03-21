@@ -187,7 +187,7 @@ class App extends Component {
     return (
       <>
         <GlobalStyle />
-        <WxShareConfig addr={area} mid={mid} />
+        <WxShareConfig mid={mid} />
         <Music isWhite={whiteMusic} />
         {mobile && <Tel mobile={mobile} />}
         <Signup currSwiper={mySwiper} />
