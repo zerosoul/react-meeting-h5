@@ -91,7 +91,7 @@ export default class Waiting extends PureComponent {
                   return (
                     <div class="swiper-slide">
                       <ul key={item.id}>
-                        <li>所属区域：{item.town_id}</li>
+                        <li>报名时间：{item.enroll_time}</li>
                         <li>园所名称：{item.school_name}</li>
                         <li>园长姓名：{maskName}</li>
                         <li>参会人数：{item.person_num}人</li>
