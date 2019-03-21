@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { createForm } from "rc-form";
 // components
 import ani from "animejs";
 import UnderLineTitle from "../component/UnderLineTitle";
 import KeyboardBug from "../component/KeyboardBug";
+import QRModal from "../component/QRModal";
 
 import ClockIcon from "../assets/img/icon.clock.png";
 import AddrIcon from "../assets/img/icon.addr.png";
@@ -247,9 +249,7 @@ class Submit extends Component {
     evt.preventDefault();
     const { count, truePrice } = this.state;
     const { mid } = this.props;
-    // if (waitingSecondLeft > 0) {
-    //   alert("验证码还在数秒ing");
-    // }
+
     this.props.form.validateFields(async (error, values) => {
       // console.log(error, values);
       if (!error) {
@@ -260,6 +260,10 @@ class Submit extends Component {
         const { status } = await postMeetingInfo(values);
         console.log("api end status:", status);
         if (status === "success") {
+          // return ReactDOM.createPortal(
+          //   QRModal,
+          //   document.querySelector("#modal-root")
+          // );
           alert("报名成功！");
         }
       } else {
