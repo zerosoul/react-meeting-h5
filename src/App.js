@@ -52,6 +52,7 @@ const GlobalStyle = createGlobalStyle`
     &.andorid {
       .submitSlide{
         padding-bottom:0;
+        padding-top:2rem;
       }
       .btmBg{
        display:none;
