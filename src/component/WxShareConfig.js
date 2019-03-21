@@ -3,9 +3,7 @@ import { initWX } from "../actions";
 // import shareImg from "../assets/img/shareImg.jpg";
 
 const ConfigWxShare = async (mid = 1) => {
-  const { response: WxConfig } = await initWX(
-    `${window.location.href}&ts=${new Date().getTime()}`
-  );
+  const { response: WxConfig } = await initWX(`${window.location.href}`);
   console.log("wtf", WxConfig);
   if (window.WEIXIN_SHARE === true) return;
   let { appId, timestamp, nonceStr, signature } = WxConfig;
@@ -36,7 +34,7 @@ const ConfigWxShare = async (mid = 1) => {
     "downloadVoice",
     "getLocation"
   ];
-  alert("wx配置");
+  // alert("wx配置");
   wx.config({
     debug: false, // turn on debug mode, call all return value of api, which will be in alert in client's end. To view the incoming parameters, this cane be opened on a pc, the parameter information will be displayed through a log, only to be printed on a pc.
     appId, // Required, the only identification of Official account.
