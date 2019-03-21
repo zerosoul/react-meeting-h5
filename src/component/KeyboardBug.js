@@ -20,24 +20,24 @@ export default class KeyboardBug extends PureComponent {
     document.documentElement.classList.add("andorid");
   };
   componentDidMount() {
-    if (this.isAndroid) {
-      this.inputs = document.querySelectorAll(".swiper-slide input");
-      console.log("inputs", this.inputs);
+    this.inputs = document.querySelectorAll(".swiper-slide input");
+    console.log("inputs", this.inputs);
 
-      this.inputs.forEach(input => {
-        input.addEventListener("blur", this.onHandleBlur);
+    this.inputs.forEach(input => {
+      input.addEventListener("blur", this.onHandleBlur);
+      if (this.isAndroid) {
         input.addEventListener("focus", this.onHandleFocus);
-      });
-    }
+      }
+    });
   }
   componentWillUnmount() {
-    if (this.isAndroid) {
-      this.inputs.forEach(input => {
-        input.removeEventListener("blur", this.onHandleBlur);
+    this.inputs.forEach(input => {
+      input.removeEventListener("blur", this.onHandleBlur);
+      if (this.isAndroid) {
         input.removeEventListener("focus", this.onHandleFocus);
-        console.log("input listener removed");
-      });
-    }
+      }
+      console.log("input listener removed");
+    });
   }
   render() {
     return null;
