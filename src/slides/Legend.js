@@ -54,6 +54,9 @@ export default class Legend extends PureComponent {
   componentDidMount() {
     new Swiper(".pics .swiper-container", {
       effect: "fade",
+      fadeEffect: {
+        crossFade: true
+      },
       // grabCursor: true,
       autoplay: {
         delay: 2000,

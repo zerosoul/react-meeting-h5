@@ -37,7 +37,7 @@ const Content = styled.div`
         position: absolute;
         bottom: 0;
         right: 1rem;
-        width: 6rem;
+        width: 5rem;
       }
       &.reverse {
         flex-direction: row-reverse;

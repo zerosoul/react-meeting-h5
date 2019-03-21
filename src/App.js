@@ -11,6 +11,7 @@ import Signup from "./component/Signup";
 import Tel from "./component/Tel";
 // import Loading from "./component/Loading.js";
 import SlideWrapper from "./component/SliderWrapper";
+import WxShareConfig from "./component/WxShareConfig";
 import WaveBg from "./component/WaveBg";
 import Bookmark from "./component/Bookmark";
 // 幻灯片
@@ -105,6 +106,7 @@ class App extends Component {
     });
     const mySwiper = new Swiper(".swiper-container", {
       // Optional parameters
+      // preventInteractionOnTransition: true,
       effect,
       direction: "vertical",
       loop: false
@@ -183,7 +185,7 @@ class App extends Component {
     return (
       <>
         <GlobalStyle />
-
+        <WxShareConfig addr={area} mid={mid} />
         <Music isWhite={whiteMusic} />
         {mobile && <Tel mobile={mobile} />}
         <Signup currSwiper={mySwiper} />

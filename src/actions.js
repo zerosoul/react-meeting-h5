@@ -38,7 +38,7 @@ const request = options => {
       switch (res.data.code) {
         case 0:
           status = "success";
-          response = res.data.data;
+          response = res.data.data || res.data;
           break;
         case 10004:
           status = "fail";
@@ -116,6 +116,16 @@ export const postMeetingInfo = data =>
       type: "post",
       url: `enroll/index/${meetingid}`,
       data: rest,
+      end: (status, response) => {
+        resolve({ status, response });
+      }
+    });
+  });
+// 微信配置
+export const initWX = url =>
+  new Promise(resolve => {
+    request({
+      url: `weixin/jssdkconf?url=${encodeURIComponent(url)}`,
       end: (status, response) => {
         resolve({ status, response });
       }
