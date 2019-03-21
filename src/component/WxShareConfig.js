@@ -46,6 +46,10 @@ export default class WxShareConfig extends PureComponent {
       signature, // Required, signature. See Appendix 1
       jsApiList // Required, required JA interface list, all JS interface list, see Appendix 2
     });
+    wx.error(function(res) {
+      // config information failure will execute error function, such as expired signature to cause verification failure, the error message can be viewed via debug mode in config, also be viewed via returned res parameter. SPA can renew signature here.
+      alert(JSON.stringify(res));
+    });
     wx.onMenuShareTimeline({
       title, // Share title
       link, // Share link, this link domain name and path must be the same as the current page which corresponding to JS secured domain name as Official account
