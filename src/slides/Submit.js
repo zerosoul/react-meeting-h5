@@ -59,6 +59,12 @@ const Content = styled.div`
 
         &:disabled {
           opacity: 1;
+          background: transparent;
+          box-shadow: none;
+          padding: 0.3rem 0.2rem;
+          &::placeholder {
+            color: #fd762f;
+          }
         }
         &::placeholder {
           font-size: 0.8rem;
@@ -365,7 +371,7 @@ class Submit extends Component {
             })(<input placeholder="幼儿园名称" />)}
           </p>
           <div className="input num">
-            <input disabled placeholder="参会人数" />
+            <input disabled placeholder="参会人数:" />
             <p className="count">
               <i onClick={this.onMinusCount} className="m">
                 -
@@ -385,7 +391,7 @@ class Submit extends Component {
             </p>
           </div>
           <p className="input cost">
-            <input name="garden" disabled placeholder="费  用" />
+            <input name="garden" disabled placeholder="费  用:" />
             <span className="price">
               <span className="true">{truePrice}元</span>
               <span className="false">{falsePrice}元</span>

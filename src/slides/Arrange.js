@@ -110,40 +110,13 @@ export default class Arrange extends PureComponent {
                   <p className="title">{item.name}</p>
                   <p className="detail">
                     <time>{item.time}</time>
-                    <span className="desc">
-                      描述描述描述描述描述描述描述描述描述
-                    </span>
+                    {/* <span className="desc">
+                      描述
+                    </span> */}
                   </p>
                 </div>
               );
             })}
-          {/* <div className="arrange">
-            <p className="title">上午场</p>
-            <p className="detail">
-              <time>9:00-10:00</time>
-              <span className="desc">
-                我是课程描述描述描述我是课程描述描述描述
-              </span>
-            </p>
-          </div>
-          <div className="arrange">
-            <p className="title">上午场</p>
-            <p className="detail">
-              <time>9:00-10:00</time>
-              <span className="desc">
-                我是课程描述描述描述我是课程描述描述描述
-              </span>
-            </p>
-          </div>
-          <div className="arrange">
-            <p className="title">下午场</p>
-            <p className="detail">
-              <time>9:00-10:00</time>
-              <span className="desc">
-                我是课程描述描述描述我是课程描述描述描述
-              </span>
-            </p>
-          </div> */}
         </div>
         <div className="info">
           <p className="tel">
