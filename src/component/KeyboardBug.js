@@ -22,13 +22,13 @@ export default class KeyboardBug extends PureComponent {
 
     this.inputs.forEach(input => {
       input.addEventListener("blur", this.onHandleBlur);
-      input.addEventListener("focus", this.onHandleFocus);
+      // input.addEventListener("focus", this.onHandleFocus);
     });
   }
   componentWillUnmount() {
     this.inputs.forEach(input => {
       input.removeEventListener("blur", this.onHandleBlur);
-      input.removeEventListener("focus", this.onHandleFocus);
+      // input.removeEventListener("focus", this.onHandleFocus);
       console.log("input listener removed");
     });
   }
