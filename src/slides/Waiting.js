@@ -61,6 +61,7 @@ export default class Waiting extends PureComponent {
       // effect: "flip",
       // grabCursor: true,
       loop: true,
+      nested: true,
       direction: "vertical",
       autoplay: {
         delay: 2500,

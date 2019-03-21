@@ -40,10 +40,10 @@ const Content = styled.div`
       background: #ddd;
       z-index: -1;
       &.topLeft {
-        width: 1rem;
-        height: 1rem;
-        left: -1.2rem;
-        top: -1.6rem;
+        width: 0.6rem;
+        height: 0.6rem;
+        left: 0;
+        top: 0;
         background-image: linear-gradient(-90deg, #fc5531, #fd7e30);
       }
       &.topRight {
@@ -56,16 +56,16 @@ const Content = styled.div`
       &.btmLeft {
         width: 2rem;
         height: 2rem;
-        left: -1rem;
-        bottom: -1rem;
+        left: 0.5rem;
+        bottom: -0.5rem;
         background-image: linear-gradient(45deg, #fc5531, #fd7e30);
         z-index: 1;
       }
       &.btmRight {
         width: 1.6rem;
         height: 1.6rem;
-        right: -1rem;
-        bottom: 0;
+        right: 0.9rem;
+        bottom: 0.6rem;
         background-image: linear-gradient(-90deg, #fc5531, #fd7e30);
       }
     }
@@ -194,7 +194,7 @@ export default class Intro extends PureComponent {
           scale: [0, 1],
           opacity: [0, 1]
         },
-        "-=800"
+        "-=1000"
       )
       .add({
         targets: letters,

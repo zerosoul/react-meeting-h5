@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import MusicImg from "../assets/img/music.svg";
 import MusicWhiteImg from "../assets/img/music.white.svg";
-// import BgMusic from "../assets/bg.mp3";
+import BgMusic from "../assets/bgm.mp3";
 const rotation = keyframes`
   from {
       transform: rotate(0deg);
@@ -87,7 +87,7 @@ export default class Music extends React.Component {
           autoPlay={true}
           loop={true}
           ref={this.bgMusic}
-          src="http://www.170hi.com/kw/other.web.nu01.sycdn.kuwo.cn/resource/n1/34/26/611434910.mp3"
+          src={BgMusic}
         />
       </Wrapper>
     );

@@ -5,10 +5,16 @@ import Swiper from "swiper";
 import ani from "animejs";
 import UnderLineTitle from "../component/UnderLineTitle";
 
-import Demo1Img from "../assets/img/demo.1.png";
-import Demo2Img from "../assets/img/mobile.demo.2.png";
+import Scene1Img from "../assets/img/scene.1.jpg";
+import Scene2Img from "../assets/img/scene.2.jpg";
+import Scene3Img from "../assets/img/scene.3.jpg";
+import Scene4Img from "../assets/img/scene.4.jpg";
+import Scene5Img from "../assets/img/scene.5.jpg";
+import Scene6Img from "../assets/img/scene.6.jpg";
 import NumImg from "../assets/img/15000.png";
 import DotLine from "../component/DotLine";
+
+const Imgs = [Scene1Img, Scene2Img, Scene3Img, Scene4Img, Scene5Img, Scene6Img];
 
 const Content = styled.div`
   display: flex;
@@ -36,7 +42,7 @@ const Content = styled.div`
   .pics {
     z-index: 1;
     width: 15rem;
-    height: 11rem;
+    height: 10rem;
     overflow: hidden;
     border: 0.4rem solid #fdb037;
     border-radius: 0.8rem;
@@ -85,12 +91,13 @@ export default class Legend extends PureComponent {
         <div className="pics">
           <div class="swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src={Demo1Img} alt="demo2" className="demo" />
-              </div>
-              <div class="swiper-slide">
-                <img src={Demo2Img} alt="demo2" className="demo" />
-              </div>
+              {Imgs.map((img, i) => {
+                return (
+                  <div class="swiper-slide" key={i}>
+                    <img src={img} alt={`demo1${i}`} className="demo" />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
