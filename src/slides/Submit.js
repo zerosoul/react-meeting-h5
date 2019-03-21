@@ -378,6 +378,7 @@ class Submit extends Component {
               </i>
               <input
                 type="number"
+                min={1}
                 onChange={this.onCountChange}
                 value={count}
               />
