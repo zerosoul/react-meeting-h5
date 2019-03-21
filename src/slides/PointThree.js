@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 
 import ani from "animejs";
@@ -65,7 +65,7 @@ const Content = styled.div`
     align-self: center;
   }
 `;
-export default class PointThree extends PureComponent {
+export default class PointThree extends Component {
   constructor() {
     super();
     this.wrapper = React.createRef();

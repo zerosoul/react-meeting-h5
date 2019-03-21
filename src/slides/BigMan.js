@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 
 import ani from "animejs";
@@ -81,7 +81,7 @@ const Content = styled.div`
     }
   }
 `;
-export default class BigMan extends PureComponent {
+export default class BigMan extends Component {
   constructor() {
     super();
     this.wrapper = React.createRef();

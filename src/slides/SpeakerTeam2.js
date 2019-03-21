@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import Card from "../component/ProfileCard";
 
@@ -25,7 +25,7 @@ const Content = styled.div`
     margin-bottom: 1rem;
   }
 `;
-export default class SpeakerTeam2 extends PureComponent {
+export default class SpeakerTeam2 extends Component {
   constructor() {
     super();
     this.wrapper = React.createRef();

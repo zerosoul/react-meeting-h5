@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import Swiper from "swiper";
 // components
@@ -51,7 +51,7 @@ const Content = styled.div`
     }
   }
 `;
-export default class Waiting extends PureComponent {
+export default class Waiting extends Component {
   constructor() {
     super();
     this.wrapper = React.createRef();

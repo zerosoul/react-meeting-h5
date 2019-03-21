@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import DotLine from "../component/DotLine";
 import styled from "styled-components";
 import LogoImg from "../assets/img/logo.png";
@@ -139,7 +139,7 @@ const Content = styled.div`
     }
   }
 `;
-export default class Intro extends PureComponent {
+export default class Intro extends Component {
   constructor() {
     super();
     this.wrapper = React.createRef();

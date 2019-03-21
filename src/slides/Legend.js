@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import Swiper from "swiper";
 // components
@@ -52,7 +52,7 @@ const Content = styled.div`
     }
   }
 `;
-export default class Legend extends PureComponent {
+export default class Legend extends Component {
   constructor() {
     super();
     this.wrapper = React.createRef();

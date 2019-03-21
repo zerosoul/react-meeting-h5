@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { createForm, formShape } from "rc-form";
+import { createForm } from "rc-form";
 // components
 import ani from "animejs";
 import UnderLineTitle from "../component/UnderLineTitle";

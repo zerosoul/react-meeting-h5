@@ -1,4 +1,4 @@
-import React, { PureComponent, useRef } from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import ani from "animejs";
 // 组件
@@ -94,14 +94,13 @@ const Content = styled.div`
     }
   }
 `;
-export default class Intro extends PureComponent {
-  // constructor() {
-  //   super();
-  //   // this.wrapper = React.createRef();
-  // }
+export default class Intro extends Component {
+  constructor() {
+    super();
+    this.wrapper = React.createRef();
+  }
   componentDidMount() {
-    const block = useRef(null);
-    const wrapper = block.current;
+    const wrapper = this.wrapper.current;
     wrapper.querySelectorAll(".lines .line").forEach(node => {
       console.log("node", node);
 
@@ -121,7 +120,7 @@ export default class Intro extends PureComponent {
   }
   render() {
     return (
-      <Content ref={this.block}>
+      <Content ref={this.wrapper}>
         <div className="top">
           <div className="lines">
             <p className="line">老套路，效果差!</p>
