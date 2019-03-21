@@ -3,7 +3,9 @@ import { initWX } from "../actions";
 // import shareImg from "../assets/img/shareImg.jpg";
 
 const ConfigWxShare = async (mid = 1) => {
-  const { response: WxConfig } = await initWX(window.location.href);
+  const { response: WxConfig } = await initWX(
+    `${window.location.href}&ts=${new Date().getTime()}`
+  );
   console.log("wtf", WxConfig);
   if (window.WEIXIN_SHARE === true) return;
   let { appId, timestamp, nonceStr, signature } = WxConfig;
