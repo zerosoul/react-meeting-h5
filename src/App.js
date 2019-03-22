@@ -322,6 +322,7 @@ class App extends Component {
                   double={parseInt(double_price)}
                   mid={mid}
                   qr={meeting_qr_code}
+                  mobile={mobile}
                 />
               )}
             </SlideWrapper>

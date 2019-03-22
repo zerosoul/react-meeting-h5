@@ -344,12 +344,17 @@ class Submit extends Component {
       showModal,
       submitting
     } = this.state;
-    const { addr, time, single, double, qr } = this.props;
+    const { addr, time, single, double, qr, mobile } = this.props;
     const { getFieldDecorator } = this.props.form;
     return (
       <>
         {showModal && (
-          <QRModal qr={qr} name={"wtf"} onCloseModal={this.onCloseModal} />
+          <QRModal
+            qr={qr}
+            name={"wtf"}
+            mobile={mobile}
+            onCloseModal={this.onCloseModal}
+          />
         )}
         <Content className="submitSlide">
           <UnderLineTitle title="立即报名" fs="1.4rem" mb="1rem" />
