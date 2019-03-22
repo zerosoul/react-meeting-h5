@@ -16,7 +16,7 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   color: #fff;
-  padding: 3rem 2rem 0 2rem;
+  padding-top: 3.4rem;
   height: 100vh;
 
   .subTitle {

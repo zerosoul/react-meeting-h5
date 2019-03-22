@@ -107,8 +107,7 @@ export default class Promises extends Component {
         <img className="gift" src={GiftImg} alt="礼物图片" />
         {gift && (
           <div className="tips">
-            <p className="tip">《{gift}》</p>
-            <p className="tip">人手一份，到场即送！</p>
+            <p className="tip">{gift}</p>
           </div>
         )}
       </Content>

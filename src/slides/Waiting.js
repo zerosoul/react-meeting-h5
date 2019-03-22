@@ -50,6 +50,10 @@ const Content = styled.div`
       }
     }
   }
+  .signNow {
+    z-index: 1;
+    transform: translate3d(0, 0, 0);
+  }
 `;
 export default class Waiting extends Component {
   constructor() {
@@ -79,30 +83,36 @@ export default class Waiting extends Component {
           <p>互联网智慧幼儿园让您省心省事又省钱!</p>
           <DotLine width={"100%"} background="#fdb749" className="line" />
         </div>
-        <div className="gardens">
-          <h2 className="title">本次会议已报名园所</h2>
-          <div className="listWrapper">
-            <div class="swiper-container">
-              <div class="swiper-wrapper">
-                {submitList.map(item => {
-                  const maskName =
-                    item.name[0] +
-                    new Array(item.name.length - 1).fill("*").join("");
-                  return (
-                    <div class="swiper-slide">
-                      <ul key={item.id}>
-                        <li>报名时间：{item.enroll_time}</li>
-                        <li>园所名称：{item.school_name}</li>
-                        <li>园长姓名：{maskName}</li>
-                        <li>参会人数：{item.person_num}人</li>
-                      </ul>
-                    </div>
-                  );
-                })}
+        {submitList.length > 0 ? (
+          <div className="gardens">
+            <h2 className="title">已报名园所</h2>
+            <div className="listWrapper">
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  {submitList.map(item => {
+                    const maskName =
+                      item.name[0] +
+                      new Array(item.name.length - 1).fill("*").join("");
+                    return (
+                      <div class="swiper-slide">
+                        <ul key={item.id}>
+                          <li>报名时间：{item.enroll_time}</li>
+                          <li>园所名称：{item.school_name}</li>
+                          <li>园长姓名：{maskName}</li>
+                          <li>参会人数：{item.person_num}人</li>
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="signNow">
+            <button className="signBtn">立即报名</button>
+          </div>
+        )}
       </Content>
     );
   }

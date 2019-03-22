@@ -29,17 +29,17 @@ const Content = styled.div`
           min-height: 8rem;
         }
       }
-      .title {
+      .placeholder {
         border-right: 1px solid #fb763a;
         position: relative;
         font-size: 0.8rem;
         line-height: 1.2;
-        min-width: 4rem;
-        min-height: 6rem;
+        min-width: 0.8rem;
+        min-height: 5rem;
         &:after {
           content: "";
           position: absolute;
-          top: 4px;
+          top: 5px;
           right: -0.25rem;
           width: 0.5rem;
           height: 0.5rem;
@@ -56,7 +56,7 @@ const Content = styled.div`
         time {
           margin-bottom: 0.4rem;
         }
-        .desc {
+        .title {
           line-height: 1.2;
           color: #ff6a1c;
         }
@@ -107,12 +107,10 @@ export default class Arrange extends Component {
             list.map(item => {
               return (
                 <div className="arrange">
-                  <p className="title">{item.name}</p>
+                  <p className="placeholder" />
                   <p className="detail">
                     <time>{item.time}</time>
-                    {/* <span className="desc">
-                      描述
-                    </span> */}
+                    <span className="title">{item.name}</span>
                   </p>
                 </div>
               );
