@@ -18,20 +18,10 @@ const Content = styled.div`
   height: 100vh;
 
   .lines {
-    color: #666;
-    font-size: 0.8rem;
     margin-bottom: 3rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    .line {
-      line-height: 1.5;
-      border-bottom: 1px solid #ffaf80;
-      &.bold {
-        font-size: 1rem;
-        font-weight: 800;
-      }
-    }
   }
   .btmImg {
     z-index: 1;

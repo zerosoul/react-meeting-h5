@@ -91,6 +91,7 @@ export default class QRModal extends Component {
     ani({
       targets: card,
       opacity: [0, 1],
+      scale: [4, 1],
       translateY: [-300, 0],
       duration: 1000
     });
