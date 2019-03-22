@@ -6,6 +6,7 @@ import UnderLineTitle from "../component/UnderLineTitle";
 
 import TelIcon from "../assets/img/icon.tel.png";
 import AddrIcon from "../assets/img/icon.addr.png";
+import { wrap } from "module";
 
 const Content = styled.div`
   display: flex;
@@ -96,7 +97,22 @@ export default class Arrange extends Component {
     super();
     this.wrapper = React.createRef();
   }
-
+  componentDidMount() {
+    const wrapper = this.wrapper.current;
+    const arrs = wrapper.querySelectorAll(".arranges .arrange");
+    const tl = ani.timeline();
+    tl.add(
+      {
+        targets: arrs,
+        opacity: [0, 1],
+        rotateX: [-90, 0],
+        // rotateY: [-90, 0],
+        duration: 1000,
+        delay: (ele, i) => i * 500
+      },
+      "+=500"
+    );
+  }
   render() {
     const { addr, list = [], name, mobile } = this.props;
     return (

@@ -69,17 +69,27 @@ export default class Promises extends Component {
     const wrapper = this.wrapper.current;
     const tips = wrapper.querySelectorAll(".tips .tip");
     const slogan = wrapper.querySelector(".slogan");
+    const ps = wrapper.querySelectorAll(".promise");
     const tl = ani.timeline();
     tl.add({
-      targets: slogan,
-      scale: [8, 1],
+      targets: ps,
+      translateY: [-60, 0],
       opacity: [0, 1],
-      easing: "easeInOutBack"
-    }).add({
-      targets: tips,
-      opacity: [0, 1],
-      translateX: [-400, 0]
-    });
+      delay: (ele, i) => {
+        return i * 120;
+      }
+    })
+      .add({
+        targets: slogan,
+        scale: [8, 1],
+        opacity: [0, 1],
+        easing: "easeInOutBack"
+      })
+      .add({
+        targets: tips,
+        opacity: [0, 1],
+        translateX: [-400, 0]
+      });
   }
 
   render() {

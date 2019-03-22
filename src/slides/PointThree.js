@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ani from "animejs";
 import BtmImg from "../assets/img/point.three.png";
 import UnderLineTitle from "../component/UnderLineTitle";
+import UnderLine from "../component/UnderLine";
 
 const Content = styled.div`
   display: flex;
@@ -45,20 +46,10 @@ const Content = styled.div`
     }
   }
   .lines {
-    color: #666;
-    font-size: 0.8rem;
     margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    .line {
-      line-height: 1.5;
-      border-bottom: 1px solid #ffaf80;
-      &.bold {
-        font-size: 1rem;
-        font-weight: 800;
-      }
-    }
   }
   .btmImg {
     width: 100%;
@@ -102,13 +93,12 @@ export default class PointThree extends Component {
           </p>
         </div>
         <div className="lines">
-          <p className="line">团队水平参差不齐，怎么办？</p>
+          <UnderLine content={"团队水平参差不齐，怎么办？"} />
         </div>
         <div className="lines">
-          <p className="line bold">教师专业成长，团队快速提升</p>
-          <p className="line">借助互联网轻松实现</p>
+          <UnderLine bold={true} content={"教师专业成长，团队快速提升"} />
+          <UnderLine content={"借助互联网轻松实现"} />
         </div>
-        {/* <img className="btmImg" src={BtmImg} alt="开幕配图" /> */}
       </Content>
     );
   }

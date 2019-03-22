@@ -109,8 +109,16 @@ export default class Intro extends Component {
       node.innerHTML = newArr.join("");
     });
     const cards = wrapper.querySelectorAll(".tips .tip");
+    const lines = wrapper.querySelectorAll(".lines .line");
     const tl = ani.timeline({ loop: false });
     tl.add({
+      targets: lines,
+      translateY: [60, 0],
+      opacity: [0, 1],
+      delay: (ele, i) => {
+        return i * 120;
+      }
+    }).add({
       targets: cards,
       opacity: [0, 1],
       rotateY: [-90, 0],
