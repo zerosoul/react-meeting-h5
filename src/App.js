@@ -73,6 +73,10 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    .swiper-pagination-progressbar-fill{
+      background:#fd762f !important;  
+      opacity: 0.6;
+    }
 }
 
   @media screen and (min-width: 320px){
@@ -130,7 +134,8 @@ class App extends Component {
       },
       pagination: {
         el: ".swiper-pagination",
-        type: "bullets"
+        type: "progressbar",
+        progressbarOpposite: true
       }
     });
 
