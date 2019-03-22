@@ -273,7 +273,7 @@ class Submit extends Component {
         const { status } = await postMeetingInfo(values);
         console.log("api end status:", status);
         if (status === "success") {
-          this.props.form.resetFields(["mobile"]);
+          // this.props.form.resetFields(["mobile"]);
           this.setState({
             showModal: true
           });

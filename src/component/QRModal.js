@@ -45,12 +45,13 @@ const Wrapper = styled.div`
       margin-top: 1rem;
       margin-bottom: 1.2rem;
     }
+    .qr {
+      width: 6rem;
+      margin-top: 1.8rem;
+    }
     .tip {
       font-size: 0.6rem;
-    }
-    .qr {
-      width: 7rem;
-      margin-top: 1.5rem;
+      margin-top: 0.4rem;
     }
     .close {
       position: absolute;
