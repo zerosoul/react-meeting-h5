@@ -73,6 +73,10 @@ export default class Waiting extends Component {
       }
     });
   }
+  onSignNow = () => {
+    const { currSwiper } = this.props;
+    currSwiper.slideTo(currSwiper.slides.length);
+  };
   render() {
     const { submitList = [] } = this.props;
     return (
@@ -110,7 +114,9 @@ export default class Waiting extends Component {
           </div>
         ) : (
           <div className="signNow">
-            <button className="signBtn">立即报名</button>
+            <button onClick={this.onSignNow} className="signBtn">
+              立即报名
+            </button>
           </div>
         )}
       </Content>

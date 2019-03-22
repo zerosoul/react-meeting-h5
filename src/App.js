@@ -306,7 +306,9 @@ class App extends Component {
               <Bookmark />
               <WaveBg />
 
-              {slides[15] && <Waiting submitList={submitList} />}
+              {slides[15] && (
+                <Waiting currSwiper={mySwiper} submitList={submitList} />
+              )}
             </SlideWrapper>
             <SlideWrapper className="swiper-slide">
               <Bookmark />
