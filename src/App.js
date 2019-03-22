@@ -120,7 +120,11 @@ class App extends Component {
       followFinger: false,
       effect,
       direction: "vertical",
-      loop: false
+      loop: false,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: false
+      }
     });
 
     mySwiper.on("slideChange", wtf => {
@@ -160,7 +164,7 @@ class App extends Component {
         meetingDetail: response
       });
     }
-    const { status: listStatus, response: listResp } = await getSubmitList();
+    const { status: listStatus, response: listResp } = await getSubmitList(mid);
     console.log("meeting resp", status);
     if (listStatus === "success") {
       this.setState({
@@ -184,7 +188,8 @@ class App extends Component {
         single_price,
         meeting_agenda,
         area,
-        agent_info
+        agent_info,
+        meeting_qr_code
       },
       submitList,
       nickname,
@@ -311,6 +316,7 @@ class App extends Component {
                   single={parseInt(single_price)}
                   double={parseInt(double_price)}
                   mid={mid}
+                  qr={meeting_qr_code}
                 />
               )}
             </SlideWrapper>

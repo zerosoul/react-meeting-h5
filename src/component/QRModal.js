@@ -95,7 +95,7 @@ export default class QRModal extends Component {
     });
   }
   render() {
-    const { onCloseModal } = this.props;
+    const { onCloseModal, qr = "" } = this.props;
     return (
       <Wrapper>
         <div className="card" ref={this.card}>
@@ -104,7 +104,7 @@ export default class QRModal extends Component {
             为确保您报名成功，请联系会议组织者交取相关费用。关注下方公众号，可在报名成功后及时领取专属入场券，会议需凭入场券扫码签到。
           </p>
           <hr className="dotLine" />
-          <img src={QrImg} className="qr" alt="qr" />
+          <img src={qr} className="qr" alt="qr" />
           <p className="tip">请长按识别二维码</p>
           <div className="vLine" />
           <img
