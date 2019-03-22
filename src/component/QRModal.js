@@ -103,7 +103,7 @@ export default class QRModal extends Component {
           <img className="title" src={TitleImg} alt="弹窗标题" />
           <p className="content">
             为确保您报名成功，请联系会议组织者({mobile}
-            )交取相关费用。关注下方公众号，可在报名成功后及时领取专属入场券，会议需凭入场券扫码签到。
+            )交取相关费用。关注下方公众号，可在报名成功后及时领取专属入场券，凭入场券扫码签到。
           </p>
           <hr className="dotLine" />
           <img src={qr} className="qr" alt="qr" />
