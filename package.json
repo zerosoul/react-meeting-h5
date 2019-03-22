@@ -1,8 +1,8 @@
 {
-  "name": "h5",
+  "name": "react-meeting-h5",
   "version": "1.1.0",
   "private": true,
-  "homepage": "https://zerosoul.github.io/h5",
+  "homepage": "https://zerosoul.github.io/react-meeting-h5",
   "dependencies": {
     "@ungap/url-search-params": "^0.1.2",
     "animejs": "^3.0.1",
@@ -27,7 +27,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": "react-app"
