@@ -35,7 +35,7 @@ export default class UnderLine extends PureComponent {
 
     ani({
       targets: letters,
-      rotateY: [-90, 0],
+      rotateY: [-80, 0],
       opacity: [0, 1],
       delay: function(el, i) {
         return 80 * i;
