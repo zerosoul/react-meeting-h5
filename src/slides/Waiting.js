@@ -5,13 +5,15 @@ import Swiper from "swiper";
 import ani from "animejs";
 import UnderLineTitle from "../component/UnderLineTitle";
 import DotLine from "../component/DotLine";
+import SignImg from "../assets/img/sign.png";
+import Floating from "../component/Floating";
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #fff;
-  padding: 6rem 3rem;
+  padding: 4rem 3rem;
   height: 100vh;
 
   .subTitle {
@@ -53,6 +55,26 @@ const Content = styled.div`
   .signNow {
     z-index: 1;
     transform: translate3d(0, 0, 0);
+    text-align: center;
+    .signBtn {
+      color: rgba(255, 249, 219, 1);
+      border: none;
+      padding: 0.2rem 0.8rem;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      background: linear-gradient(
+        0deg,
+        rgba(248, 149, 5, 1),
+        rgba(253, 195, 79, 1)
+      );
+      box-shadow: 0px 2px 3px 0px rgba(131, 131, 131, 0.75);
+      border-radius: 0.4rem;
+    }
+    .btmImg {
+      z-index: 1;
+      width: 14rem;
+      animation: 4s ${Floating} ease-in-out infinite;
+    }
   }
 `;
 export default class Waiting extends Component {
@@ -61,7 +83,8 @@ export default class Waiting extends Component {
     this.wrapper = React.createRef();
   }
   componentDidMount() {
-    var swiper = new Swiper(".gardens .swiper-container", {
+    const wrapper = this.wrapper.current;
+    const swiper = new Swiper(".gardens .swiper-container", {
       // effect: "flip",
       // grabCursor: true,
       loop: true,
@@ -71,6 +94,13 @@ export default class Waiting extends Component {
         delay: 2500,
         disableOnInteraction: false
       }
+    });
+    ani({
+      targets: wrapper.querySelector(".signBtn"),
+      opacity: [0, 1],
+      rotateX: [-90, 0],
+      scaleX: [4, 1],
+      delay: 1000
     });
   }
   onSignNow = () => {
@@ -87,7 +117,7 @@ export default class Waiting extends Component {
           <p>互联网智慧幼儿园让您省心省事又省钱!</p>
           <DotLine width={"100%"} background="#fdb749" className="line" />
         </div>
-        {submitList.length > 0 ? (
+        {submitList.length ? (
           <div className="gardens">
             <h2 className="title">已报名园所</h2>
             <div className="listWrapper">
@@ -117,6 +147,7 @@ export default class Waiting extends Component {
             <button onClick={this.onSignNow} className="signBtn">
               立即报名
             </button>
+            <img src={SignImg} alt="立即报名配图" className="btmImg" />
           </div>
         )}
       </Content>
