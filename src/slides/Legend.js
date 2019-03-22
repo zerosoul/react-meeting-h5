@@ -89,11 +89,11 @@ export default class Legend extends Component {
         </div>
         <img src={NumImg} alt="成交数配图" className="num" />
         <div className="pics">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
+          <div className="swiper-container">
+            <div className="swiper-wrapper">
               {Imgs.map((img, i) => {
                 return (
-                  <div class="swiper-slide" key={i}>
+                  <div className="swiper-slide" key={i}>
                     <img src={img} alt={`demo1${i}`} className="demo" />
                   </div>
                 );

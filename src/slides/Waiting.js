@@ -121,15 +121,15 @@ export default class Waiting extends Component {
           <div className="gardens">
             <h2 className="title">已报名园所</h2>
             <div className="listWrapper">
-              <div class="swiper-container">
-                <div class="swiper-wrapper">
+              <div className="swiper-container">
+                <div className="swiper-wrapper">
                   {submitList.map(item => {
                     const maskName =
                       item.name[0] +
                       new Array(item.name.length - 1).fill("*").join("");
                     return (
-                      <div class="swiper-slide">
-                        <ul key={item.id}>
+                      <div key={item.id} className="swiper-slide">
+                        <ul>
                           <li>报名时间：{item.enroll_time}</li>
                           <li>园所名称：{item.school_name}</li>
                           <li>园长姓名：{maskName}</li>
