@@ -165,6 +165,9 @@ const Content = styled.div`
           }
           .false {
             position: relative;
+            &.hidden {
+              visibility: hidden;
+            }
             &:after {
               content: "";
               top: 50%;
@@ -423,7 +426,9 @@ class Submit extends Component {
               <input name="garden" disabled placeholder="费  用:" />
               <span className="price">
                 <span className="true">{truePrice}元</span>
-                <span className="false">{falsePrice}元</span>
+                <span className={`false ${count > 1 ? "" : "hidden"}`}>
+                  {falsePrice}元
+                </span>
               </span>
             </p>
             <button
