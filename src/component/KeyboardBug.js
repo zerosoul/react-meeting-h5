@@ -3,7 +3,6 @@ import React, { PureComponent } from "react";
 export default class KeyboardBug extends PureComponent {
   constructor() {
     super();
-    this.inputs = [];
     const u = navigator.userAgent;
     this.isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1;
   }
@@ -16,28 +15,22 @@ export default class KeyboardBug extends PureComponent {
     }
   };
   onHandleFocus = () => {
-    console.log("input blured");
+    console.log("input focus");
     document.documentElement.classList.add("andorid");
   };
   componentDidMount() {
-    this.inputs = document.querySelectorAll(".swiper-slide input");
     console.log("inputs", this.inputs);
-
-    this.inputs.forEach(input => {
-      input.addEventListener("blur", this.onHandleBlur);
-      if (this.isAndroid) {
-        input.addEventListener("focus", this.onHandleFocus);
-      }
-    });
+    // 利用冒泡，来捕捉失焦
+    document.addEventListener("focusout", this.onHandleBlur);
+    if (this.isAndroid) {
+      document.addEventListener("focusin", this.onHandleFocus);
+    }
   }
   componentWillUnmount() {
-    this.inputs.forEach(input => {
-      input.removeEventListener("blur", this.onHandleBlur);
-      if (this.isAndroid) {
-        input.removeEventListener("focus", this.onHandleFocus);
-      }
-      console.log("input listener removed");
-    });
+    document.removeEventListener("focusout", this.onHandleBlur);
+    if (this.isAndroid) {
+      document.removeEventListener("focusin", this.onHandleFocus);
+    }
   }
   render() {
     return null;

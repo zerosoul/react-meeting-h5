@@ -127,6 +127,10 @@ class App extends Component {
       keyboard: {
         enabled: true,
         onlyInViewport: false
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "bullets"
       }
     });
 
@@ -327,6 +331,7 @@ class App extends Component {
               )}
             </SlideWrapper>
           </div>
+          <div className="swiper-pagination" />
         </div>
       </>
     );
