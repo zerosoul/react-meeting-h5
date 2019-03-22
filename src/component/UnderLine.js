@@ -12,7 +12,6 @@ const Line = styled.h3`
     font-weight: 800;
   }
   .letter {
-    display: inline-block;
     line-height: 1em;
     transform-origin: 0 0;
   }
@@ -35,7 +34,7 @@ export default class UnderLine extends PureComponent {
 
     ani({
       targets: letters,
-      rotateY: [-80, 0],
+      rotateY: [-90, 0],
       opacity: [0, 1],
       delay: function(el, i) {
         return 80 * i;
