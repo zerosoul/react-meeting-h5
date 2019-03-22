@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
       .submitSlide{
         padding-bottom:0;
         padding-top:1rem;
-        .submitBtn{
+        .input.cost,.submitBtn{
           display:none;
         }
       }

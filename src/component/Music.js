@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import MusicImg from "../assets/img/music.svg";
 import MusicWhiteImg from "../assets/img/music.white.svg";
 import BgMusic from "../assets/bgm.mp3";
+import { timingSafeEqual } from "crypto";
 const rotation = keyframes`
   from {
       transform: rotate(0deg);
@@ -22,8 +23,6 @@ const Wrapper = styled.div`
   top: 10px;
   right: 10px;
   box-sizing: border-box;
-  /* border-radius: 50%;
-  border: 1px solid #fff; */
   audio {
     display: none;
   }
@@ -44,6 +43,7 @@ export default class Music extends React.Component {
   };
   constructor() {
     super();
+    this.isIPHONE = navigator.userAgent.match(/iPhone|iPad|iPod/i);
     this.bgMusic = React.createRef();
   }
   onCanPlay = () => {
@@ -70,6 +70,18 @@ export default class Music extends React.Component {
       bgM.play();
     }
   };
+  handleIPhonePlayBug = () => {
+    const { playing } = this.state;
+    if (!playing) {
+      this.bgMusic.current.play();
+      window.removeEventListener("touchstart", this.handleIPhonePlayBug);
+    }
+  };
+  componentDidMount() {
+    if (this.isIPHONE) {
+      window.addEventListener("touchstart", this.handleIPhonePlayBug);
+    }
+  }
   render() {
     const { playing } = this.state;
     const { isWhite = false } = this.props;
