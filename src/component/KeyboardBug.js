@@ -23,6 +23,7 @@ export default class KeyboardBug extends PureComponent {
     const currHeight = window.innerHeight;
     if (currHeight < this.originalHeight) {
       //当软键盘弹起，在此处操作
+      document.documentElement.classList.add("andorid");
     } else {
       //当软键盘收起，在此处操作
       document.documentElement.classList.remove("andorid");

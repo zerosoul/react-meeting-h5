@@ -56,13 +56,13 @@ const GlobalStyle = createGlobalStyle`
     color:#fff;
     font-family:"Fangzheng ZY", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
     &.andorid {
-      transition:all 1s;
+      transition:all .3s;
       .submitSlide{
-        transition:all 1s;
+        /* transition:all 1s; */
         padding-bottom:0;
         padding-top:1rem;
         .input.cost,.submitBtn{
-          transition:all 1s;
+          /* transition:all 1s; */
           display:none;
         }
       }
