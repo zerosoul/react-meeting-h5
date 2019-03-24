@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ani from "animejs";
 
 const Title = styled.h1`
+  padding-top: 0.1rem;
   color: ${({ fc }) => fc};
   font-size: ${({ fs }) => fs};
   font-weight: 800;
