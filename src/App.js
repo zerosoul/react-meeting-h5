@@ -1,24 +1,22 @@
-import React, { Component } from "react";
+import React, { Component, lazy, Suspense } from "react";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import { hot } from "react-hot-loader/root";
 import Swiper from "swiper";
 import URLSearchParams from "@ungap/url-search-params";
 // 组件
-// import BaseFontSize from "./component/BaseFontSize";
 import Music from "./component/Music";
 import Signup from "./component/Signup";
 import Tel from "./component/Tel";
-// import Loading from "./component/Loading.js";
 import SlideWrapper from "./component/SliderWrapper";
 import ConfigWxShare from "./component/WxShareConfig";
 import WaveBg from "./component/WaveBg";
 import Bookmark from "./component/Bookmark";
 // 幻灯片
 import Intro from "./slides/Intro.js";
-import Where from "./slides/Where.js";
-import How from "./slides/How.js";
-import Open from "./slides/Open.js";
+// import Where from "./slides/Where.js";
+// import How from "./slides/How.js";
+// import Open from "./slides/Open.js";
 import PointOne from "./slides/PointOne";
 import PointTwo from "./slides/PointTwo";
 import PointThree from "./slides/PointThree";
@@ -33,6 +31,14 @@ import SpeakerTeam2 from "./slides/SpeakerTeam2";
 import Waiting from "./slides/Waiting";
 import Submit from "./slides/Submit";
 import { getMeetingDetail, getSubmitList } from "./actions";
+
+const Where = lazy(() =>
+  import(/* webpackChunkName: "where" */ "./slides/Where.js")
+);
+const How = lazy(() => import(/* webpackChunkName: "how" */ "./slides/How.js"));
+const Open = lazy(() =>
+  import(/* webpackChunkName: "open" */ "./slides/Open.js")
+);
 const GlobalStyle = createGlobalStyle`
   ${reset}
  
@@ -50,10 +56,13 @@ const GlobalStyle = createGlobalStyle`
     color:#fff;
     font-family:"Fangzheng ZY", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
     &.andorid {
+      transition:all 1s;
       .submitSlide{
+        transition:all 1s;
         padding-bottom:0;
         padding-top:1rem;
         .input.cost,.submitBtn{
+          transition:all 1s;
           display:none;
         }
       }
@@ -222,119 +231,120 @@ class App extends Component {
           {/* <!-- Additional required wrapper --> */}
           <div className="swiper-wrapper">
             {/* <!-- Slides --> */}
+            <Suspense fallback={<div>Loading</div>}>
+              <SlideWrapper bgType="orange" className="swiper-slide">
+                {slides[0] && (
+                  <Intro
+                    time={start_time}
+                    addr={area}
+                    nickname={nickname}
+                    head={wxHead}
+                  />
+                )}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg height="7rem" />
+                {slides[1] && <Where />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg height="6rem" />
+                {slides[2] && <How />}
+              </SlideWrapper>
+              <SlideWrapper bgType="orange" className="swiper-slide">
+                <Bookmark background="yellow" />
+                {slides[3] && <Open />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg height="7rem" />
 
-            <SlideWrapper bgType="orange" className="swiper-slide">
-              {slides[0] && (
-                <Intro
-                  time={start_time}
-                  addr={area}
-                  nickname={nickname}
-                  head={wxHead}
-                />
-              )}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg height="7rem" />
-              {slides[1] && <Where />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg height="6rem" />
-              {slides[2] && <How />}
-            </SlideWrapper>
-            <SlideWrapper bgType="orange" className="swiper-slide">
-              <Bookmark background="yellow" />
-              {slides[3] && <Open />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg height="7rem" />
+                {slides[4] && <PointOne />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg height="6rem" />
 
-              {slides[4] && <PointOne />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg height="6rem" />
+                {slides[5] && <PointTwo />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                {slides[6] && <PointThree />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg height="6rem" />
 
-              {slides[5] && <PointTwo />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              {slides[6] && <PointThree />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg height="6rem" />
+                {slides[7] && <PointFour />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                {slides[8] && <BigMan />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                {slides[9] && <SpeakerTeam1 />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                {slides[10] && <SpeakerTeam2 />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg height="8rem" />
+                {slides[11] && <Promises gift={is_gift ? gift_desc : null} />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg height="8rem" />
 
-              {slides[7] && <PointFour />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              {slides[8] && <BigMan />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              {slides[9] && <SpeakerTeam1 />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              {slides[10] && <SpeakerTeam2 />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg height="8rem" />
-              {slides[11] && <Promises gift={is_gift ? gift_desc : null} />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg height="8rem" />
+                {slides[12] && (
+                  <Arrange
+                    addr={address}
+                    list={meeting_agenda}
+                    name={real_name}
+                    mobile={mobile}
+                  />
+                )}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg height="7rem" />
 
-              {slides[12] && (
-                <Arrange
-                  addr={address}
-                  list={meeting_agenda}
-                  name={real_name}
-                  mobile={mobile}
-                />
-              )}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg height="7rem" />
+                {slides[13] && <EnableGarden />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg height="8rem" />
 
-              {slides[13] && <EnableGarden />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg height="8rem" />
+                {slides[14] && <Legend />}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg height="8rem" />
 
-              {slides[14] && <Legend />}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg height="8rem" />
+                {slides[15] && (
+                  <Waiting currSwiper={mySwiper} submitList={submitList} />
+                )}
+              </SlideWrapper>
+              <SlideWrapper className="swiper-slide">
+                <Bookmark />
+                <WaveBg className="btmBg" height="4.4rem" />
 
-              {slides[15] && (
-                <Waiting currSwiper={mySwiper} submitList={submitList} />
-              )}
-            </SlideWrapper>
-            <SlideWrapper className="swiper-slide">
-              <Bookmark />
-              <WaveBg className="btmBg" height="4.4rem" />
-
-              {slides[16] && (
-                <Submit
-                  time={start_time}
-                  addr={address}
-                  single={parseInt(single_price)}
-                  double={parseInt(double_price)}
-                  mid={mid}
-                  qr={meeting_qr_code}
-                  mobile={mobile}
-                />
-              )}
-            </SlideWrapper>
+                {slides[16] && (
+                  <Submit
+                    time={start_time}
+                    addr={address}
+                    single={parseInt(single_price)}
+                    double={parseInt(double_price)}
+                    mid={mid}
+                    qr={meeting_qr_code}
+                    mobile={mobile}
+                  />
+                )}
+              </SlideWrapper>
+            </Suspense>
           </div>
           <div className="swiper-pagination" />
         </div>
