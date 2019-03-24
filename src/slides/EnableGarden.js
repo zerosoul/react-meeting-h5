@@ -95,9 +95,15 @@ export default class EnableGarden extends Component {
   componentDidMount() {
     const wrapper = this.wrapper.current;
     const brands = wrapper.querySelectorAll(".brands .brand");
+    const demos = wrapper.querySelectorAll(".demos .demo");
     const tl = ani.timeline();
     tl.add({
       targets: brands,
+      opacity: [0, 1],
+      translateY: [-300, 0],
+      delay: (ele, i) => i * 100
+    }).add({
+      targets: demos,
       opacity: [0, 1],
       translateY: [-300, 0],
       delay: (ele, i) => i * 100

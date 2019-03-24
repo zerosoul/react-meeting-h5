@@ -41,8 +41,8 @@ const Content = styled.div`
   }
   .pics {
     z-index: 1;
-    width: 15rem;
-    height: 10rem;
+    width: 16rem;
+    height: 11rem;
     overflow: hidden;
     border: 0.4rem solid #fdb037;
     border-radius: 0.8rem;
