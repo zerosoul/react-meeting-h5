@@ -10,14 +10,17 @@ export default class KeyboardBug extends PureComponent {
   onHandleBlur = () => {
     console.log("input blured");
 
-    window.body.scrollTo(0, 0);
+    document.body.scrollTo(0, 0);
     if (this.isAndroid) {
       document.documentElement.classList.remove("andorid");
     }
   };
-  onHandleFocus = () => {
-    console.log("input focus");
-    document.documentElement.classList.add("andorid");
+  onHandleFocus = evt => {
+    console.log("input focus", evt);
+    const ele = evt.target;
+    if (ele.tagName === "INPUT") {
+      document.documentElement.classList.add("andorid");
+    }
   };
   onHandleAndroidDismiss = () => {
     const currHeight = window.innerHeight;

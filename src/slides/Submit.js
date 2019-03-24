@@ -48,6 +48,7 @@ const Content = styled.div`
     /* width: 14rem; */
     .input {
       > input {
+        font-size: 0.8rem;
         color: #fff;
         background: #fd762f;
         box-shadow: inset 0px 5px 13px 0px rgba(151, 0, 92, 0.35);
@@ -209,7 +210,6 @@ class Submit extends Component {
     };
   }
   onGetCode = async evt => {
-    evt.stopPropagation();
     const { form } = this.props;
     const { waitingSecondLeft } = this.state;
     if (waitingSecondLeft > 0) {
