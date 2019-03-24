@@ -1,19 +1,31 @@
 self.__precacheManifest = [
   {
-    "revision": "9a1336c977c53f9b6cbeec8748155470",
-    "url": "/react-meeting-h5/static/media/speaker.zhangyanlong.9a1336c9.png"
+    "revision": "fdf091ebdd54f2e79626d08062478b2b",
+    "url": "/react-meeting-h5/static/media/speaker.huangke.fdf091eb.png"
   },
   {
-    "revision": "c5460c3edff77aec9143",
-    "url": "/react-meeting-h5/static/css/main.dc05e2e7.chunk.css"
+    "revision": "561bba2895532556c695",
+    "url": "/react-meeting-h5/static/js/how.561bba28.chunk.js"
   },
   {
-    "revision": "e6684f1735952a7f2a00",
-    "url": "/react-meeting-h5/static/js/runtime~main.e6684f17.js"
+    "revision": "679d50afa615730b63f6",
+    "url": "/react-meeting-h5/static/js/main.679d50af.chunk.js"
   },
   {
-    "revision": "b745159a8d13bcf2de6b",
-    "url": "/react-meeting-h5/static/js/2.b745159a.chunk.js"
+    "revision": "7f8000fa4b4b8903dd14",
+    "url": "/react-meeting-h5/static/js/open.7f8000fa.chunk.js"
+  },
+  {
+    "revision": "b32a01981daf70f8d31f",
+    "url": "/react-meeting-h5/static/js/runtime~main.b32a0198.js"
+  },
+  {
+    "revision": "c1c69493187adb4b41f6",
+    "url": "/react-meeting-h5/static/js/where.c1c69493.chunk.js"
+  },
+  {
+    "revision": "467156be076d3da7a14772cbba162b11",
+    "url": "/react-meeting-h5/static/media/open.467156be.png"
   },
   {
     "revision": "7062b74ca80f2c34ec201ad4156ff2ad",
@@ -34,14 +46,6 @@ self.__precacheManifest = [
   {
     "revision": "97e74d59b28c668c06b33a0f19798333",
     "url": "/react-meeting-h5/static/media/topic.title.97e74d59.png"
-  },
-  {
-    "revision": "adacfa99cc71e2dfbe9d2a69c6010373",
-    "url": "/react-meeting-h5/static/media/how.adacfa99.png"
-  },
-  {
-    "revision": "467156be076d3da7a14772cbba162b11",
-    "url": "/react-meeting-h5/static/media/open.467156be.png"
   },
   {
     "revision": "e9fcb01bd5eb3336490653a447829bb1",
@@ -76,12 +80,12 @@ self.__precacheManifest = [
     "url": "/react-meeting-h5/static/media/speaker.dongzc.2301c95b.png"
   },
   {
-    "revision": "c5460c3edff77aec9143",
-    "url": "/react-meeting-h5/static/js/main.c5460c3e.chunk.js"
+    "revision": "9a1336c977c53f9b6cbeec8748155470",
+    "url": "/react-meeting-h5/static/media/speaker.zhangyanlong.9a1336c9.png"
   },
   {
-    "revision": "fdf091ebdd54f2e79626d08062478b2b",
-    "url": "/react-meeting-h5/static/media/speaker.huangke.fdf091eb.png"
+    "revision": "adacfa99cc71e2dfbe9d2a69c6010373",
+    "url": "/react-meeting-h5/static/media/how.adacfa99.png"
   },
   {
     "revision": "f0e5a80f63afc555579febf204e96aaa",
@@ -152,7 +156,15 @@ self.__precacheManifest = [
     "url": "/react-meeting-h5/static/media/modal.bg.b8eec107.png"
   },
   {
-    "revision": "520b2ce456a0acbe766cd0c6fd898055",
+    "revision": "73b145ad38b38111a532",
+    "url": "/react-meeting-h5/static/js/5.73b145ad.chunk.js"
+  },
+  {
+    "revision": "679d50afa615730b63f6",
+    "url": "/react-meeting-h5/static/css/main.5ca2c61c.chunk.css"
+  },
+  {
+    "revision": "141b98f52657bc32217dd977c7823fad",
     "url": "/react-meeting-h5/index.html"
   }
 ];
