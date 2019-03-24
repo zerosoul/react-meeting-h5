@@ -208,7 +208,8 @@ class Submit extends Component {
       showModal: false
     };
   }
-  onGetCode = async () => {
+  onGetCode = async evt => {
+    evt.stopPropagation();
     const { form } = this.props;
     const { waitingSecondLeft } = this.state;
     if (waitingSecondLeft > 0) {
