@@ -36,7 +36,8 @@ deploy_preview() {
 	echo "nodejs version:"
 	node -v
 	# 更改配置
-	sed -i s#http://wechatapi.1d1d100.net#https://api.1d1d100.com# src/common/config.js
+	#sed -i s#http://wechatapi.1d1d100.net#https://api.1d1d100.com# src/common/config.js
+	sed -i s#http://wechatapi.1d1d100.net#https://api.1d1d100.com# src/config.js
 
 	npm install && npm run build
 
