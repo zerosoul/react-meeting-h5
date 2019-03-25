@@ -26,6 +26,29 @@ deploy_dev() {
 	rsync -av --delete dist /data/www/FRONTEND/react-meeting-h5/
 }
 
+#测试环境
+deploy_test() {
+        # 编译
+        echo "building in test server"
+        echo "npm version:"
+        npm -v 
+
+        echo "nodejs version:"
+        node -v
+        npm install && npm run build:dev
+
+        # 编译失败，不能部署代码
+        if [ $? -ne 0 ]; then
+                echo "编译失败!"
+                exit 1
+        fi
+
+        # 部署
+        echo ">>>>>>start deploy to $Host <<<<<<<"
+        scp -P $Port dist/* $Host:/srv/ops/docker/web/test/data/FRONTEND/react-meeting-h5/dist/
+        echo "deploy $Host finished"
+}
+
 # 预上线环境
 deploy_preview() {
 	# 编译
@@ -105,11 +128,11 @@ deploy_prod() {
 }
 
 case $1 in
-    dev|preview|prod)
+    dev|test|preview|prod)
         deploy_$1
         ;;  
     *)  
-        echo "Usage: ./build.sh dev|preview|prod"
+        echo "Usage: ./build.sh dev|test|preview|prod"
         exit 1
         ;;  
 esac
