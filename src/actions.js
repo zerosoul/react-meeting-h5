@@ -46,13 +46,9 @@ const request = options => {
           break;
 
         default:
-          if (res.status == 200) {
-            // 接口只有200 响应的情况
-            status = "success";
-          } else {
-            alert("接口错误！");
-            response = { msg: "接口错误" };
-          }
+          status = "fail";
+          alert(res.data.msg || "接口错误");
+          response = { msg: res.data.msg || "接口错误" };
           break;
       }
     })
