@@ -271,13 +271,15 @@ class Submit extends Component {
         values.price = truePrice;
         values.meetingid = mid;
         console.log("api start:");
-        const { status } = await postMeetingInfo(values);
+        const { status, response } = await postMeetingInfo(values);
         console.log("api end status:", status);
-        if (status === "success") {
+        if (response.code === 0) {
           // this.props.form.resetFields(["mobile"]);
           this.setState({
             showModal: true
           });
+        } else {
+          alert(response.msg);
         }
       } else {
         console.log("here");
