@@ -6,20 +6,25 @@ export default class KeyboardBug extends PureComponent {
     const u = navigator.userAgent;
     this.isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1;
     this.originalHeight = window.innerHeight;
+    this.timeVal = 0;
   }
   onHandleBlur = () => {
     console.log("input blured");
-
-    document.body.scrollTo(0, 0);
+    this.timeVal = setTimeout(() => {
+      window.body.scrollTo(0, 0);
+    }, 300);
     if (this.isAndroid) {
       document.documentElement.classList.remove("andorid");
     }
   };
   onHandleFocus = evt => {
     console.log("input focus", evt);
-    const ele = evt.target;
-    if (ele.tagName === "INPUT") {
-      document.documentElement.classList.add("andorid");
+    clearTimeout(this.timeVal);
+    if (this.isAndroid) {
+      let ele = evt.target;
+      if (ele.tagName === "INPUT") {
+        document.documentElement.classList.add("andorid");
+      }
     }
   };
   onHandleAndroidDismiss = () => {
@@ -36,16 +41,16 @@ export default class KeyboardBug extends PureComponent {
     console.log("inputs", this.inputs);
     // 利用冒泡，来捕捉失焦
     document.addEventListener("focusout", this.onHandleBlur);
+    document.addEventListener("focusin", this.onHandleFocus);
     if (this.isAndroid) {
       window.onresize = this.onHandleAndroidDismiss;
-
-      document.addEventListener("focusin", this.onHandleFocus);
     }
   }
   componentWillUnmount() {
     document.removeEventListener("focusout", this.onHandleBlur);
+    document.removeEventListener("focusin", this.onHandleFocus);
     if (this.isAndroid) {
-      document.removeEventListener("focusin", this.onHandleFocus);
+      window.onresize = null;
     }
   }
   render() {
