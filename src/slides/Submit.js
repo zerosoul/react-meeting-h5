@@ -317,7 +317,7 @@ class Submit extends Component {
   onMinusCount = () => {
     let { count } = this.state;
     if (count === 1) {
-      alert("至少有个人参加啊，兄嘚！");
+      alert("至少有个人参加啊，亲！");
       return;
     }
     count--;
