@@ -1,86 +1,12 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 
 import ani from "animejs";
-import UnderLineTitle from "../component/UnderLineTitle";
+import UnderLineTitle from "../../component/UnderLineTitle";
 
-import WangImg from "../assets/img/bigman.wang.png";
-import DengImg from "../assets/img/bigman.deng.png";
-import ZhangImg from "../assets/img/bigman.zhang.png";
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-  padding: 3.4rem 1.4rem;
-  padding-bottom: 0;
-  height: 100vh;
-
-  .blocks {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-around;
-    .block {
-      display: flex;
-      align-items: center;
-      background: #ff6a14;
-      border-radius: 0.4rem;
-      margin-bottom: 1rem;
-      padding: 1.2rem;
-      box-sizing: border-box;
-      width: 16rem;
-      height: 5rem;
-      position: relative;
-      .avatar {
-        position: absolute;
-        bottom: 0;
-        right: 1rem;
-        width: 5rem;
-      }
-      &.reverse {
-        flex-direction: row-reverse;
-        background: #ffa71f;
-        .avatar {
-          left: 1rem;
-        }
-        .intro {
-          .name {
-            color: #ffa71f;
-          }
-        }
-      }
-      .intro {
-        font-size: 0.6rem;
-        display: flex;
-        flex-direction: column;
-        line-height: 1.6;
-        position: relative;
-        width: 10rem;
-        height: 5rem;
-        align-items: flex-start;
-        justify-content: center;
-        .name {
-          color: #ff6a14;
-          font-weight: bold;
-          position: absolute;
-          top: -1.6rem;
-          left: 0;
-          font-size: 1rem;
-          i {
-            font-size: 0.4rem;
-            color: #666;
-          }
-        }
-        .title {
-          font-size: 0.7rem;
-          font-weight: bold;
-        }
-      }
-    }
-  }
-`;
+import WangImg from "../../assets/img/bigman.wang.png";
+import DengImg from "../../assets/img/bigman.deng.png";
+import ZhangImg from "../../assets/img/bigman.zhang.png";
+import Wrapper from "./styled.wrapper";
 export default class BigMan extends Component {
   constructor() {
     super();
@@ -115,8 +41,8 @@ export default class BigMan extends Component {
 
   render() {
     return (
-      <Content ref={this.wrapper}>
-        <UnderLineTitle title="幼教大咖助力园长 赢在“新幼教”时代" />
+      <Wrapper ref={this.wrapper}>
+        <UnderLineTitle title="幼教大咖助力园长 赢在“新幼教”时代" mb="1rem" />
 
         <div className="blocks">
           <div className="block">
@@ -154,7 +80,7 @@ export default class BigMan extends Component {
             <img className="avatar" src={DengImg} alt="邓总的照片" />
           </div>
         </div>
-      </Content>
+      </Wrapper>
     );
   }
 }

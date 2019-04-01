@@ -1,65 +1,11 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 
 import ani from "animejs";
-import UnderLineTitle from "../component/UnderLineTitle";
+import UnderLineTitle from "../../component/UnderLineTitle";
 
-import Floating from "../component/Floating";
-import GiftImg from "../assets/img/gift.png";
-import PromiseImg from "../assets/img/promise.png";
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-  padding: 5rem 2rem;
-  padding-bottom: 0;
-  height: 100vh;
-
-  .promises {
-    position: relative;
-    text-align: center;
-    color: #666;
-    margin-bottom: 1rem;
-    .promise {
-      font-size: 0.8rem;
-      border-bottom: 1px solid #fda264;
-      line-height: 1.8;
-      &.title {
-        font-weight: 800;
-        font-size: 1rem;
-      }
-      .bold {
-        font-weight: 800;
-        padding-left: 0.5rem;
-      }
-    }
-    .slogan {
-      position: absolute;
-      width: 4rem;
-      right: -3.6rem;
-      bottom: -0.2rem;
-    }
-  }
-  .gift {
-    z-index: 1;
-    width: 12rem;
-    margin-bottom: 2rem;
-    animation: 4s ${Floating} ease-in-out infinite;
-  }
-  .tips {
-    z-index: 1;
-    position: absolute;
-    bottom: 2rem;
-    line-height: 1.8;
-    font-weight: 800;
-    font-size: 0.8rem;
-    .tip {
-      text-align: center;
-    }
-  }
-`;
+import GiftImg from "../../assets/img/gift.png";
+import PromiseImg from "../../assets/img/promise.png";
+import Wrapper from "./styled.wrapper";
 export default class Promises extends Component {
   constructor() {
     super();
@@ -95,7 +41,7 @@ export default class Promises extends Component {
   render() {
     const { gift } = this.props;
     return (
-      <Content ref={this.wrapper}>
+      <Wrapper ref={this.wrapper}>
         <UnderLineTitle title="未来十年生死存亡，本场会议决定!" />
 
         <div className="promises">
@@ -120,7 +66,7 @@ export default class Promises extends Component {
             <p className="tip">{gift}</p>
           </div>
         )}
-      </Content>
+      </Wrapper>
     );
   }
 }

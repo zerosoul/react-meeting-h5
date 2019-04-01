@@ -69,16 +69,19 @@ export default class Music extends React.Component {
       bgM.play();
     }
   };
-  handleIPhonePlayBug = () => {
-    const { playing } = this.state;
-    if (!playing) {
-      this.bgMusic.current.play();
-      window.removeEventListener("touchstart", this.handleIPhonePlayBug);
-    }
-  };
+
   componentDidMount() {
+    // 兼容苹果系统的自动播放
     if (this.isIPHONE) {
-      window.addEventListener("touchstart", this.handleIPhonePlayBug);
+      const audioEle = this.bgMusic.current;
+      audioEle.play();
+      document.addEventListener(
+        "WeixinJSBridgeReady",
+        function() {
+          audioEle.play();
+        },
+        false
+      );
     }
   }
   render() {
