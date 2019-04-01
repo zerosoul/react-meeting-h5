@@ -1,48 +1,23 @@
 import React, { Component } from "react";
-import styled from "styled-components";
-import Card from "../component/ProfileCard";
+import Card from "../../component/ProfileCard";
 
-import ani from "animejs";
-import UnderLineTitle from "../component/UnderLineTitle";
-import DepartmentTitle from "../component/DepartmentTitle";
+import UnderLineTitle from "../../component/UnderLineTitle";
+import DepartmentTitle from "../../component/DepartmentTitle";
 
-import ChaoImg from "../assets/img/speaker.dongzc.png";
-import LongImg from "../assets/img/speaker.zhangyanlong.png";
-import KeImg from "../assets/img/speaker.huangke.png";
-import MsImg from "../assets/img/speaker.ms.png";
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-  padding-top: 3.4rem;
-  height: 100vh;
-
-  .subTitle {
-    color: #4d4d4d;
-    font-size: 0.8rem;
-    margin-bottom: 1.2rem;
-  }
-`;
+import ChaoImg from "../../assets/img/speaker.dongzc.png";
+import LongImg from "../../assets/img/speaker.zhangyanlong.png";
+import KeImg from "../../assets/img/speaker.huangke.png";
+import MsImg from "../../assets/img/speaker.ms.png";
+import Wrapper from "./styled.wrapper";
 export default class SpeakerTeam1 extends Component {
   constructor() {
     super();
     this.wrapper = React.createRef();
   }
-  componentDidMount() {
-    // const wrapper = this.wrapper.current;
-    // const eles = wrapper.querySelectorAll(">div");
-    // ani({
-    //   targets: eles,
-    //   delay: (el, i) => i * 90,
-    //   opacity: [0, 1]
-    // });
-  }
 
   render() {
     return (
-      <Content ref={this.wrapper}>
+      <Wrapper ref={this.wrapper}>
         <UnderLineTitle title="壹点壹滴金牌讲师团队" mb=".4rem" />
 
         <h2 className="subTitle">手把手教您开好园，助您成功转型！</h2>
@@ -82,7 +57,7 @@ export default class SpeakerTeam1 extends Component {
           ]}
         />
         <DepartmentTitle title="营销一部" />
-      </Content>
+      </Wrapper>
     );
   }
 }

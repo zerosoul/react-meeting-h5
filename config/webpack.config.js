@@ -502,7 +502,13 @@ module.exports = function(webpackEnv) {
       ),
       new PreloadWebpackPlugin({
         rel: "preload",
-        include: "allAssets"
+        include: "allAssets",
+        as(entry) {
+          if (/\.css$/.test(entry)) return "style";
+          if (/\.woff$/.test(entry)) return "font";
+          if (/\.(png|jpg|gif)$/.test(entry)) return "image";
+          return "script";
+        }
       }),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
