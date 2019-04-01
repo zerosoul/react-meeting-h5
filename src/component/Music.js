@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import MusicImg from "../assets/img/music.svg";
 import MusicWhiteImg from "../assets/img/music.white.svg";
 import BgMusic from "../assets/bgm.mp3";
-const rotation = keyframes`
+let rotation = keyframes`
   from {
       transform: rotate(0deg);
     }

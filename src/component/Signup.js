@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import anime from "animejs";
 
@@ -16,31 +16,26 @@ const Wrapper = styled.div`
   padding: 0.4rem;
   writing-mode: vertical-lr;
 `;
-export default class Signup extends PureComponent {
-  constructor() {
-    super();
-    this.signup = React.createRef();
-  }
-  componentDidMount() {
+const Signup = ({ currSwiper }) => {
+  const signupEle = useRef(null);
+  useEffect(() => {
     anime({
-      targets: this.signup.current,
+      targets: signupEle.current,
       right: [-30, 2],
-      duration: 1500
+      duration: 1500,
+      delay: 1000
     });
-  }
-  render() {
-    const { currSwiper } = this.props;
-    console.log("swiper", currSwiper);
+  }, [currSwiper]);
 
-    return (
-      <Wrapper
-        onClick={() => {
-          currSwiper.slideTo(currSwiper.slides.length);
-        }}
-        ref={this.signup}
-      >
-        点击报名
-      </Wrapper>
-    );
-  }
-}
+  return (
+    <Wrapper
+      onClick={() => {
+        currSwiper.slideTo(currSwiper.slides.length);
+      }}
+      ref={signupEle}
+    >
+      点击报名
+    </Wrapper>
+  );
+};
+export default Signup;

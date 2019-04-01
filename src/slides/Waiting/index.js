@@ -10,7 +10,7 @@ const Waiting = ({ submitList = [] }) => {
   const wrapperEle = useRef(null);
   useEffect(() => {
     const wrapper = wrapperEle.current;
-    const swiper = new Swiper(".gardens .swiper-container", {
+    new Swiper(".gardens .swiper-container", {
       // effect: "flip",
       // grabCursor: true,
       loop: true,

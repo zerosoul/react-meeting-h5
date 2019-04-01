@@ -6,7 +6,7 @@ import BtmImg from "../../assets/img/point.four.png";
 import Wrapper from "./styled.wrapper";
 const PointFour = () => {
   return (
-    <Wrapper ref={this.wrapper}>
+    <Wrapper>
       <UnderLineTitle title="亮点四：安全管控标准化" />
       <div className="lines">
         <UnderLine content={"老师的失误、工作的意外、不可预知的风险..."} />

@@ -8,7 +8,7 @@ import BtmImg from "../../assets/img/point.two.png";
 import Wrapper from "./styled.wrapper";
 const PointTwo = () => {
   return (
-    <Wrapper ref={this.wrapper}>
+    <Wrapper>
       <UnderLineTitle title="亮点二：家长满意度飙升" />
       <div className="lines">
         <UnderLine content={"家园之间不理解、缺信任、无协同！"} />

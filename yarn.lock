@@ -3038,6 +3038,10 @@ eslint-plugin-jsx-a11y@^6.2.1:
     has "^1.0.3"
     jsx-ast-utils "^2.0.1"
 
+eslint-plugin-react-hooks@^1.6.0:
+  version "1.6.0"
+  resolved "http://registry.npm.taobao.org/eslint-plugin-react-hooks/download/eslint-plugin-react-hooks-1.6.0.tgz#348efcda8fb426399ac7b8609607c7b4025a6f5f"
+
 eslint-plugin-react@7.12.4:
   version "7.12.4"
   resolved "http://registry.npm.taobao.org/eslint-plugin-react/download/eslint-plugin-react-7.12.4.tgz#b1ecf26479d61aee650da612e425c53a99f48c8c"
@@ -7127,6 +7131,10 @@ react-lifecycles-compat@^3.0.4:
 react-particles-js@^2.4.2:
   version "2.4.2"
   resolved "http://registry.npm.taobao.org/react-particles-js/download/react-particles-js-2.4.2.tgz#34a4d1ea15eaebcbb068f7b6a7c43b18792fcf65"
+
+react-perf-devtool@^3.1.8:
+  version "3.1.8"
+  resolved "http://registry.npm.taobao.org/react-perf-devtool/download/react-perf-devtool-3.1.8.tgz#ae5c369b3b73f5c71de8afb5257ae6f90c953440"
 
 react-swipe@^6.0.4:
   version "6.0.4"
