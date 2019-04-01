@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useRef } from "react";
 import Swiper from "swiper";
 // components
 import ani from "animejs";
@@ -15,12 +15,9 @@ import DotLine from "../../component/DotLine";
 import Wrapper from "./styled.wrapper";
 const Imgs = [Scene1Img, Scene2Img, Scene3Img, Scene4Img, Scene5Img, Scene6Img];
 
-export default class Legend extends Component {
-  constructor() {
-    super();
-    this.wrapper = React.createRef();
-  }
-  componentDidMount() {
+const Legend = () => {
+  const wrapperEle = useRef(null);
+  useEffect(() => {
     new Swiper(".pics .swiper-container", {
       effect: "fade",
       fadeEffect: {
@@ -32,7 +29,7 @@ export default class Legend extends Component {
         disableOnInteraction: false
       }
     });
-    const wrapper = this.wrapper.current;
+    const wrapper = wrapperEle.current;
     const numEle = wrapper.querySelector(".num");
     ani({
       targets: numEle,
@@ -40,32 +37,32 @@ export default class Legend extends Component {
       translateY: [400, 0],
       delay: 500
     });
-  }
-  render() {
-    return (
-      <Wrapper ref={this.wrapper}>
-        <UnderLineTitle title="壹点壹滴正在创造幼教界传奇" fs="1.1rem" />
+  });
 
-        <div className="subTitle">
-          <p>短短八个月时间 </p>
-          <p>全国已有15000+幼儿园选择加入壹点壹滴!</p>
-          <DotLine width={"100%"} background="#fdb749" className="line" />
-        </div>
-        <img src={NumImg} alt="成交数配图" className="num" />
-        <div className="pics">
-          <div className="swiper-container">
-            <div className="swiper-wrapper">
-              {Imgs.map((img, i) => {
-                return (
-                  <div className="swiper-slide" key={i}>
-                    <img src={img} alt={`demo1${i}`} className="demo" />
-                  </div>
-                );
-              })}
-            </div>
+  return (
+    <Wrapper ref={wrapperEle}>
+      <UnderLineTitle title="壹点壹滴正在创造幼教界传奇" fs="1.1rem" />
+
+      <div className="subTitle">
+        <p>短短八个月时间 </p>
+        <p>全国已有15000+幼儿园选择加入壹点壹滴!</p>
+        <DotLine width={"100%"} background="#fdb749" className="line" />
+      </div>
+      <img src={NumImg} alt="成交数配图" className="num" />
+      <div className="pics">
+        <div className="swiper-container">
+          <div className="swiper-wrapper">
+            {Imgs.map((img, i) => {
+              return (
+                <div className="swiper-slide" key={i}>
+                  <img src={img} alt={`demo1${i}`} className="demo" />
+                </div>
+              );
+            })}
           </div>
         </div>
-      </Wrapper>
-    );
-  }
-}
+      </div>
+    </Wrapper>
+  );
+};
+export default Legend;

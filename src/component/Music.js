@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import MusicImg from "../assets/img/music.svg";
 import MusicWhiteImg from "../assets/img/music.white.svg";
@@ -36,44 +36,43 @@ const Wrapper = styled.div`
     }
   }
 `;
-export default class Music extends React.Component {
-  state = {
-    playing: false
-  };
-  constructor() {
-    super();
-    this.isIPHONE = navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    this.bgMusic = React.createRef();
-  }
-  onCanPlay = () => {
-    const music = this.bgMusic.current;
+const Music = ({ isWhite = false }) => {
+  const [playing, setPlaying] = useState(false);
 
-    music.play();
+  const IS_IPHONE = navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  const bgMusic = useRef(null);
+  const onCanPlay = () => {
+    const music = bgMusic.current;
+    console.log("onCanPlay", music);
+    // promise?
+    const pr = music.play();
+    if (pr !== undefined) {
+      pr.then(_ => {
+        // Autoplay started!
+      }).catch(error => {
+        // Autoplay was prevented.
+        // Show a "Play" button so that user can start playback.
+      });
+    }
   };
-  onPlaying = () => {
-    this.setState({
-      playing: true
-    });
+  const onPlaying = () => {
+    setPlaying(true);
   };
-  onPause = () => {
-    this.setState({
-      playing: false
-    });
+  const onPause = () => {
+    setPlaying(false);
   };
-  onTogglePlay = () => {
-    const { playing } = this.state;
-    const bgM = this.bgMusic.current;
+  const onTogglePlay = () => {
+    const bgM = bgMusic.current;
     if (playing) {
       bgM.pause();
     } else {
       bgM.play();
     }
   };
-
-  componentDidMount() {
+  useEffect(() => {
     // 兼容苹果系统的自动播放
-    if (this.isIPHONE) {
-      const audioEle = this.bgMusic.current;
+    if (IS_IPHONE) {
+      const audioEle = bgMusic.current;
       audioEle.play();
       document.addEventListener(
         "WeixinJSBridgeReady",
@@ -83,27 +82,24 @@ export default class Music extends React.Component {
         false
       );
     }
-  }
-  render() {
-    const { playing } = this.state;
-    const { isWhite = false } = this.props;
-    return (
-      <Wrapper onClick={this.onTogglePlay}>
-        <img
-          src={isWhite ? MusicWhiteImg : MusicImg}
-          alt="音乐图片"
-          className={playing ? `playing` : `playing paused`}
-        />
-        <audio
-          onCanPlay={this.onCanPlay}
-          onPause={this.onPause}
-          onPlaying={this.onPlaying}
-          autoPlay={true}
-          loop={true}
-          ref={this.bgMusic}
-          src={BgMusic}
-        />
-      </Wrapper>
-    );
-  }
-}
+  });
+  return (
+    <Wrapper onClick={onTogglePlay}>
+      <img
+        src={isWhite ? MusicWhiteImg : MusicImg}
+        alt="音乐图片"
+        className={playing ? `playing` : `playing paused`}
+      />
+      <audio
+        onCanPlay={onCanPlay}
+        onPause={onPause}
+        onPlaying={onPlaying}
+        autoPlay={true}
+        loop={true}
+        ref={bgMusic}
+        src={BgMusic}
+      />
+    </Wrapper>
+  );
+};
+export default Music;
