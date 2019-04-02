@@ -6,9 +6,11 @@ import UnderLineTitle from "../../component/UnderLineTitle";
 import GiftImg from "../../assets/img/gift.png";
 import PromiseImg from "../../assets/img/promise.png";
 import Wrapper from "./styled.wrapper";
+import useAnimate from "../../component/useAnimate";
+
 const Promises = ({ gift }) => {
   const wrapperEle = useRef(null);
-  useEffect(() => {
+  const animate = () => {
     const wrapper = wrapperEle.current;
     const tips = wrapper.querySelectorAll(".tips .tip");
     const slogan = wrapper.querySelector(".slogan");
@@ -33,10 +35,10 @@ const Promises = ({ gift }) => {
         opacity: [0, 1],
         translateX: [-400, 0]
       });
-  });
-
+  };
+  const [show] = useAnimate(animate);
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <UnderLineTitle title="未来十年生死存亡，本场会议决定!" />
 
       <div className="promises">

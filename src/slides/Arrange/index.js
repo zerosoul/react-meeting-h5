@@ -3,9 +3,11 @@ import React, { useRef, useEffect } from "react";
 import ani from "animejs";
 import UnderLineTitle from "../../component/UnderLineTitle";
 import Wrapper from "./styled.wrapper";
+import useAnimate from "../../component/useAnimate";
+
 const Arrange = ({ addr, list = [], name, mobile }) => {
   const wrapperEle = useRef(null);
-  useEffect(() => {
+  const animate = () => {
     const wrapper = wrapperEle.current;
     const arrs = wrapper.querySelectorAll(".arranges .arrange");
     const tl = ani.timeline();
@@ -20,10 +22,11 @@ const Arrange = ({ addr, list = [], name, mobile }) => {
       },
       "+=500"
     );
-  });
+  };
+  const [show] = useAnimate(animate);
 
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <UnderLineTitle title="课程安排" />
       <div className="arranges">
         {list &&

@@ -1,18 +1,18 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import ani from "animejs";
 import UnderLineTitle from "../../component/UnderLineTitle";
 
 import Wrapper from "./styled.wrapper";
 import Video from "./Video";
+import useAnimate from "../../component/useAnimate";
 const Where = () => {
   const wrapperEle = useRef(null);
-
-  useEffect(() => {
+  const animate = () => {
     const wrapper = wrapperEle.current;
     const words = wrapper.querySelectorAll(".bubbles .word");
     const dots = wrapper.querySelectorAll(".bubbles .dot");
     const video = wrapper.querySelector(".video");
-    const tl = ani.timeline({ loop: false });
+    const tl = ani.timeline();
     tl.add({
       targets: dots,
       opacity: [0, 1],
@@ -33,10 +33,10 @@ const Where = () => {
         opacity: [0, 1],
         rotate: "2turn"
       });
-  }, []);
-
+  };
+  const [show] = useAnimate(animate);
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <UnderLineTitle title="内外交困，民办园该何去何从?" mb="1.4rem" />
       <div className="bubbles">
         <p className="bubble word yellow more">

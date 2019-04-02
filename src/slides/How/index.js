@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import ani from "animejs";
 // 组件
 import DotLine from "../../component/DotLine";
@@ -9,10 +9,10 @@ import Icon3 from "../../assets/img/how.icon.3.png";
 import Icon4 from "../../assets/img/how.icon.4.png";
 import UnderLine from "../../component/UnderLineTitle";
 import Wrapper from "./styled.wrapper";
-
+import useAnimate from "../../component/useAnimate";
 const How = () => {
   const wrapperEle = useRef(null);
-  useEffect(() => {
+  const animate = () => {
     const wrapper = wrapperEle.current;
     wrapper.querySelectorAll(".lines .line").forEach(node => {
       console.log("node", node);
@@ -38,10 +38,11 @@ const How = () => {
       duration: 2000,
       delay: (ele, i) => i * 400
     });
-  });
+  };
+  const [show] = useAnimate(animate);
 
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <div className="top">
         <div className="lines">
           <p className="line">老套路，效果差!</p>

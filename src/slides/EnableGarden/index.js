@@ -7,9 +7,11 @@ import Demo1Img from "../../assets/img/mobile.demo.1.png";
 import Demo2Img from "../../assets/img/mobile.demo.2.png";
 import DotLine from "../../component/DotLine";
 import Wrapper from "./styled.wrapper";
+import useAnimate from "../../component/useAnimate";
+
 const EnableGarden = () => {
   const wrapperEle = useRef(null);
-  useEffect(() => {
+  const animate = () => {
     const wrapper = wrapperEle.current;
     const brands = wrapper.querySelectorAll(".brands .brand");
     const demos = wrapper.querySelectorAll(".demos .demo");
@@ -25,9 +27,10 @@ const EnableGarden = () => {
       translateY: [200, 0],
       delay: (ele, i) => i * 100
     });
-  });
+  };
+  const [show] = useAnimate(animate);
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <UnderLineTitle title="互联网赋能幼儿园" />
 
       <div className="brands">

@@ -13,11 +13,13 @@ import Scene6Img from "../../assets/img/scene.6.jpg";
 import NumImg from "../../assets/img/15000.png";
 import DotLine from "../../component/DotLine";
 import Wrapper from "./styled.wrapper";
+import useAnimate from "../../component/useAnimate";
+
 const Imgs = [Scene1Img, Scene2Img, Scene3Img, Scene4Img, Scene5Img, Scene6Img];
 
 const Legend = () => {
   const wrapperEle = useRef(null);
-  useEffect(() => {
+  const animate = () => {
     new Swiper(".pics .swiper-container", {
       effect: "fade",
       fadeEffect: {
@@ -37,10 +39,11 @@ const Legend = () => {
       translateY: [400, 0],
       delay: 500
     });
-  });
+  };
+  const [show] = useAnimate(animate);
 
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <UnderLineTitle title="壹点壹滴正在创造幼教界传奇" fs="1.1rem" />
 
       <div className="subTitle">

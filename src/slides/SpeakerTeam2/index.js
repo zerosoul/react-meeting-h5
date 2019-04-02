@@ -12,19 +12,8 @@ import LiuImg from "../../assets/img/speaker.lyx.png";
 
 import Wrapper from "./styled.wrapper";
 const SpeakerTeam2 = () => {
-  const wrapperEle = useRef(null);
-
-  useEffect(() => {
-    const wrapper = wrapperEle.current;
-    const eles = wrapper.querySelectorAll(".profile .avatar,.profile .intro");
-    ani({
-      targets: eles,
-      delay: (el, i) => i * 90,
-      opacity: [0, 1]
-    });
-  });
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper>
       <UnderLineTitle title="壹点壹滴金牌讲师团队" mb=".4rem" />
 
       <h2 className="subTitle">手把手教您开好园，助您成功转型！</h2>

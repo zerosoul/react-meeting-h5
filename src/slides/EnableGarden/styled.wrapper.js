@@ -1,13 +1,9 @@
 import styled from "styled-components";
+import W from "../../component/ContentWrapper";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
+const Wrapper = styled(W)`
   padding: 5rem 2rem;
   padding-bottom: 0;
-  height: 100vh;
 
   .brands {
     display: flex;

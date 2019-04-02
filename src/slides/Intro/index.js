@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ani from "animejs";
 // 组件
 import Wrapper from "./styled.wrapper";
@@ -11,14 +11,12 @@ import SubTitleImg from "../../assets/img/topic.sub.title.png";
 
 import InviteImg from "../../assets/img/topic.invite.png";
 import NewWayImg from "../../assets/img/topic.new.way.png";
+import useAnimate from "../../component/useAnimate";
 
 const Intro = ({ time, addr = "北京", nickname, head }) => {
   const wrapperEle = useRef(null);
-  useEffect(() => {
-    console.log("ref", wrapperEle);
-
+  const animate = () => {
     const wrapper = wrapperEle.current;
-
     const titles = wrapper.querySelectorAll(".head>img");
     const dots = wrapper.querySelectorAll(".bubble");
     const btm = wrapper.querySelectorAll(".btm");
@@ -30,6 +28,7 @@ const Intro = ({ time, addr = "北京", nickname, head }) => {
     tl.add({
       targets: titles,
       translateX: [-300, 0],
+      opacity: [0, 1],
       delay: (ele, i) => i * 150
     })
       .add({
@@ -78,9 +77,10 @@ const Intro = ({ time, addr = "北京", nickname, head }) => {
           return 200 * i;
         }
       });
-  });
+  };
+  const [show] = useAnimate(animate);
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <div className="head">
         <img src={TitleImg} className="preTitle" alt="标题" />
         <img src={SubTitleImg} className="topicTitle" alt="副标题" />

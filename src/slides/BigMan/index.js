@@ -7,9 +7,11 @@ import WangImg from "../../assets/img/bigman.wang.png";
 import DengImg from "../../assets/img/bigman.deng.png";
 import ZhangImg from "../../assets/img/bigman.zhang.png";
 import Wrapper from "./styled.wrapper";
+import useAnimate from "../../component/useAnimate";
+
 const BigMan = () => {
   const wrapperEle = useRef(null);
-  useEffect(() => {
+  const animate = () => {
     const wrapper = wrapperEle.current;
     const blocks = wrapper.querySelectorAll(".block");
     const avatars = wrapper.querySelectorAll(".block .avatar");
@@ -34,10 +36,10 @@ const BigMan = () => {
         // easing: "linear",
         delay: (ele, i) => i * 50
       });
-  });
-
+  };
+  const [show] = useAnimate(animate);
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <UnderLineTitle title="幼教大咖助力园长 赢在“新幼教”时代" mb="1rem" />
 
       <div className="blocks">

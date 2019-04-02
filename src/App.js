@@ -11,10 +11,12 @@ import SlideWrapper from "./component/SliderWrapper";
 import ConfigWxShare from "./component/WxShareConfig";
 import WaveBg from "./component/WaveBg";
 import Bookmark from "./component/Bookmark";
-// 幻灯片
-import Intro from "./slides/Intro";
-
 import { getMeetingDetail, getSubmitList } from "./actions";
+// 幻灯片
+
+const Intro = lazy(() =>
+  import(/* webpackChunkName: "intro" */ "./slides/Intro")
+);
 
 const Where = lazy(() =>
   import(/* webpackChunkName: "where" */ "./slides/Where")
@@ -63,7 +65,7 @@ const Submit = lazy(() =>
 
 class App extends Component {
   state = {
-    whiteMusic: false,
+    whiteMusic: true,
     mySwiper: null,
     slides: [false],
     meetingDetail: {},
@@ -78,9 +80,6 @@ class App extends Component {
   initSwiper = () => {
     let effects = ["coverflow", "slide", "flip"];
     let effect = effects[Math.floor(Math.random() * effects.length)];
-    this.setState({
-      whiteMusic: true
-    });
     const mySwiper = new Swiper(".swiper-container", {
       // Optional parameters
       // preventInteractionOnTransition: true,
@@ -183,108 +182,166 @@ class App extends Component {
           {/* <!-- Additional required wrapper --> */}
           <div className="swiper-wrapper">
             {/* <!-- Slides --> */}
-            <Suspense fallback={<div>Loading</div>}>
-              <SlideWrapper bgType="orange" className="swiper-slide">
-                {slides[0] && (
+            <SlideWrapper bgType="orange" className="swiper-slide">
+              {slides[0] && (
+                <Suspense fallback={<div>Loading</div>}>
                   <Intro
                     time={start_time}
                     addr={area}
                     nickname={nickname}
                     head={wxHead}
                   />
-                )}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg height="7rem" />
-                {slides[1] && <Where />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg height="6rem" />
-                {slides[2] && <How />}
-              </SlideWrapper>
-              <SlideWrapper bgType="orange" className="swiper-slide">
-                <Bookmark background="yellow" />
-                {slides[3] && <Open />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg height="7rem" />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg height="7rem" />
+              {slides[1] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <Where />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg height="6rem" />
+              {slides[2] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <How />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper bgType="orange" className="swiper-slide">
+              <Bookmark background="yellow" />
+              {slides[3] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <Open />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg height="7rem" />
 
-                {slides[4] && <PointOne />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg height="6rem" />
+              {slides[4] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <PointOne />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg height="6rem" />
 
-                {slides[5] && <PointTwo />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                {slides[6] && <PointThree />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg height="6rem" />
+              {slides[5] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <PointTwo />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              {slides[6] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <PointThree />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg height="6rem" />
 
-                {slides[7] && <PointFour />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                {slides[8] && <BigMan />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                {slides[9] && <SpeakerTeam1 />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                {slides[10] && <SpeakerTeam2 />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg height="8rem" />
-                {slides[11] && <Promises gift={is_gift ? gift_desc : null} />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg height="8rem" />
+              {slides[7] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <PointFour />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              {slides[8] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <BigMan />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              {slides[9] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <SpeakerTeam1 />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              {slides[10] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <SpeakerTeam2 />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg height="8rem" />
+              {slides[11] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <Promises gift={is_gift ? gift_desc : null} />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg height="8rem" />
 
-                {slides[12] && (
+              {slides[12] && (
+                <Suspense fallback={<div>Loading</div>}>
                   <Arrange
                     addr={address}
                     list={meeting_agenda}
                     name={real_name}
                     mobile={mobile}
                   />
-                )}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg height="7rem" />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg height="7rem" />
 
-                {slides[13] && <EnableGarden />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg height="8rem" />
+              {slides[13] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <EnableGarden />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg height="8rem" />
 
-                {slides[14] && <Legend />}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg height="8rem" />
+              {slides[14] && (
+                <Suspense fallback={<div>Loading</div>}>
+                  <Legend />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg height="8rem" />
 
-                {slides[15] && (
+              {slides[15] && (
+                <Suspense fallback={<div>Loading</div>}>
                   <Waiting currSwiper={mySwiper} submitList={submitList} />
-                )}
-              </SlideWrapper>
-              <SlideWrapper className="swiper-slide">
-                <Bookmark />
-                <WaveBg className="btmBg" height="4.4rem" />
+                </Suspense>
+              )}
+            </SlideWrapper>
+            <SlideWrapper className="swiper-slide">
+              <Bookmark />
+              <WaveBg className="btmBg" height="4.4rem" />
 
-                {slides[16] && (
+              {slides[16] && (
+                <Suspense fallback={<div>Loading</div>}>
                   <Submit
                     time={start_time}
                     addr={address}
@@ -294,9 +351,9 @@ class App extends Component {
                     qr={meeting_qr_code}
                     mobile={mobile}
                   />
-                )}
-              </SlideWrapper>
-            </Suspense>
+                </Suspense>
+              )}
+            </SlideWrapper>
           </div>
           <div className="swiper-pagination" />
         </div>

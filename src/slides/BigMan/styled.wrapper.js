@@ -1,14 +1,9 @@
 import styled from "styled-components";
+import W from "../../component/ContentWrapper";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
+const Wrapper = styled(W)`
   padding: 3.4rem 1.4rem;
   padding-bottom: 0;
-  height: 100vh;
-
   .blocks {
     display: flex;
     flex-direction: column;
