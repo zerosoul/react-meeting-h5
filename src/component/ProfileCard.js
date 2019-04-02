@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import ani from "animejs";
 
@@ -50,13 +50,10 @@ const Card = styled.div`
     }
   }
 `;
-export default class ProfileCard extends PureComponent {
-  constructor() {
-    super();
-    this.card = React.createRef();
-  }
-  componentDidMount() {
-    const card = this.card.current;
+const ProfileCard = ({ avatar, name, title = "壹点壹滴金牌讲师", descs }) => {
+  const cardEle = useRef(null);
+  useEffect(() => {
+    const card = cardEle.current;
     const avatar = card.querySelector(".avatar");
     const lines = card.querySelectorAll(".intro > span");
     const tl = ani.timeline();
@@ -83,22 +80,20 @@ export default class ProfileCard extends PureComponent {
         },
         "-=800"
       );
-  }
-  render() {
-    const { avatar, name, title = "壹点壹滴金牌讲师", descs } = this.props;
-    return (
-      <Card ref={this.card}>
-        <img className="avatar" src={avatar} alt={name} />
-        <p className="intro">
-          <span className="name">{name}</span>
-          <span className="desc bold">{title}</span>
-          {descs.map(desc => (
-            <span key={desc} className="desc">
-              {desc}
-            </span>
-          ))}
-        </p>
-      </Card>
-    );
-  }
-}
+  });
+  return (
+    <Card ref={cardEle}>
+      <img className="avatar" src={avatar} alt={name} />
+      <p className="intro">
+        <span className="name">{name}</span>
+        <span className="desc bold">{title}</span>
+        {descs.map(desc => (
+          <span key={desc} className="desc">
+            {desc}
+          </span>
+        ))}
+      </p>
+    </Card>
+  );
+};
+export default ProfileCard;

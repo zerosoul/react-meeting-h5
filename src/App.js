@@ -1,9 +1,8 @@
 import React, { Component, lazy, Suspense } from "react";
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
 import { hot } from "react-hot-loader/root";
 import Swiper from "swiper";
 import URLSearchParams from "@ungap/url-search-params";
+import GlobalStyle from "./global.style";
 // 组件
 import Music from "./component/Music";
 import Signup from "./component/Signup";
@@ -13,102 +12,55 @@ import ConfigWxShare from "./component/WxShareConfig";
 import WaveBg from "./component/WaveBg";
 import Bookmark from "./component/Bookmark";
 // 幻灯片
-import Intro from "./slides/Intro.js";
-// import Where from "./slides/Where.js";
-// import How from "./slides/How.js";
-// import Open from "./slides/Open.js";
-import PointOne from "./slides/PointOne";
-import PointTwo from "./slides/PointTwo";
-import PointThree from "./slides/PointThree";
-import PointFour from "./slides/PointFour";
-import BigMan from "./slides/BigMan";
-import SpeakerTeam1 from "./slides/SpeakerTeam1";
-import Promises from "./slides/Promises";
-import Arrange from "./slides/Arrange";
-import EnableGarden from "./slides/EnableGarden";
-import Legend from "./slides/Legend";
-import SpeakerTeam2 from "./slides/SpeakerTeam2";
-import Waiting from "./slides/Waiting";
-import Submit from "./slides/Submit";
+import Intro from "./slides/Intro";
+
 import { getMeetingDetail, getSubmitList } from "./actions";
 
 const Where = lazy(() =>
-  import(/* webpackChunkName: "where" */ "./slides/Where.js")
+  import(/* webpackChunkName: "where" */ "./slides/Where")
 );
-const How = lazy(() => import(/* webpackChunkName: "how" */ "./slides/How.js"));
-const Open = lazy(() =>
-  import(/* webpackChunkName: "open" */ "./slides/Open.js")
+const How = lazy(() => import(/* webpackChunkName: "how" */ "./slides/How"));
+const Open = lazy(() => import(/* webpackChunkName: "open" */ "./slides/Open"));
+const PointOne = lazy(() =>
+  import(/* webpackChunkName: "pointone" */ "./slides/PointOne")
 );
-const GlobalStyle = createGlobalStyle`
-  ${reset}
- 
-  *{
-    box-sizing:border-box;
-    outline:none;
-    -webkit-text-size-adjust: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-  }
-  html{
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 18px;
-    font-weight:400;
-    color:#fff;
-    font-family:"Fangzheng ZY", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
-    &.andorid {
-      transition:all .3s;
-      .submitSlide{
-        /* transition:all 1s; */
-        padding-bottom:0;
-        padding-top:1rem;
-        .input.cost,.submitBtn{
-          /* transition:all 1s; */
-          display:none;
-        }
-      }
-      .btmBg{
-       display:none;
-      }
-    }
-  }
-  body{
-    max-width:720px;
-    margin:0 auto;
-  }
-  #root{
-    position:relative;
-  }
-  .swiper-container {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    .swiper-pagination-progressbar-fill{
-      background:#fd762f !important;  
-      opacity: 0.6;
-    }
-}
+const PointTwo = lazy(() =>
+  import(/* webpackChunkName: "PointTwo" */ "./slides/PointTwo")
+);
+const PointThree = lazy(() =>
+  import(/* webpackChunkName: "PointThree" */ "./slides/PointThree")
+);
+const PointFour = lazy(() =>
+  import(/* webpackChunkName: "PointFour" */ "./slides/PointFour")
+);
+const BigMan = lazy(() =>
+  import(/* webpackChunkName: "BigMan" */ "./slides/BigMan")
+);
+const SpeakerTeam1 = lazy(() =>
+  import(/* webpackChunkName: "SpeakerTeam1" */ "./slides/SpeakerTeam1")
+);
+const SpeakerTeam2 = lazy(() =>
+  import(/* webpackChunkName: "SpeakerTeam2" */ "./slides/SpeakerTeam2")
+);
+const Promises = lazy(() =>
+  import(/* webpackChunkName: "Promises" */ "./slides/Promises")
+);
+const Arrange = lazy(() =>
+  import(/* webpackChunkName: "Arrange" */ "./slides/Arrange")
+);
+const EnableGarden = lazy(() =>
+  import(/* webpackChunkName: "EnableGarden" */ "./slides/EnableGarden")
+);
+const Legend = lazy(() =>
+  import(/* webpackChunkName: "Legend" */ "./slides/Legend")
+);
+const Waiting = lazy(() =>
+  import(/* webpackChunkName: "Waiting" */ "./slides/Waiting")
+);
+const Submit = lazy(() =>
+  import(/* webpackChunkName: "Submit" */ "./slides/Submit")
+);
 
-  @media screen and (min-width: 320px){
-      html {
-          font-size: 15px;   
-      }
-  }
-  @media screen and (min-width: 375px){
-      html {
-          font-size: 18px;   
-      }
-  }
-  @media screen and (min-width: 480px){
-      html {
-          font-size: 20px;
-      }
-  }
-  @media screen and (min-width: 768px){
-      html {
-          font-size: 22px;
-      }
-  }
-`;
 class App extends Component {
   state = {
     whiteMusic: false,
@@ -133,7 +85,7 @@ class App extends Component {
       // Optional parameters
       // preventInteractionOnTransition: true,
       grabCursor: true,
-      followFinger: false,
+      // followFinger: false,
       effect,
       direction: "vertical",
       loop: false,

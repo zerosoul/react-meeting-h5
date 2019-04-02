@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import ani from "animejs";
 
@@ -16,15 +16,12 @@ const Line = styled.h3`
     transform-origin: 0 0;
   }
 `;
-export default class UnderLine extends PureComponent {
-  constructor() {
-    super();
-    this.titleEle = React.createRef();
-  }
-  componentDidMount() {
+const UnderLine = ({ content, bold = false, fs = ".8rem" }) => {
+  const titleEle = useRef(null);
+  useEffect(() => {
     console.log("letters");
 
-    const title = this.titleEle.current;
+    const title = titleEle.current;
     let newArr = title.innerText
       .split("")
       .map(t => `<span class='letter'>${t}</span>`);
@@ -40,13 +37,11 @@ export default class UnderLine extends PureComponent {
         return 80 * i;
       }
     });
-  }
-  render() {
-    const { content, bold = false, fs = ".8rem" } = this.props;
-    return (
-      <Line ref={this.titleEle} className={bold ? "bold" : ""} fs={fs}>
-        {content}
-      </Line>
-    );
-  }
-}
+  });
+  return (
+    <Line ref={titleEle} className={bold ? "bold" : ""} fs={fs}>
+      {content}
+    </Line>
+  );
+};
+export default UnderLine;

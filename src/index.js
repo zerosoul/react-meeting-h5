@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+// import { registerObserver } from "react-perf-devtool";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./assets/swiper.css";
+
 ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change

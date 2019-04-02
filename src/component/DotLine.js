@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 const Line = styled.span`
@@ -27,7 +27,7 @@ const Line = styled.span`
     left: -2px;
   }
 `;
-export default class DotLine extends Component {
+export default class DotLine extends PureComponent {
   render() {
     // const { width, background } = this.props;
     return <Line {...this.props} />;

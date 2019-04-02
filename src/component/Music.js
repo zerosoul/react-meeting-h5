@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import MusicImg from "../assets/img/music.svg";
 import MusicWhiteImg from "../assets/img/music.white.svg";
 import BgMusic from "../assets/bgm.mp3";
-import { timingSafeEqual } from "crypto";
-const rotation = keyframes`
+let rotation = keyframes`
   from {
       transform: rotate(0deg);
     }
@@ -37,71 +36,77 @@ const Wrapper = styled.div`
     }
   }
 `;
-export default class Music extends React.Component {
-  state = {
-    playing: false
-  };
-  constructor() {
-    super();
-    this.isIPHONE = navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    this.bgMusic = React.createRef();
-  }
-  onCanPlay = () => {
-    const music = this.bgMusic.current;
+const Music = ({ isWhite = false }) => {
+  const [playing, setPlaying] = useState(false);
 
-    music.play();
+  const IS_IPHONE = navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  const bgMusic = useRef(null);
+  const onCanPlay = () => {
+    const music = bgMusic.current;
+    console.log("onCanPlay", music);
+    // promise?
+    const pr = music.play();
+    if (pr !== undefined) {
+      pr.then(_ => {
+        // Autoplay started!
+      }).catch(error => {
+        // Autoplay was prevented.
+        // Show a "Play" button so that user can start playback.
+      });
+    }
   };
-  onPlaying = () => {
-    this.setState({
-      playing: true
-    });
+  const onPlaying = () => {
+    setPlaying(true);
   };
-  onPause = () => {
-    this.setState({
-      playing: false
-    });
+  const onPause = () => {
+    setPlaying(false);
   };
-  onTogglePlay = () => {
-    const { playing } = this.state;
-    const bgM = this.bgMusic.current;
+  const onTogglePlay = () => {
+    const bgM = bgMusic.current;
     if (playing) {
       bgM.pause();
     } else {
       bgM.play();
     }
   };
-  handleIPhonePlayBug = () => {
-    const { playing } = this.state;
-    if (!playing) {
-      this.bgMusic.current.play();
-      window.removeEventListener("touchstart", this.handleIPhonePlayBug);
+  useEffect(() => {
+    // 兼容苹果系统的自动播放
+    const audioEle = bgMusic.current;
+    // promise?
+    const pr = audioEle.play();
+    if (pr !== undefined) {
+      pr.then(_ => {
+        // Autoplay started!
+      }).catch(error => {
+        // Autoplay was prevented.
+        // Show a "Play" button so that user can start playback.
+      });
     }
-  };
-  componentDidMount() {
-    if (this.isIPHONE) {
-      window.addEventListener("touchstart", this.handleIPhonePlayBug);
-    }
-  }
-  render() {
-    const { playing } = this.state;
-    const { isWhite = false } = this.props;
-    return (
-      <Wrapper onClick={this.onTogglePlay}>
-        <img
-          src={isWhite ? MusicWhiteImg : MusicImg}
-          alt="音乐图片"
-          className={playing ? `playing` : `playing paused`}
-        />
-        <audio
-          onCanPlay={this.onCanPlay}
-          onPause={this.onPause}
-          onPlaying={this.onPlaying}
-          autoPlay={true}
-          loop={true}
-          ref={this.bgMusic}
-          src={BgMusic}
-        />
-      </Wrapper>
+    document.addEventListener(
+      "WeixinJSBridgeReady",
+      () => {
+        audioEle.play();
+      },
+      false
     );
-  }
-}
+  }, [IS_IPHONE]);
+  return (
+    <Wrapper onClick={onTogglePlay}>
+      <img
+        src={isWhite ? MusicWhiteImg : MusicImg}
+        alt="音乐图片"
+        className={playing ? `playing` : `playing paused`}
+      />
+      <audio
+        onCanPlay={onCanPlay}
+        onPause={onPause}
+        onPlaying={onPlaying}
+        autoPlay={true}
+        loop={true}
+        ref={bgMusic}
+        src={BgMusic}
+      />
+    </Wrapper>
+  );
+};
+export default Music;

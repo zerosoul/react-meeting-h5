@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import anime from "animejs";
 
@@ -7,22 +7,19 @@ const Wrapper = styled.div`
   height: 17px;
   z-index: 9999;
 `;
-export default class Circle extends PureComponent {
-  constructor() {
-    super();
-    this.circle = React.createRef();
-  }
-  componentDidMount() {
+const Circle = () => {
+  const circleEle = useRef(null);
+  useEffect(() => {
+    const circle = circleEle.current;
     anime({
-      targets: this.circle.current,
+      targets: circle,
       translateY: -10,
       duration: 1000,
       opacity: [0.4, 1],
       easing: "easeOutExpo",
       loop: true
     });
-  }
-  render() {
-    return <Wrapper ref={this.circle} />;
-  }
-}
+  });
+  return <Wrapper ref={circleEle} />;
+};
+export default Circle;

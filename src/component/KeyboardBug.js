@@ -1,20 +1,19 @@
-import React, { PureComponent } from "react";
+import { useEffect } from "react";
 
-export default class KeyboardBug extends PureComponent {
-  constructor() {
-    super();
-    const u = navigator.userAgent;
-    this.isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1;
-    this.originalHeight = window.innerHeight;
-  }
-  onHandleBlur = () => {
+const KeyboardBug = () => {
+  const u = navigator.userAgent;
+  const isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1;
+  const originalHeight = window.innerHeight;
+
+  const onHandleBlur = () => {
     console.log("input blured");
-    window.body.scrollTo(0, 0);
-    if (this.isAndroid) {
+
+    document.body.scrollTo(0, 0);
+    if (isAndroid) {
       document.documentElement.classList.remove("andorid");
     }
   };
-  onHandleFocus = evt => {
+  const onHandleFocus = evt => {
     console.log("input focus", evt);
     if (this.isAndroid) {
       let ele = evt.target;
@@ -23,9 +22,9 @@ export default class KeyboardBug extends PureComponent {
       }
     }
   };
-  onHandleAndroidDismiss = () => {
+  const onHandleAndroidDismiss = () => {
     const currHeight = window.innerHeight;
-    if (currHeight < this.originalHeight) {
+    if (currHeight < originalHeight) {
       //当软键盘弹起，在此处操作
       document.documentElement.classList.add("andorid");
     } else {
@@ -33,23 +32,22 @@ export default class KeyboardBug extends PureComponent {
       document.documentElement.classList.remove("andorid");
     }
   };
-  componentDidMount() {
-    console.log("inputs", this.inputs);
+  useEffect(() => {
     // 利用冒泡，来捕捉失焦
-    document.addEventListener("focusout", this.onHandleBlur);
-    document.addEventListener("focusin", this.onHandleFocus);
-    if (this.isAndroid) {
-      window.onresize = this.onHandleAndroidDismiss;
+    document.addEventListener("focusout", onHandleBlur);
+    if (isAndroid) {
+      window.onresize = onHandleAndroidDismiss;
+
+      document.addEventListener("focusin", onHandleFocus);
     }
-  }
-  componentWillUnmount() {
-    document.removeEventListener("focusout", this.onHandleBlur);
-    document.removeEventListener("focusin", this.onHandleFocus);
-    if (this.isAndroid) {
-      window.onresize = null;
-    }
-  }
-  render() {
-    return null;
-  }
-}
+    return () => {
+      document.removeEventListener("focusout", onHandleBlur);
+      if (isAndroid) {
+        document.removeEventListener("focusin", onHandleFocus);
+      }
+    };
+  });
+
+  return null;
+};
+export default KeyboardBug;

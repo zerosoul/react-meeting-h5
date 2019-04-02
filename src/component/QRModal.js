@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useRef, useEffect } from "react";
 
 import styled from "styled-components";
 import ani from "animejs";
@@ -6,7 +6,7 @@ import ani from "animejs";
 import BgImg from "../assets/img/modal.bg.png";
 import TitleImg from "../assets/img/modal.title.png";
 import CloseImg from "../assets/img/modal.close.png";
-import QrImg from "../assets/img/modal.qrcode.png";
+// import QrImg from "../assets/img/modal.qrcode.png";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -81,13 +81,10 @@ const Wrapper = styled.div`
   }
 `;
 
-export default class QRModal extends Component {
-  constructor() {
-    super();
-    this.card = React.createRef();
-  }
-  componentDidMount() {
-    const card = this.card.current;
+const QRModal = ({ onCloseModal, qr = "", mobile = "" }) => {
+  const cardEle = useRef();
+  useEffect(() => {
+    const card = cardEle.current;
     ani({
       targets: card,
       opacity: [0, 1],
@@ -95,29 +92,27 @@ export default class QRModal extends Component {
       translateY: [-300, 0],
       duration: 1000
     });
-  }
-  render() {
-    const { onCloseModal, qr = "", mobile = "" } = this.props;
-    return (
-      <Wrapper>
-        <div className="card" ref={this.card}>
-          <img className="title" src={TitleImg} alt="弹窗标题" />
-          <p className="content">
-            为确保您报名成功，请联系会议组织者({mobile}
-            )交取相关费用。关注下方公众号，可在报名成功后及时领取专属入场券，凭入场券扫码签到。
-          </p>
-          <hr className="dotLine" />
-          <img src={qr} className="qr" alt="qr" />
-          <p className="tip">请长按识别二维码</p>
-          <div className="vLine" />
-          <img
-            className="close"
-            src={CloseImg}
-            alt="关闭弹窗"
-            onClick={onCloseModal}
-          />
-        </div>
-      </Wrapper>
-    );
-  }
-}
+  });
+  return (
+    <Wrapper>
+      <div className="card" ref={cardEle}>
+        <img className="title" src={TitleImg} alt="弹窗标题" />
+        <p className="content">
+          为确保您报名成功，请联系会议组织者({mobile}
+          )交取相关费用。关注下方公众号，可在报名成功后及时领取专属入场券，凭入场券扫码签到。
+        </p>
+        <hr className="dotLine" />
+        <img src={qr} className="qr" alt="qr" />
+        <p className="tip">请长按识别二维码</p>
+        <div className="vLine" />
+        <img
+          className="close"
+          src={CloseImg}
+          alt="关闭弹窗"
+          onClick={onCloseModal}
+        />
+      </div>
+    </Wrapper>
+  );
+};
+export default QRModal;
