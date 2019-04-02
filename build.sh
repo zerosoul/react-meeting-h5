@@ -14,7 +14,7 @@ deploy_dev() {
 	
 	echo "nodejs version:"
 	node -v
-	npm install && npm run build:dev
+	npm install && npm run build
 
 	# 编译失败，不能部署代码
 	if [ $? -ne 0 ]; then
@@ -35,7 +35,7 @@ deploy_test() {
 
         echo "nodejs version:"
         node -v
-        npm install && npm run build:dev
+        npm install && npm run build
 
         # 编译失败，不能部署代码
         if [ $? -ne 0 ]; then
