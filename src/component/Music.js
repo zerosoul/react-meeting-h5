@@ -71,24 +71,26 @@ const Music = ({ isWhite = false }) => {
   };
   useEffect(() => {
     // 兼容苹果系统的自动播放
-    const audioEle = bgMusic.current;
-    // promise?
-    const pr = audioEle.play();
-    if (pr !== undefined) {
-      pr.then(_ => {
-        // Autoplay started!
-      }).catch(error => {
-        // Autoplay was prevented.
-        // Show a "Play" button so that user can start playback.
-      });
+    if (IS_IPHONE) {
+      const audioEle = bgMusic.current;
+      // promise?
+      const pr = audioEle.play();
+      if (pr !== undefined) {
+        pr.then(_ => {
+          // Autoplay started!
+        }).catch(error => {
+          // Autoplay was prevented.
+          // Show a "Play" button so that user can start playback.
+        });
+      }
+      document.addEventListener(
+        "WeixinJSBridgeReady",
+        () => {
+          audioEle.play();
+        },
+        false
+      );
     }
-    document.addEventListener(
-      "WeixinJSBridgeReady",
-      () => {
-        audioEle.play();
-      },
-      false
-    );
   }, [IS_IPHONE]);
   return (
     <Wrapper onClick={onTogglePlay}>
