@@ -39,7 +39,6 @@ const Wrapper = styled.div`
 const Music = ({ isWhite = false }) => {
   const [playing, setPlaying] = useState(false);
 
-  const IS_IPHONE = navigator.userAgent.match(/iPhone|iPad|iPod/i);
   const bgMusic = useRef(null);
   const onCanPlay = () => {
     const music = bgMusic.current;
@@ -71,6 +70,8 @@ const Music = ({ isWhite = false }) => {
   };
   useEffect(() => {
     // 兼容苹果系统的自动播放
+    const IS_IPHONE = navigator.userAgent.match(/iPhone|iPad|iPod/i);
+
     if (IS_IPHONE) {
       const audioEle = bgMusic.current;
       // promise?
@@ -91,7 +92,7 @@ const Music = ({ isWhite = false }) => {
         false
       );
     }
-  }, [IS_IPHONE]);
+  }, []);
   return (
     <Wrapper onClick={onTogglePlay}>
       <img

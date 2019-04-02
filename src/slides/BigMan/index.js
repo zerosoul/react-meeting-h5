@@ -17,11 +17,11 @@ const BigMan = () => {
     const avatars = wrapper.querySelectorAll(".block .avatar");
     const intros = wrapper.querySelectorAll(".block .intro");
 
-    const tl = ani.timeline({ loop: false });
+    const tl = ani.timeline();
     tl.add({
       targets: blocks,
       width: [0, "18rem"],
-      delay: (ele, i) => i * 50
+      delay: (ele, i) => i * 100
     })
       .add({
         targets: avatars,
