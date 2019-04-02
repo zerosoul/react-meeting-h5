@@ -3,6 +3,7 @@ import styled from "styled-components";
 import anime from "animejs";
 
 const Wrapper = styled.div`
+  opacity: 0;
   z-index: 98;
   position: absolute;
   top: 14rem;
@@ -27,6 +28,7 @@ const Tel = ({ mobile }) => {
       targets: tel.current,
       right: [-30, 2],
       duration: 1500,
+      opacity: [0, 1],
       delay: 1000
     });
   }, [mobile]);

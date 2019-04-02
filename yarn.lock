@@ -7135,6 +7135,7 @@ react-particles-js@^2.4.2:
 react-perf-devtool@^3.1.8:
   version "3.1.8"
   resolved "http://registry.npm.taobao.org/react-perf-devtool/download/react-perf-devtool-3.1.8.tgz#ae5c369b3b73f5c71de8afb5257ae6f90c953440"
+  integrity sha1-rlw2mztz9ccd6K+1JXrm+QyVNEA=
 
 react-swipe@^6.0.4:
   version "6.0.4"

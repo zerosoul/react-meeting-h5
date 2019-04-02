@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   color: #fff;
   padding: 0.4rem;
   writing-mode: vertical-lr;
+  opacity: 0;
 `;
 const Signup = ({ currSwiper }) => {
   const signupEle = useRef(null);
@@ -23,6 +24,7 @@ const Signup = ({ currSwiper }) => {
       targets: signupEle.current,
       right: [-30, 2],
       duration: 1500,
+      opacity: [0, 1],
       delay: 1000
     });
   }, [currSwiper]);
