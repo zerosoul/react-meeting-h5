@@ -82,7 +82,7 @@ const Wrapper = styled.div`
 `;
 
 const QRModal = ({ onCloseModal, qr = "", mobile = "" }) => {
-  const cardEle = useRef();
+  const cardEle = useRef(null);
   useEffect(() => {
     const card = cardEle.current;
     ani({
@@ -92,7 +92,7 @@ const QRModal = ({ onCloseModal, qr = "", mobile = "" }) => {
       translateY: [-300, 0],
       duration: 1000
     });
-  });
+  }, []);
   return (
     <Wrapper>
       <div className="card" ref={cardEle}>
