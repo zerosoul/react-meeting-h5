@@ -5,13 +5,13 @@ import MusicWhiteImg from "../assets/img/music.white.svg";
 import BgMusic from "../assets/bgm.mp3";
 let rotation = keyframes`
   from {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-    to {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 `;
 const Wrapper = styled.div`
   display: flex;
