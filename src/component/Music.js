@@ -30,11 +30,9 @@ const Wrapper = styled.div`
     color: #000;
     width: 23px;
     &.playing {
-      -webkit-animation: ${rotation} 2s infinite;
       animation: ${rotation} 2s infinite;
     }
     &.paused {
-      -webkit-animation-play-state: paused;
       animation-play-state: paused;
     }
   }

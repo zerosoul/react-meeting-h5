@@ -27,8 +27,6 @@ const UnderLine = ({ content, bold = false, fs = ".8rem" }) => {
       .map(t => `<span class='letter'>${t}</span>`);
     title.innerHTML = newArr.join("");
     const letters = title.querySelectorAll(".letter");
-    // const tl = ani.timeline({ loop: true });
-
     ani({
       targets: letters,
       rotateY: [-90, 0],
@@ -37,7 +35,7 @@ const UnderLine = ({ content, bold = false, fs = ".8rem" }) => {
         return 80 * i;
       }
     });
-  });
+  }, []);
   return (
     <Line ref={titleEle} className={bold ? "bold" : ""} fs={fs}>
       {content}

@@ -20,7 +20,7 @@ const Arrange = ({ addr, list = [], name, mobile }) => {
       },
       "+=500"
     );
-  });
+  }, []);
 
   return (
     <Wrapper ref={wrapperEle}>

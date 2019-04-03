@@ -80,7 +80,7 @@ const ProfileCard = ({ avatar, name, title = "壹点壹滴金牌讲师", descs }
         },
         "-=800"
       );
-  });
+  }, []);
   return (
     <Card ref={cardEle}>
       <img className="avatar" src={avatar} alt={name} />

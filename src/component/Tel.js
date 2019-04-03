@@ -31,7 +31,7 @@ const Tel = ({ mobile }) => {
       opacity: [0, 1],
       delay: 1000
     });
-  }, [mobile]);
+  }, []);
   return (
     <Wrapper ref={tel}>
       <a href={`tel:${mobile}`}>电话咨询</a>

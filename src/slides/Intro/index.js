@@ -25,8 +25,7 @@ const Intro = ({ time, addr = "北京", nickname, head }) => {
     const wx = wrapper.querySelectorAll(".profile .wx");
     const lines = wrapper.querySelectorAll(".profile .line");
     const letters = wrapper.querySelectorAll(".letters");
-    // const dots = wrapper.querySelectorAll(".btm ");
-    const tl = ani.timeline({ loop: false });
+    const tl = ani.timeline();
     tl.add({
       targets: titles,
       translateX: [-300, 0],
@@ -78,7 +77,7 @@ const Intro = ({ time, addr = "北京", nickname, head }) => {
           return 200 * i;
         }
       });
-  });
+  }, []);
   return (
     <Wrapper ref={wrapperEle}>
       <div className="head">

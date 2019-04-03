@@ -19,7 +19,7 @@ const Circle = () => {
       easing: "easeOutExpo",
       loop: true
     });
-  });
+  }, []);
   return <Wrapper ref={circleEle} />;
 };
 export default Circle;

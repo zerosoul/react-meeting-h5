@@ -27,7 +27,7 @@ const Signup = ({ currSwiper }) => {
       opacity: [0, 1],
       delay: 1000
     });
-  }, [currSwiper]);
+  }, []);
 
   return (
     <Wrapper

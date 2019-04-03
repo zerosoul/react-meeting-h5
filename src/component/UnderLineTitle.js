@@ -8,7 +8,6 @@ const Title = styled.h1`
   font-size: ${({ fs }) => fs};
   font-weight: 800;
   display: inline-block;
-  /* padding-top: 0.2em; */
   box-shadow: inset 0 -0.4em ${({ bg }) => bg};
   margin-bottom: ${({ mb }) => mb};
   overflow: hidden;
@@ -40,7 +39,7 @@ const UnderLineTitle = ({
         return 100 * i;
       }
     });
-  }, [title]);
+  }, []);
   return (
     <Title ref={titleEle} mb={mb} fs={fs} bg={bg} fc={fc}>
       {title}

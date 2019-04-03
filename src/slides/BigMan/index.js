@@ -34,7 +34,7 @@ const BigMan = () => {
         // easing: "linear",
         delay: (ele, i) => i * 50
       });
-  });
+  }, []);
 
   return (
     <Wrapper ref={wrapperEle}>

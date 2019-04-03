@@ -25,7 +25,7 @@ const EnableGarden = () => {
       translateY: [200, 0],
       delay: (ele, i) => i * 100
     });
-  });
+  }, []);
   return (
     <Wrapper ref={wrapperEle}>
       <UnderLineTitle title="互联网赋能幼儿园" />

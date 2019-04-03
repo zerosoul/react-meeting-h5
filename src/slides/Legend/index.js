@@ -37,7 +37,7 @@ const Legend = () => {
       translateY: [400, 0],
       delay: 500
     });
-  });
+  }, []);
 
   return (
     <Wrapper ref={wrapperEle}>

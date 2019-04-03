@@ -38,7 +38,7 @@ const How = () => {
       duration: 2000,
       delay: (ele, i) => i * 400
     });
-  });
+  }, []);
 
   return (
     <Wrapper ref={wrapperEle}>

@@ -15,14 +15,14 @@ const DepartmentTitle = ({ title }) => {
   const titleEle = useRef(null);
 
   useEffect(() => {
-    const title = titleEle.current;
+    const t = titleEle.current;
     ani({
-      targets: title,
+      targets: t,
       translateY: [-200, 0],
       translateZ: 0,
       opacity: [0, 1]
     });
-  });
+  }, []);
   return <Title ref={titleEle}>{title}</Title>;
 };
 export default DepartmentTitle;
