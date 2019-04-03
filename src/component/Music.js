@@ -1,15 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import MusicImg from "../assets/img/music.svg";
 import MusicWhiteImg from "../assets/img/music.white.svg";
 import BgMusic from "../assets/bgm.mp3";
-let rotation = keyframes`
+const Rotate = keyframes`
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+`;
+const RA = css`
+  animation: ${Rotate} 2s infinite;
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -21,7 +24,6 @@ const Wrapper = styled.div`
   position: fixed;
   top: 10px;
   right: 10px;
-  box-sizing: border-box;
   audio {
     display: none;
   }
@@ -30,7 +32,7 @@ const Wrapper = styled.div`
     color: #000;
     width: 23px;
     &.playing {
-      animation: ${rotation} 2s infinite;
+      ${RA}
     }
     &.paused {
       animation-play-state: paused;
