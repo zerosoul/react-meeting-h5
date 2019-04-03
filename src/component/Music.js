@@ -28,12 +28,15 @@ const Wrapper = styled.div`
     display: none;
   }
   img {
+    -webkit-transform: translate3d(0, 0, 0);
     color: #000;
     width: 23px;
     &.playing {
+      -webkit-animation: ${rotation} 2s infinite;
       animation: ${rotation} 2s infinite;
     }
     &.paused {
+      -webkit-animation-play-state: paused;
       animation-play-state: paused;
     }
   }
