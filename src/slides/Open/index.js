@@ -6,9 +6,11 @@ import UnderLineTitle from "../../component/UnderLineTitle";
 import DotLine from "../../component/DotLine";
 import OpenImg from "../../assets/img/open.png";
 import Wrapper from "./styled.wrapper";
+import useAnimate from "../../component/useAnimate";
+
 const Open = () => {
   const wrapperEle = useRef(null);
-  useEffect(() => {
+  const animate = () => {
     const wrapper = wrapperEle.current;
     const words = wrapper.querySelectorAll(".word");
     ani({
@@ -21,9 +23,11 @@ const Open = () => {
         return 800 * i;
       }
     });
-  });
+  };
+  const [show] = useAnimate(animate);
+
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <UnderLineTitle
         title="四大亮点，您不得不来!"
         fs="1.2rem"

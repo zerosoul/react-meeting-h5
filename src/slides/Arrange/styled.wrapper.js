@@ -2,14 +2,10 @@ import styled from "styled-components";
 
 import TelIcon from "../../assets/img/icon.tel.png";
 import AddrIcon from "../../assets/img/icon.addr.png";
+import W from "../../component/ContentWrapper";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
+const Wrapper = styled(W)`
   padding: 6rem 2rem;
-  height: 100vh;
   .arranges {
     color: #666;
     font-size: 0.8rem;

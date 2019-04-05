@@ -1,15 +1,9 @@
 import styled from "styled-components";
 import CloudImg from "../../assets/img/cloud.png";
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  height: 100%;
+import W from "../../component/ContentWrapper";
+const Wrapper = styled(W)`
   padding: 0 2rem;
   padding-top: 2.4rem;
-  box-sizing: border-box;
   .head {
     position: relative;
     margin-bottom: 1.4rem;

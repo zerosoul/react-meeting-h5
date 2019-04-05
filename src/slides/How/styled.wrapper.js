@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import Floating from "../../component/Floating";
+import W from "../../component/ContentWrapper";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+const Wrapper = styled(W)`
   align-items: flex-start;
   color: #5b5b5b;
   padding-left: 2rem;

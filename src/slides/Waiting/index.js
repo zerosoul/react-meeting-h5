@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import Swiper from "swiper";
 // components
 import ani from "animejs";
@@ -6,9 +6,10 @@ import UnderLineTitle from "../../component/UnderLineTitle";
 import DotLine from "../../component/DotLine";
 import SignImg from "../../assets/img/sign.png";
 import Wrapper from "./styled.wrapper";
+import useAnimate from "../../component/useAnimate";
 const Waiting = ({ submitList = [] }) => {
   const wrapperEle = useRef(null);
-  useEffect(() => {
+  const animate = () => {
     const wrapper = wrapperEle.current;
     new Swiper(".gardens .swiper-container", {
       // effect: "flip",
@@ -28,13 +29,14 @@ const Waiting = ({ submitList = [] }) => {
       scaleX: [4, 1],
       delay: 1000
     });
-  });
+  };
   const onSignNow = () => {
     const { currSwiper } = this.props;
     currSwiper.slideTo(currSwiper.slides.length);
   };
+  const [show] = useAnimate(animate);
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <UnderLineTitle title="您还在等什么?" />
 
       <div className="subTitle">

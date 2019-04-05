@@ -1,14 +1,10 @@
 import styled from "styled-components";
 import Floating from "../../component/Floating";
+import W from "../../component/ContentWrapper";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const Wrapper = styled(W)`
   justify-content: center;
-  color: #fff;
   padding: 2rem;
-  height: 100vh;
 
   .open {
     display: flex;

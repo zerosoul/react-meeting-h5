@@ -4,9 +4,11 @@ import ani from "animejs";
 import UnderLineTitle from "../../component/UnderLineTitle";
 import UnderLine from "../../component/UnderLine";
 import Wrapper from "./styled.wrapper";
+import useAnimate from "../../component/useAnimate";
+
 const PointThree = () => {
   const wrapperEle = useRef(null);
-  useEffect(() => {
+  const animate = () => {
     const wrapper = wrapperEle.current;
     const circles = wrapper.querySelectorAll(".circles .circle");
     ani({
@@ -17,10 +19,10 @@ const PointThree = () => {
         return i * 200;
       }
     });
-  });
-
+  };
+  const [show] = useAnimate(animate);
   return (
-    <Wrapper ref={wrapperEle}>
+    <Wrapper ref={wrapperEle} show={show}>
       <UnderLineTitle title="亮点三：教师专业化成长" />
       <div className="circles">
         <p className="circle">
