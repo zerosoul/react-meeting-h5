@@ -13,15 +13,6 @@ const request = options => {
   let status = "error";
   let response;
   let cancel;
-  // const config = {
-  //   headers: {
-  //     'content-type': 'application/json',
-  //     Authorization: `${Cookie.get('Authorization')}`
-  //   },
-  //   cancelToken: new CancelToken(c => {
-  //     cancel = c;
-  //   })
-  // };
   axios({
     method: type,
     url: `${origin}/${url}`,
