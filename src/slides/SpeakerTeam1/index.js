@@ -11,7 +11,7 @@ import MsImg from "../../assets/img/speaker.ms.png";
 import Wrapper from "./styled.wrapper";
 const SpeakerTeam1 = () => {
   return (
-    <Wrapper ref={this.wrapper}>
+    <Wrapper>
       <UnderLineTitle title="壹点壹滴金牌讲师团队" mb=".4rem" />
 
       <h2 className="subTitle">手把手教您开好园，助您成功转型！</h2>
