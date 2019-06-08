@@ -8,7 +8,7 @@ import Music from "./component/Music";
 import Signup from "./component/Signup";
 import Tel from "./component/Tel";
 import SlideWrapper from "./component/SliderWrapper";
-import ConfigWxShare from "./component/WxShareConfig";
+// import ConfigWxShare from "./component/WxShareConfig";
 import WaveBg from "./component/WaveBg";
 import Bookmark from "./component/Bookmark";
 // 幻灯片
@@ -125,7 +125,7 @@ class App extends Component {
     const mid = params.get("mid") || 1;
     const nickname = params.get("nickname") || "微信昵称";
     const wxHead = params.get("headimgurl") || "";
-    await ConfigWxShare(mid);
+    // await ConfigWxShare(mid);
     this.setState({
       nickname,
       wxHead,

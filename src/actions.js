@@ -1,6 +1,6 @@
 import axios from "axios";
 import config from "./config";
-
+import Resp from "./data.json";
 const request = options => {
   const {
     type = "get", //请求方式
@@ -87,22 +87,16 @@ export const getSMSCode = mobile =>
 // 获取会议详情
 export const getMeetingDetail = (id = 1) =>
   new Promise(resolve => {
-    request({
-      url: `meeting/getone/${id}/1`,
-      end: (status, response) => {
-        resolve({ status, response });
-      }
-    });
+    setTimeout(() => {
+      resolve({ status: "success", response: Resp.meeting });
+    }, 1800);
   });
 // 获取报名列表
 export const getSubmitList = (id = 1) =>
   new Promise(resolve => {
-    request({
-      url: `enroll/list_for_school/${id}`,
-      end: (status, response) => {
-        resolve({ status, response });
-      }
-    });
+    setTimeout(() => {
+      resolve({ status: "success", response: Resp.submitList });
+    }, 1500);
   });
 // 提交申请
 export const postMeetingInfo = data =>
