@@ -79,7 +79,10 @@ module.exports = function(webpackEnv) {
           // Necessary for external CSS imports to work
           // https://github.com/facebook/create-react-app/issues/2677
           ident: "postcss",
-          sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment
+          sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
+          plugins: function() {
+            return [];
+          }
         }
       }
     ].filter(Boolean);
