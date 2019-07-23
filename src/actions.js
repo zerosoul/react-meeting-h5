@@ -108,14 +108,9 @@ export const getSubmitList = (id = 1) =>
 export const postMeetingInfo = data =>
   new Promise(resolve => {
     const { meetingid, ...rest } = data;
-    request({
-      type: "post",
-      url: `enroll/index/${meetingid}`,
-      data: rest,
-      end: (status, response) => {
-        resolve({ status, response });
-      }
-    });
+    setTimeout(() => {
+      resolve({ status: "success" });
+    }, 1500);
   });
 // 微信配置
 export const initWX = url =>

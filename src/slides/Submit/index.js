@@ -22,7 +22,7 @@ class Submit extends Component {
       showModal: false
     };
   }
-  onGetCode = async evt => {
+  onGetCode = async () => {
     const { form } = this.props;
     const { waitingSecondLeft } = this.state;
     if (waitingSecondLeft > 0) {

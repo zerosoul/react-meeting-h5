@@ -1,0 +1,98 @@
+{
+  "meeting": {
+    "start_time": "2019/05/12 10:55:00",
+    "address": "\u671d\u5723\u95e8\u8c6a\u534e\u9152\u5e975\u5c42",
+    "inviters": [
+      {
+        "invite_name": "\u7f57\u6587\u8302\uff08\u897f\u57ce\u533a\uff09",
+        "invite_phone": "13126513868"
+      },
+      {
+        "invite_name": "\u5434\u4ea6\u51e1\uff08\u4e1c\u57ce\u533a\uff09",
+        "invite_phone": "13126513699"
+      },
+      {
+        "invite_name": "\u674e\u8363\u6d69\uff08\u5357\u6295\u53bf\uff09",
+        "invite_phone": "13126513222"
+      }
+    ],
+    "single_price": "150.00",
+    "double_price": "300.00",
+    "meeting_agenda": [
+      { "name": "\u7b7e\u5230", "time": "8:00\uff5e8:30" },
+      { "name": "\u4e92\u8054\u7f51\u8fd0\u8425", "time": "8:30\uff5e12:00" },
+      { "name": "1", "time": "13:00\uff5e14:00" },
+      { "name": "2", "time": "14:00\uff5e15:00" },
+      { "name": "3", "time": "15:00\uff5e15:30" }
+    ],
+    "is_gift": 1,
+    "gift_desc": "\u7cbe\u7f8e\u793c\u54c1\u4eba\u624b\u4e00\u4efd\uff0c\u5230\u573a\u5373\u9001\uff01",
+    "area": "\u5317\u4eac\u5e02\u897f\u57ce\u533a\u4ec0\u5239\u6d77\u8857\u9053",
+    "agent_id": 1360,
+    "meeting_qr_code": "http://file.1d1d100.com/2019/5/7/722dfda7ba81439bb9dc6f7cb9fe9e78.jpg",
+    "agent_info": {
+      "real_name": "\u7f57\u6587\u8302",
+      "email": "17600884142",
+      "sex": 1,
+      "mobile": "13126513868"
+    }
+  },
+  "submits": [
+    {
+      "id": 729,
+      "meeting_id": 87,
+      "name": "\u94dc\u9523\u70e7",
+      "mobile": "18265070765",
+      "school_name": "\u54c6\u5566A\u68a6\u5e7c\u513f\u56ed",
+      "person_num": 2,
+      "price": "300.00",
+      "discount": "0.00",
+      "unit_price": "150.00",
+      "double_price": "300.00",
+      "created_at": "2019-05-07 22:10:49",
+      "updated_at": "2019-05-08 18:55:14"
+    },
+    {
+      "id": 728,
+      "meeting_id": 87,
+      "name": "\u674e\u4f1f\u6d9b",
+      "mobile": "18701581372",
+      "school_name": "\u5218\u81f3",
+      "person_num": 2,
+      "price": "300.00",
+      "discount": "0.00",
+      "unit_price": "150.00",
+      "double_price": "300.00",
+      "created_at": "2019-05-07 22:10:40",
+      "updated_at": "2019-05-07 22:12:06"
+    },
+    {
+      "id": 724,
+      "meeting_id": 87,
+      "name": "\u5f20\u4eae",
+      "mobile": "13264031147",
+      "school_name": "\u5f20\u4eae\u5e7c\u513f\u56ed",
+      "person_num": 1,
+      "price": "100.00",
+      "discount": "0.00",
+      "unit_price": "100.00",
+      "double_price": "200.00",
+      "created_at": "2019-05-07 17:14:21",
+      "updated_at": "2019-05-07 21:33:33"
+    },
+    {
+      "id": 723,
+      "meeting_id": 87,
+      "name": "\u7f57\u5c0f\u8475",
+      "mobile": "15801366461",
+      "school_name": "\u5343\u5343\u5e7c\u513f\u56ed",
+      "person_num": 1,
+      "price": "100.00",
+      "discount": "0.00",
+      "unit_price": "100.00",
+      "double_price": "200.00",
+      "created_at": "2019-05-07 17:13:35",
+      "updated_at": "2019-05-07 21:23:27"
+    }
+  ]
+}

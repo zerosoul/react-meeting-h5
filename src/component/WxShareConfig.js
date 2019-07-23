@@ -3,7 +3,6 @@ import { initWX } from "../actions";
 
 const ConfigWxShare = async (mid = 1) => {
   const { response: WxConfig } = await initWX(`${window.location.href}`);
-  console.log("wtf", WxConfig);
   let { appId, timestamp, nonceStr, signature } = WxConfig;
   const title = `用互联网助力幼儿园运营管理升级主题论坛`;
   const desc = "专家大咖政策解读民办幼儿园新出路，用互联网赋能幼儿园。";
