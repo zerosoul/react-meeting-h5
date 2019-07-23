@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     color: #666;
     font-size: 0.8rem;
     font-weight: 800;
-    max-height: 10rem;
+    max-height: 14rem;
     overflow-y: scroll;
     padding: 0.4rem 0;
     .arrange {
