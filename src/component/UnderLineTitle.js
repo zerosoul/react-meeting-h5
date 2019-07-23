@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import ani from "animejs";
 
@@ -17,22 +17,21 @@ const Title = styled.h1`
     line-height: 1em;
   }
 `;
-export default class UnderLine extends PureComponent {
-  constructor() {
-    super();
-    this.titleEle = React.createRef();
-  }
-  componentDidMount() {
-    console.log("letters");
-
-    const title = this.titleEle.current;
+const UnderLineTitle = ({
+  title,
+  mb = "2rem",
+  fs = "1rem",
+  bg = "#ccc",
+  fc = "#ff6a1c"
+}) => {
+  const titleEle = useRef(null);
+  useEffect(() => {
+    const title = titleEle.current;
     let newArr = title.innerText
       .split("")
       .map(t => `<span class='letter'>${t}</span>`);
     title.innerHTML = newArr.join("");
     const letters = title.querySelectorAll(".letter");
-    // const tl = ani.timeline({ loop: true });
-
     ani({
       targets: letters,
       translateY: ["1.1em", 0],
@@ -41,19 +40,11 @@ export default class UnderLine extends PureComponent {
         return 100 * i;
       }
     });
-  }
-  render() {
-    const {
-      title,
-      mb = "2rem",
-      fs = "1rem",
-      bg = "#ccc",
-      fc = "#ff6a1c"
-    } = this.props;
-    return (
-      <Title ref={this.titleEle} mb={mb} fs={fs} bg={bg} fc={fc}>
-        {title}
-      </Title>
-    );
-  }
-}
+  }, [title]);
+  return (
+    <Title ref={titleEle} mb={mb} fs={fs} bg={bg} fc={fc}>
+      {title}
+    </Title>
+  );
+};
+export default UnderLineTitle;

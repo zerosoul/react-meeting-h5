@@ -22,7 +22,7 @@ const EnableGarden = () => {
     }).add({
       targets: demos,
       opacity: [0, 1],
-      translateY: [-300, 0],
+      translateY: [200, 0],
       delay: (ele, i) => i * 100
     });
   });

@@ -1,11 +1,8 @@
 import wx from "weixin-js-sdk";
 import { initWX } from "../actions";
-// import shareImg from "../assets/img/shareImg.jpg";
 
 const ConfigWxShare = async (mid = 1) => {
   const { response: WxConfig } = await initWX(`${window.location.href}`);
-  console.log("wtf", WxConfig);
-  if (window.WEIXIN_SHARE === true) return;
   let { appId, timestamp, nonceStr, signature } = WxConfig;
   const title = `用互联网助力幼儿园运营管理升级主题论坛`;
   const desc = "专家大咖政策解读民办幼儿园新出路，用互联网赋能幼儿园。";
@@ -48,7 +45,6 @@ const ConfigWxShare = async (mid = 1) => {
     alert(JSON.stringify(res));
   });
   wx.ready(function() {
-    window.WEIXIN_SHARE = true;
     wx.onMenuShareTimeline({
       title, // Share title
       link, // Share link, this link domain name and path must be the same as the current page which corresponding to JS secured domain name as Official account

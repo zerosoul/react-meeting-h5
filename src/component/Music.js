@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import MusicImg from "../assets/img/music.svg";
 import MusicWhiteImg from "../assets/img/music.white.svg";
 import BgMusic from "../assets/bgm.mp3";
-const rotation = keyframes`
+let rotation = keyframes`
   from {
       transform: rotate(0deg);
     }
@@ -71,18 +71,25 @@ const Music = ({ isWhite = false }) => {
   };
   useEffect(() => {
     // 兼容苹果系统的自动播放
-    if (IS_IPHONE) {
-      const audioEle = bgMusic.current;
-      audioEle.play();
-      document.addEventListener(
-        "WeixinJSBridgeReady",
-        function() {
-          audioEle.play();
-        },
-        false
-      );
+    const audioEle = bgMusic.current;
+    // promise?
+    const pr = audioEle.play();
+    if (pr !== undefined) {
+      pr.then(_ => {
+        // Autoplay started!
+      }).catch(error => {
+        // Autoplay was prevented.
+        // Show a "Play" button so that user can start playback.
+      });
     }
-  });
+    document.addEventListener(
+      "WeixinJSBridgeReady",
+      () => {
+        audioEle.play();
+      },
+      false
+    );
+  }, [IS_IPHONE]);
   return (
     <Wrapper onClick={onTogglePlay}>
       <img

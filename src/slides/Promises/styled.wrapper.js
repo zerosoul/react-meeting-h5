@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   .gift {
     z-index: 1;
     width: 12rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     animation: 4s ${Floating} ease-in-out infinite;
   }
   .tips {

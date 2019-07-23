@@ -1,22 +1,12 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import ani from "animejs";
 import UnderLineTitle from "../../component/UnderLineTitle";
 
-import VideoPoster from "../../assets/img/video.poster.png";
 import Wrapper from "./styled.wrapper";
+import Video from "./Video";
 const Where = () => {
   const wrapperEle = useRef(null);
-  const videoEle = useRef(null);
-  const [playing, setPlaying] = useState(false);
 
-  const onVideoClick = () => {
-    if (playing) {
-      videoEle.current.pause();
-    } else {
-      videoEle.current.play();
-    }
-    setPlaying(!playing);
-  };
   useEffect(() => {
     const wrapper = wrapperEle.current;
     const words = wrapper.querySelectorAll(".bubbles .word");
@@ -43,7 +33,7 @@ const Where = () => {
         opacity: [0, 1],
         rotate: "2turn"
       });
-  });
+  }, []);
 
   return (
     <Wrapper ref={wrapperEle}>
@@ -82,21 +72,7 @@ const Where = () => {
         <p className="dot bubble orange two" />
         <p className="dot bubble orange three" />
       </div>
-      <div className="video">
-        {!playing && <i className="playIcon" onClick={onVideoClick} />}
-        <video
-          onClick={onVideoClick}
-          onPause={() => {
-            setPlaying(false);
-          }}
-          ref={videoEle}
-          controls={false}
-          autoPlay={false}
-          poster={VideoPoster}
-          src="http://img001.ddweilai.com/Guankongdian/shipin.mp4"
-          alt="宣传视频"
-        />
-      </div>
+      <Video />
     </Wrapper>
   );
 };

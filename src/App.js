@@ -13,6 +13,9 @@ import WaveBg from "./component/WaveBg";
 import Bookmark from "./component/Bookmark";
 // 幻灯片
 import Intro from "./slides/Intro";
+// demo 数据
+
+import DemoData from "./assets/data";
 
 import { getMeetingDetail, getSubmitList } from "./actions";
 
@@ -122,28 +125,20 @@ class App extends Component {
   };
   async componentDidMount() {
     const params = new URLSearchParams(window.location.search);
-    const mid = params.get("mid") || 1;
-    const nickname = params.get("nickname") || "微信昵称";
-    const wxHead = params.get("headimgurl") || "";
-    // await ConfigWxShare(mid);
+    const nickname = params.get("nickname") || "杨二小";
+    const wxHead =
+      params.get("headimgurl") ||
+      "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJr3icb8eboibicqhrFdvIr2ekYGx0RPn87SoTJ9fxqk0P8f9vTMNFzsHtb0Ca1lsj1Bhh7k0Evlwycg/132";
     this.setState({
       nickname,
-      wxHead,
-      mid
+      wxHead
     });
-    const { status, response } = await getMeetingDetail(mid);
-    if (status === "success") {
-      this.setState({
-        meetingDetail: response
-      });
-    }
-    const { status: listStatus, response: listResp } = await getSubmitList(mid);
-    console.log("meeting resp", status);
-    if (listStatus === "success") {
-      this.setState({
-        submitList: listResp
-      });
-    }
+
+    this.setState({
+      meetingDetail: DemoData.meeting,
+      submitList: DemoData.submits
+    });
+
     // init swiper
     this.initSwiper();
   }
@@ -166,8 +161,7 @@ class App extends Component {
       },
       submitList,
       nickname,
-      wxHead,
-      mid
+      wxHead
     } = this.state;
     const { real_name = "", mobile = "" } = agent_info || {};
     console.log("slides array", slides);
@@ -290,7 +284,6 @@ class App extends Component {
                     addr={address}
                     single={parseInt(single_price)}
                     double={parseInt(double_price)}
-                    mid={mid}
                     qr={meeting_qr_code}
                     mobile={mobile}
                   />
