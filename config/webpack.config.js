@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
-const resolve = require("resolve");
 const PnpWebpackPlugin = require("pnp-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PreloadWebpackPlugin = require("preload-webpack-plugin");
@@ -16,12 +15,9 @@ const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const WatchMissingNodeModulesPlugin = require("react-dev-utils/WatchMissingNodeModulesPlugin");
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
-const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
 const paths = require("./paths");
 const getClientEnvironment = require("./env");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin-alt");
-const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
@@ -505,35 +501,6 @@ module.exports = function(webpackEnv) {
             // public/ and not a SPA route
             new RegExp("/[^/]+\\.[^/]+$")
           ]
-        }),
-      // TypeScript type checking
-      useTypeScript &&
-        new ForkTsCheckerWebpackPlugin({
-          typescript: resolve.sync("typescript", {
-            basedir: paths.appNodeModules
-          }),
-          async: false,
-          checkSyntacticErrors: true,
-          tsconfig: paths.appTsConfig,
-          compilerOptions: {
-            module: "esnext",
-            moduleResolution: "node",
-            resolveJsonModule: true,
-            isolatedModules: true,
-            noEmit: true,
-            jsx: "preserve"
-          },
-          reportFiles: [
-            "**",
-            "!**/*.json",
-            "!**/__tests__/**",
-            "!**/?(*.)(spec|test).*",
-            "!**/src/setupProxy.*",
-            "!**/src/setupTests.*"
-          ],
-          watch: paths.appSrc,
-          silent: true,
-          formatter: typescriptFormatter
         })
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
