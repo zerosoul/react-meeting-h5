@@ -24,7 +24,7 @@ const Video = () => {
         controls={false}
         autoPlay={false}
         poster={VideoPoster}
-        src="http://img001.ddweilai.com/Guankongdian/shipin.mp4"
+        src="https://img001.1d1d100.com/Zijing/zijingfirstyear.mp4"
         alt="宣传视频"
       />
     </div>

@@ -3,7 +3,6 @@ import { createForm } from "rc-form";
 // components
 import ani from "animejs";
 import UnderLineTitle from "../../component/UnderLineTitle";
-import KeyboardBug from "../../component/KeyboardBug";
 import QRModal from "../../component/QRModal";
 
 import { getSMSCode, postMeetingInfo } from "../../actions";
@@ -260,7 +259,7 @@ class Submit extends Component {
               {submitting ? `提交中` : `提交`}
             </button>
           </div>
-          <KeyboardBug />
+          {/* <KeyboardBug /> */}
         </Wrapper>
       </>
     );

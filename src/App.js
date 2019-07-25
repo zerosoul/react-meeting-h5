@@ -8,9 +8,7 @@ import GlobalStyle from "./global.style";
 import Music from "./component/Music";
 import Signup from "./component/Signup";
 import Tel from "./component/Tel";
-const SlideWrapper = lazy(() =>
-  import(/* webpackChunkName: "SlideWrapper" */ "./component/SliderWrapper")
-);
+import SlideWrapper from "./component/SliderWrapper";
 // import ConfigWxShare from "./component/WxShareConfig";
 import WaveBg from "./component/WaveBg";
 import Bookmark from "./component/Bookmark";
