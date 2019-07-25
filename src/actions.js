@@ -92,7 +92,7 @@ export const getMeetingDetail = (id = 1) =>
     }, 1800);
   });
 // 获取报名列表
-export const getSubmitList = (id = 1) =>
+export const getSubmitList = () =>
   new Promise(resolve => {
     setTimeout(() => {
       resolve({ status: "success", response: Resp.submitList });
@@ -101,6 +101,7 @@ export const getSubmitList = (id = 1) =>
 // 提交申请
 export const postMeetingInfo = data =>
   new Promise(resolve => {
+    // eslint-disable-next-line no-unused-vars
     const { meetingid, ...rest } = data;
     setTimeout(() => {
       resolve({ status: "success" });

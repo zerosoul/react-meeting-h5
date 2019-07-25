@@ -47,9 +47,9 @@ const Music = ({ isWhite = false }) => {
     // promise?
     const pr = music.play();
     if (pr !== undefined) {
-      pr.then(_ => {
+      pr.then(() => {
         // Autoplay started!
-      }).catch(error => {
+      }).catch(() => {
         // Autoplay was prevented.
         // Show a "Play" button so that user can start playback.
       });
@@ -75,9 +75,9 @@ const Music = ({ isWhite = false }) => {
     // promise?
     const pr = audioEle.play();
     if (pr !== undefined) {
-      pr.then(_ => {
+      pr.then(() => {
         // Autoplay started!
-      }).catch(error => {
+      }).catch(() => {
         // Autoplay was prevented.
         // Show a "Play" button so that user can start playback.
       });

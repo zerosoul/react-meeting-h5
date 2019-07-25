@@ -101,7 +101,7 @@ class App extends Component {
       }
     });
 
-    mySwiper.on("slideChange", wtf => {
+    mySwiper.on("slideChange", () => {
       const { realIndex } = mySwiper;
       let isWhite = realIndex === 0 || realIndex === 3;
       this.setState({
