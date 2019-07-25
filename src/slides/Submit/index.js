@@ -257,7 +257,7 @@ class Submit extends Component {
               className="submitBtn"
               onClick={this.onSubmit}
             >
-              {submitting ? `提交中` : `提 交`}
+              {submitting ? `提交中` : `提交`}
             </button>
           </div>
           <KeyboardBug />

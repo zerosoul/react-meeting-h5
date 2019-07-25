@@ -1,31 +1,31 @@
-import React, { Component, lazy, Suspense } from "react";
 import { hot } from "react-hot-loader/root";
+import React, { Component, lazy, Suspense } from "react";
 import Swiper from "swiper";
 import URLSearchParams from "@ungap/url-search-params";
 import GlobalStyle from "./global.style";
+
 // 组件
 import Music from "./component/Music";
 import Signup from "./component/Signup";
 import Tel from "./component/Tel";
-import SlideWrapper from "./component/SliderWrapper";
+const SlideWrapper = lazy(() =>
+  import(/* webpackChunkName: "SlideWrapper" */ "./component/SliderWrapper")
+);
 // import ConfigWxShare from "./component/WxShareConfig";
 import WaveBg from "./component/WaveBg";
 import Bookmark from "./component/Bookmark";
-// 幻灯片
-import Intro from "./slides/Intro";
 // demo 数据
-
 import DemoData from "./assets/data";
 
-import { getMeetingDetail, getSubmitList } from "./actions";
-
+// 幻灯片
+import Intro from "./slides/Intro";
 const Where = lazy(() =>
-  import(/* webpackChunkName: "where" */ "./slides/Where")
+  import(/* webpackChunkName: "Where" */ "./slides/Where")
 );
-const How = lazy(() => import(/* webpackChunkName: "how" */ "./slides/How"));
-const Open = lazy(() => import(/* webpackChunkName: "open" */ "./slides/Open"));
+const How = lazy(() => import(/* webpackChunkName: "How" */ "./slides/How"));
+const Open = lazy(() => import(/* webpackChunkName: "Open" */ "./slides/Open"));
 const PointOne = lazy(() =>
-  import(/* webpackChunkName: "pointone" */ "./slides/PointOne")
+  import(/* webpackChunkName: "Pointone" */ "./slides/PointOne")
 );
 const PointTwo = lazy(() =>
   import(/* webpackChunkName: "PointTwo" */ "./slides/PointTwo")
