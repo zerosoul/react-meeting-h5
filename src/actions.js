@@ -85,7 +85,7 @@ export const getSMSCode = mobile =>
     });
   });
 // 获取会议详情
-export const getMeetingDetail = (id = 1) =>
+export const getMeetingDetail = () =>
   new Promise(resolve => {
     setTimeout(() => {
       resolve({ status: "success", response: Resp.meeting });
