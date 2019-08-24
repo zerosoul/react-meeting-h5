@@ -6,4 +6,4 @@
 
 ![二维码预览](public/qr.png)
 
-[https://demo.yangerxiao.com/react-meeting-h5/](https://demo.yangerxiao.com/react-meeting-h5/)
+[https://works.yangerxiao.com/react-meeting-h5/](https://works.yangerxiao.com/react-meeting-h5/)

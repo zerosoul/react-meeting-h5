@@ -1,6 +1,6 @@
 {
   "name": "react-meeting-h5",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
   "homepage": "https://works.yangerxiao.com/react-meeting-h5",
   "dependencies": {
@@ -18,8 +18,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "yarn run build"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -48,7 +47,6 @@
     "eslint-plugin-react-hooks": "^2.0.1",
     "file-loader": "^4.2.0",
     "fs-extra": "^8.1.0",
-    "gh-pages": "^2.1.1",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "mini-css-extract-plugin": "^0.8.0",
     "pnp-webpack-plugin": "^1.5.0",
