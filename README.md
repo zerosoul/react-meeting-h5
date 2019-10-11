@@ -4,6 +4,6 @@
 
 ## 预览地址
 
-![二维码预览](public/qr.png)
+![二维码预览](https://yangerxiao.com/img/qr.react.h5.png)
 
 [https://works.yangerxiao.com/react-meeting-h5/](https://works.yangerxiao.com/react-meeting-h5/)
