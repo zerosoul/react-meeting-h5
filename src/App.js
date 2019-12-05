@@ -14,9 +14,6 @@ import WaveBg from "./component/WaveBg";
 import Bookmark from "./component/Bookmark";
 // 幻灯片
 import Intro from "./slides/Intro.js";
-// import Where from "./slides/Where.js";
-// import How from "./slides/How.js";
-// import Open from "./slides/Open.js";
 import PointOne from "./slides/PointOne";
 import PointTwo from "./slides/PointTwo";
 import PointThree from "./slides/PointThree";
@@ -173,7 +170,9 @@ class App extends Component {
     const mid = params.get("mid") || 1;
     const nickname = params.get("nickname") || "微信昵称";
     const wxHead = params.get("headimgurl") || "";
-    await ConfigWxShare(mid);
+    if (process.env == "production") {
+      await ConfigWxShare(mid);
+    }
     this.setState({
       nickname,
       wxHead,

@@ -6,7 +6,6 @@ import ani from "animejs";
 import BgImg from "../assets/img/modal.bg.png";
 import TitleImg from "../assets/img/modal.title.png";
 import CloseImg from "../assets/img/modal.close.png";
-import QrImg from "../assets/img/modal.qrcode.png";
 
 const Wrapper = styled.div`
   position: absolute;
