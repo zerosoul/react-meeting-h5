@@ -1,7 +1,5 @@
-import { hot } from "react-hot-loader/root";
 import React, { Component, lazy, Suspense } from "react";
 import Swiper from "swiper";
-import URLSearchParams from "@ungap/url-search-params";
 import GlobalStyle from "./global.style";
 
 // 组件
@@ -68,7 +66,7 @@ class App extends Component {
     mySwiper: null,
     slides: [false],
     meetingDetail: {},
-    submitList: []
+    submitList: [],
   };
   constructor() {
     super();
@@ -80,7 +78,7 @@ class App extends Component {
     let effects = ["coverflow", "slide", "flip"];
     let effect = effects[Math.floor(Math.random() * effects.length)];
     this.setState({
-      whiteMusic: true
+      whiteMusic: true,
     });
     const mySwiper = new Swiper(".swiper-container", {
       // Optional parameters
@@ -92,33 +90,33 @@ class App extends Component {
       loop: false,
       keyboard: {
         enabled: true,
-        onlyInViewport: false
+        onlyInViewport: false,
       },
       pagination: {
         el: ".swiper-pagination",
         type: "progressbar",
-        progressbarOpposite: true
-      }
+        progressbarOpposite: true,
+      },
     });
 
     mySwiper.on("slideChange", () => {
       const { realIndex } = mySwiper;
       let isWhite = realIndex === 0 || realIndex === 3;
       this.setState({
-        whiteMusic: isWhite
+        whiteMusic: isWhite,
       });
       console.log("changed", realIndex);
       let newSlides = new Array(mySwiper.slides.length).fill(false);
       newSlides[realIndex] = true;
       this.setState({
-        slides: newSlides
+        slides: newSlides,
       });
     });
     const initSlides = new Array(mySwiper.slides.length).fill(false);
     initSlides[0] = true;
     this.setState({
       mySwiper,
-      slides: initSlides
+      slides: initSlides,
     });
   };
   async componentDidMount() {
@@ -129,12 +127,12 @@ class App extends Component {
       "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJr3icb8eboibicqhrFdvIr2ekYGx0RPn87SoTJ9fxqk0P8f9vTMNFzsHtb0Ca1lsj1Bhh7k0Evlwycg/132";
     this.setState({
       nickname,
-      wxHead
+      wxHead,
     });
 
     this.setState({
       meetingDetail: DemoData.meeting,
-      submitList: DemoData.submits
+      submitList: DemoData.submits,
     });
 
     // init swiper
@@ -155,11 +153,11 @@ class App extends Component {
         meeting_agenda,
         area,
         agent_info,
-        meeting_qr_code
+        meeting_qr_code,
       },
       submitList,
       nickname,
-      wxHead
+      wxHead,
     } = this.state;
     const { real_name = "", mobile = "" } = agent_info || {};
     console.log("slides array", slides);
@@ -296,4 +294,4 @@ class App extends Component {
   }
 }
 
-export default hot(App);
+export default App;
