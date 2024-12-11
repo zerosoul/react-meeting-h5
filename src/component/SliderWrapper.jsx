@@ -6,10 +6,10 @@ const Wrapper = styled.section`
   width: 100%;
   height: 100vh;
 
-  background: ${({ bgType = "white" }) =>
-    bgType === "white" ? `url(${OrangeBgImg})` : `url(${WhiteBgImg})`};
-  background-color: ${({ bgType = "white" }) =>
-    bgType === "white" ? `#fff` : `#fd7924`};
+  background: ${({ bgtype = "white" }) =>
+    bgtype === "white" ? `url(${OrangeBgImg})` : `url(${WhiteBgImg})`};
+  background-color: ${({ bgtype = "white" }) =>
+    bgtype === "white" ? `#fff` : `#fd7924`};
   background-size: contain;
   position: relative;
   z-index: -999;

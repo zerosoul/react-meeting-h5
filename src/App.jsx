@@ -100,7 +100,7 @@ class App extends Component {
     });
 
     mySwiper.on("slideChange", () => {
-      const { realIndex } = mySwiper;
+      const { realIndex, activeIndex } = mySwiper;
       let isWhite = realIndex === 0 || realIndex === 3;
       this.setState({
         whiteMusic: isWhite,
@@ -111,6 +111,7 @@ class App extends Component {
       this.setState({
         slides: newSlides,
       });
+      console.log({ realIndex, activeIndex, newSlides });
     });
     const initSlides = new Array(mySwiper.slides.length).fill(false);
     initSlides[0] = true;
@@ -118,6 +119,7 @@ class App extends Component {
       mySwiper,
       slides: initSlides,
     });
+    console.log({ initSlides });
   };
   async componentDidMount() {
     const params = new URLSearchParams(window.location.search);
@@ -174,7 +176,7 @@ class App extends Component {
           <div className="swiper-wrapper">
             {/* <!-- Slides --> */}
             <Suspense fallback={<div>Loading</div>}>
-              <SlideWrapper bgType="orange" className="swiper-slide">
+              <SlideWrapper bgtype="orange" className="swiper-slide">
                 {slides[0] && (
                   <Intro
                     time={start_time}
@@ -194,7 +196,7 @@ class App extends Component {
                 <WaveBg height="6rem" />
                 {slides[2] && <How />}
               </SlideWrapper>
-              <SlideWrapper bgType="orange" className="swiper-slide">
+              <SlideWrapper bgtype="orange" className="swiper-slide">
                 <Bookmark background="yellow" />
                 {slides[3] && <Open />}
               </SlideWrapper>
